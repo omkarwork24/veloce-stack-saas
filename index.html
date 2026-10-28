@@ -63,6 +63,18 @@
             animation-duration: 0.4s;
         }
 
+        /* Submerged Logo (No hard box container, blends with background + ambient glow on hover) */
+        .submerged-logo-wrapper {
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s ease;
+        }
+        .submerged-logo-wrapper:hover {
+            transform: scale(1.06);
+            filter: drop-shadow(0 0 24px rgba(197, 160, 89, 0.45));
+        }
+
         /* Signature Brand Gradients */
         .bg-veloce-gradient {
             background: linear-gradient(135deg, #5B21B6 0%, #C026D3 38%, #EC4899 65%, #F97316 88%, #C5A059 100%);
@@ -283,10 +295,10 @@
     <header class="sticky top-0 z-50 bg-[#F4ECE1]/90 dark:bg-veloce-obsidian/85 backdrop-blur-xl border-b border-[#EFECE6] dark:border-white/10 transition-colors">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4">
             
-            <!-- Brand Logo + Wordmark -->
-            <a href="#" onclick="switchView('landing'); return false;" class="flex items-center gap-2.5 sm:gap-3 group shrink-0">
-                <div class="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#F7F4EE] dark:bg-white/5 border border-[#EFECE6] dark:border-white/10 flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shadow-sm">
-                    <svg viewBox="0 0 100 90" class="w-7 h-7 sm:w-8 sm:h-8 overflow-visible" aria-label="VeloceStack Logo">
+            <!-- Submerged Brand Logo + Wordmark -->
+            <a href="#" onclick="switchView('landing'); return false;" class="flex items-center gap-3 sm:gap-4 group shrink-0">
+                <div class="submerged-logo-wrapper relative w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center shrink-0">
+                    <svg viewBox="0 0 100 90" class="w-8 h-8 sm:w-9 sm:h-9 overflow-visible" aria-label="VeloceStack Logo">
                         <circle cx="83" cy="17" r="15" fill="url(#veloce-tip-glow)" class="logo-target-ring" />
                         <path d="M 76 11 A 9 9 0 1 1 89 24" fill="none" stroke="#FACC15" stroke-width="2.6" stroke-linecap="round" class="logo-target-ring" />
                         <circle cx="83" cy="17" r="3.2" fill="#FEF08A" />
@@ -320,7 +332,7 @@
             <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
                 <!-- Theme Toggle Button -->
                 <button onclick="toggleTheme()" id="theme-toggle-btn" aria-label="Toggle Dark/Light Mode" class="px-3 py-2 rounded-xl bg-[#F7F4EE] dark:bg-veloce-panelDark hover:bg-[#EFECE6] dark:hover:bg-white/10 text-veloce-navy dark:text-slate-200 border border-[#EFECE6] dark:border-white/10 flex items-center justify-center transition shadow-sm text-xs font-mono gap-1.5" title="Switch Light / Dark Mode">
-                    <i id="theme-icon" class="fa-solid fa-moon text-sm"></i>
+                    <i id="theme-icon" class="fa-solid fa-sun text-amber-400 text-sm"></i>
                     <span class="hidden sm:inline text-[11px]">Theme</span>
                 </button>
 
@@ -377,10 +389,10 @@
         <section class="relative pt-10 pb-16 sm:pt-16 sm:pb-24 px-4 sm:px-6 border-b border-[#EFECE6] dark:border-white/10">
             <div class="max-w-4xl mx-auto text-center space-y-6">
                 
-                <!-- Editorial Emblem Dock -->
-                <div class="inline-flex flex-wrap sm:flex-nowrap items-center justify-center sm:justify-start gap-3 p-2.5 sm:p-2 sm:pr-5 rounded-2xl sm:rounded-full bg-[#F7F4EE] dark:bg-veloce-panelDark/95 border border-[#EFECE6] dark:border-white/10 shadow-md mb-1 max-w-full">
-                    <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-amber-500/10 dark:from-purple-500/20 dark:via-pink-500/20 dark:to-orange-500/20 border border-[#C5A059]/20 flex items-center justify-center shrink-0">
-                        <svg viewBox="0 0 100 90" class="w-6 h-6 sm:w-7 sm:h-7 overflow-visible" aria-hidden="true">
+                <!-- Submerged Larger Hero Emblem Dock with Hover Glow -->
+                <div class="inline-flex flex-wrap sm:flex-nowrap items-center justify-center sm:justify-start gap-4 p-3 sm:p-2 sm:pr-6 rounded-2xl sm:rounded-full bg-[#F7F4EE] dark:bg-veloce-panelDark/95 border border-[#EFECE6] dark:border-white/10 shadow-md mb-1 max-w-full">
+                    <div class="submerged-logo-wrapper relative w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center shrink-0">
+                        <svg viewBox="0 0 100 90" class="w-9 h-9 sm:w-11 sm:h-11 overflow-visible" aria-hidden="true">
                             <circle cx="83" cy="17" r="14" fill="url(#veloce-tip-glow)" class="logo-target-ring" />
                             <path d="M 76 11 A 9 9 0 1 1 89 24" fill="none" stroke="#FACC15" stroke-width="2.5" stroke-linecap="round" class="logo-target-ring" />
                             <circle cx="83" cy="17" r="3" fill="#FEF08A" />
@@ -1311,7 +1323,7 @@
          JAVASCRIPT
     ========================================================== -->
     <script>
-        // 1. DEFAULT TO DARK MODE (Unless user explicitly toggled to light)
+        // 1. DEFAULT TO DARK MODE ON STARTUP
         function initTheme() {
             const savedTheme = localStorage.getItem('veloce_theme');
             const htmlEl = document.documentElement;
@@ -1326,7 +1338,7 @@
                     if (icon) icon.className = 'fa-solid fa-sun text-amber-400 text-xs sm:text-sm';
                 }
             } else {
-                // FORCE DARK MODE AS DEFAULT ON FIRST VISIT
+                // Ensure dark mode is default on first visit
                 htmlEl.classList.add('dark');
                 if (icon) icon.className = 'fa-solid fa-sun text-amber-400 text-xs sm:text-sm';
             }
