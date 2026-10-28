@@ -51,6 +51,17 @@
             -webkit-tap-highlight-color: transparent;
         }
 
+        /* Silky smooth transitions for all background, text, borders, and shadows during theme switching */
+        *, *::before, *::after {
+            transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        /* Native View Transitions API animation speed */
+        ::view-transition-old(root),
+        ::view-transition-new(root) {
+            animation-duration: 0.4s;
+        }
+
         /* Signature Brand Gradients extracted directly from the VeloceStack Logo */
         .bg-veloce-gradient {
             background: linear-gradient(135deg, #5B21B6 0%, #C026D3 38%, #EC4899 65%, #F97316 88%, #FACC15 100%);
@@ -1345,11 +1356,23 @@
             }
         }
 
-        // TOGGLE THEME MANUALLY & SAVE TO LOCALSTORAGE
+        // TOGGLE THEME MANUALLY WITH VIEW TRANSITIONS API & SAVE TO LOCALSTORAGE
         function toggleTheme() {
             const htmlEl = document.documentElement;
             const icon = document.getElementById('theme-icon');
-            
+
+            // Use View Transitions API if supported for silky smooth animation
+            if (!document.startViewTransition) {
+                executeThemeSwitch(htmlEl, icon);
+                return;
+            }
+
+            document.startViewTransition(() => {
+                executeThemeSwitch(htmlEl, icon);
+            });
+        }
+
+        function executeThemeSwitch(htmlEl, icon) {
             if (htmlEl.classList.contains('dark')) {
                 htmlEl.classList.remove('dark');
                 localStorage.setItem('veloce_theme', 'light');
