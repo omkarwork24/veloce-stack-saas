@@ -75,6 +75,41 @@
             filter: drop-shadow(0 0 32px rgba(197, 160, 89, 0.5));
         }
 
+        /* Neumorphic Theme Switcher Styles (Inspired by Reference Design) */
+        .neumo-track {
+            width: 76px;
+            height: 36px;
+            background: #E5E0D8;
+            border-radius: 9999px;
+            position: relative;
+            cursor: pointer;
+            box-shadow: inset 3px 3px 6px #C8C2B8, inset -3px -3px 6px #FFFFFF;
+            transition: background 0.4s ease, box-shadow 0.4s ease;
+        }
+        .dark .neumo-track {
+            background: #151821;
+            box-shadow: inset 3px 3px 6px #08090D, inset -3px -3px 6px #222735;
+        }
+        .neumo-thumb {
+            width: 30px;
+            height: 30px;
+            background: #F4ECE1;
+            border-radius: 50%;
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            box-shadow: 2px 2px 5px #C8C2B8, -2px -2px 5px #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease, box-shadow 0.4s ease;
+        }
+        .dark .neumo-thumb {
+            background: #252B3B;
+            box-shadow: 2px 2px 5px #08090D, -2px -2px 5px #2A3143;
+            transform: translateX(40px);
+        }
+
         /* Signature Brand Gradients */
         .bg-veloce-gradient {
             background: linear-gradient(135deg, #5B21B6 0%, #C026D3 38%, #EC4899 65%, #F97316 88%, #C5A059 100%);
@@ -290,7 +325,7 @@
     </div>
 
     <!-- =========================================================
-         ENTERPRISE HEADER (CTA REMOVED FOR CLEAN ALIGNMENT)
+         ENTERPRISE HEADER
     ========================================================== -->
     <header class="sticky top-0 z-50 bg-[#F4ECE1]/90 dark:bg-veloce-obsidian/85 backdrop-blur-xl border-b border-[#EFECE6] dark:border-white/10 transition-colors">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4">
@@ -328,13 +363,14 @@
                 </button>
             </nav>
 
-            <!-- Right Actions: Theme Toggle + Mobile Menu Button -->
-            <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
-                <!-- Theme Toggle Button -->
-                <button onclick="toggleTheme()" id="theme-toggle-btn" aria-label="Toggle Dark/Light Mode" class="px-3 py-2 rounded-xl bg-[#F7F4EE] dark:bg-veloce-panelDark hover:bg-[#EFECE6] dark:hover:bg-white/10 text-veloce-navy dark:text-slate-200 border border-[#EFECE6] dark:border-white/10 flex items-center justify-center transition shadow-sm text-xs font-mono gap-1.5" title="Switch Light / Dark Mode">
-                    <i id="theme-icon" class="fa-solid fa-sun text-amber-400 text-sm"></i>
-                    <span class="hidden sm:inline text-[11px]">Theme</span>
-                </button>
+            <!-- Right Actions: Neumorphic Theme Switcher + Mobile Menu Button -->
+            <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+                <!-- Neumorphic Sliding Theme Switcher -->
+                <div onclick="toggleTheme()" class="neumo-track" title="Toggle Light / Dark Mode" aria-label="Toggle Light / Dark Mode">
+                    <div id="neumo-thumb" class="neumo-thumb">
+                        <i id="theme-icon" class="fa-solid fa-moon text-xs text-slate-700 dark:text-amber-300"></i>
+                    </div>
+                </div>
 
                 <!-- Mobile Menu Button -->
                 <button onclick="toggleMobileMenu()" id="mobile-menu-btn" aria-label="Open Navigation Menu" aria-expanded="false" class="lg:hidden w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#F7F4EE] dark:bg-veloce-panelDark hover:bg-[#EFECE6] dark:hover:bg-white/10 text-veloce-navy dark:text-slate-200 border border-[#EFECE6] dark:border-white/10 flex items-center justify-center transition shadow-sm">
@@ -379,7 +415,7 @@
     ========================================================== -->
     <main id="view-landing" class="flex-1">
 
-        <!-- 1. HERO SECTION (MINIMALISTIC SUBMERGED BADGE & MOVED BOOK A CALL BUTTON) -->
+        <!-- 1. HERO SECTION -->
         <section class="relative pt-10 pb-16 sm:pt-16 sm:pb-24 px-4 sm:px-6 border-b border-[#EFECE6] dark:border-white/10">
             <div class="max-w-4xl mx-auto text-center space-y-6">
                 
@@ -414,7 +450,7 @@
                     </span>
                 </div>
 
-                <!-- Hero CTAs (Book a Call Moved Here in a Clean, Approachable Way) -->
+                <!-- Hero CTAs -->
                 <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-3.5">
                     <button onclick="openWorkIntakeContainer()" class="magnetic-cta w-full sm:w-auto inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-4 rounded-xl bg-veloce-btn text-white font-bold text-sm sm:text-base shadow-lg">
                         <span>Book a Call & Tell Us Your Work</span>
@@ -1308,15 +1344,14 @@
             if (savedTheme) {
                 if (savedTheme === 'light') {
                     htmlEl.classList.remove('dark');
-                    if (icon) icon.className = 'fa-solid fa-moon text-veloce-navy text-xs sm:text-sm';
+                    if (icon) icon.className = 'fa-solid fa-moon text-slate-700 text-xs sm:text-sm';
                 } else {
                     htmlEl.classList.add('dark');
-                    if (icon) icon.className = 'fa-solid fa-sun text-amber-400 text-xs sm:text-sm';
+                    if (icon) icon.className = 'fa-solid fa-sun text-amber-300 text-xs sm:text-sm';
                 }
             } else {
-                // Ensure dark mode is default on first visit
                 htmlEl.classList.add('dark');
-                if (icon) icon.className = 'fa-solid fa-sun text-amber-400 text-xs sm:text-sm';
+                if (icon) icon.className = 'fa-solid fa-sun text-amber-300 text-xs sm:text-sm';
             }
         }
 
@@ -1339,11 +1374,11 @@
             if (htmlEl.classList.contains('dark')) {
                 htmlEl.classList.remove('dark');
                 localStorage.setItem('veloce_theme', 'light');
-                if (icon) icon.className = 'fa-solid fa-moon text-veloce-navy text-xs sm:text-sm';
+                if (icon) icon.className = 'fa-solid fa-moon text-slate-700 text-xs sm:text-sm';
             } else {
                 htmlEl.classList.add('dark');
                 localStorage.setItem('veloce_theme', 'dark');
-                if (icon) icon.className = 'fa-solid fa-sun text-amber-400 text-xs sm:text-sm';
+                if (icon) icon.className = 'fa-solid fa-sun text-amber-300 text-xs sm:text-sm';
             }
         }
 
