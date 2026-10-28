@@ -309,11 +309,12 @@
                 </button>
             </nav>
 
-            <!-- Right Actions: Theme Toggle + Book a Call CTA + Mobile Menu Trigger -->
+            <!-- Right Actions: Sleek Theme Toggle + Book a Call CTA + Mobile Menu Trigger -->
             <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
-                <!-- 1-Click Light / Dark Mode Toggle -->
-                <button onclick="toggleTheme()" id="theme-toggle-btn" aria-label="Toggle Dark/Light Mode" class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white dark:bg-veloce-panelDark hover:bg-slate-100 dark:hover:bg-white/10 text-veloce-navy dark:text-slate-200 border border-slate-200/90 dark:border-white/10 flex items-center justify-center transition shadow-sm" title="Switch Light / Dark Mode">
-                    <i id="theme-icon" class="fa-solid fa-moon text-veloce-navy text-xs sm:text-sm"></i>
+                <!-- Clean Minimalist Theme Toggle Button -->
+                <button onclick="toggleTheme()" id="theme-toggle-btn" aria-label="Toggle Dark/Light Mode" class="px-3 py-2 rounded-xl bg-white dark:bg-veloce-panelDark hover:bg-slate-100 dark:hover:bg-white/10 text-veloce-navy dark:text-slate-200 border border-slate-200/90 dark:border-white/10 flex items-center justify-center transition shadow-sm text-xs font-mono gap-1.5" title="Switch Light / Dark Mode">
+                    <i id="theme-icon" class="fa-solid fa-moon text-sm"></i>
+                    <span class="hidden sm:inline text-[11px]">Theme</span>
                 </button>
 
                 <!-- Primary Gradient CTA -->
@@ -581,7 +582,7 @@
                         </div>
                     </div>
 
-                    <!-- Work Brief Form (text-base sm:text-sm prevents iOS Safari auto-zoom) -->
+                    <!-- Work Brief Form -->
                     <form id="work-scope-form" onsubmit="proceedToSchedulePage(event)" class="relative z-10 space-y-5 sm:space-y-6">
                         <!-- Row 1: Name, Company, Work Email -->
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -1318,16 +1319,45 @@
          APPLICATION JAVASCRIPT
     ========================================================== -->
     <script>
-        // 1. DARK / LIGHT THEME TOGGLE (Light Mode Default)
+        // 1. INITIALIZE THEME ON PAGE LOAD (Detects Device OS Preference + LocalStorage Memory)
+        function initTheme() {
+            const savedTheme = localStorage.getItem('veloce_theme');
+            const htmlEl = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+
+            if (savedTheme) {
+                if (savedTheme === 'dark') {
+                    htmlEl.classList.add('dark');
+                    if (icon) icon.className = 'fa-solid fa-sun text-amber-400 text-xs sm:text-sm';
+                } else {
+                    htmlEl.classList.remove('dark');
+                    if (icon) icon.className = 'fa-solid fa-moon text-veloce-navy text-xs sm:text-sm';
+                }
+            } else {
+                // Fallback to match user's device operating system preference
+                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    htmlEl.classList.add('dark');
+                    if (icon) icon.className = 'fa-solid fa-sun text-amber-400 text-xs sm:text-sm';
+                } else {
+                    htmlEl.classList.remove('dark');
+                    if (icon) icon.className = 'fa-solid fa-moon text-veloce-navy text-xs sm:text-sm';
+                }
+            }
+        }
+
+        // TOGGLE THEME MANUALLY & SAVE TO LOCALSTORAGE
         function toggleTheme() {
             const htmlEl = document.documentElement;
             const icon = document.getElementById('theme-icon');
+            
             if (htmlEl.classList.contains('dark')) {
                 htmlEl.classList.remove('dark');
-                icon.className = 'fa-solid fa-moon text-veloce-navy text-xs sm:text-sm';
+                localStorage.setItem('veloce_theme', 'light');
+                if (icon) icon.className = 'fa-solid fa-moon text-veloce-navy text-xs sm:text-sm';
             } else {
                 htmlEl.classList.add('dark');
-                icon.className = 'fa-solid fa-sun text-amber-400 text-xs sm:text-sm';
+                localStorage.setItem('veloce_theme', 'dark');
+                if (icon) icon.className = 'fa-solid fa-sun text-amber-400 text-xs sm:text-sm';
             }
         }
 
@@ -1619,8 +1649,9 @@
             document.getElementById('confirmed-slot-badge').textContent = `Confirmed: ${selectedDate} at ${selectedTime} (${tz})`;
         }
 
-        // Initialize board & magnetic interactions on page load
+        // Initialize theme, board & magnetic interactions on page load
         window.addEventListener('DOMContentLoaded', () => {
+            initTheme();
             renderKanbanBoard();
             initMagneticInteractions();
         });
