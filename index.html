@@ -25,13 +25,13 @@
                     colors: {
                         veloce: {
                             obsidian: '#06070B',
-                            panel: '#FFFFFF',
+                            panel: '#FCF9EA',     /* Soft vanilla-cream card surface */
                             panelDark: '#0D1017',
-                            panelLight: '#F1F4F9',
-                            paper: '#F4F5F7',     /* Softer, eye-friendly warm light background */
-                            navy: '#1E293B',      /* Rich charcoal text instead of harsh pure black */
-                            slate: '#475569',
-                            slateDark: '#94A3B8',
+                            panelLight: '#F7F2EB',
+                            paper: '#FEFAF3',     /* Warm parchment background to prevent eye strain */
+                            navy: '#1A202C',      /* Rich, easy-to-read charcoal text */
+                            slate: '#4A5568',
+                            slateDark: '#A0AEC0',
                             violet: '#6D28D9',
                             magenta: '#EC4899',
                             orange: '#F97316',
@@ -109,12 +109,12 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* Softened architectural grid background for light mode */
+        /* Softened architectural grid background matching the tri-color theme */
         .bg-arch-grid {
             background-size: 36px 36px;
             background-image: 
-                linear-gradient(to right, rgba(15, 23, 42, 0.025) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(15, 23, 42, 0.025) 1px, transparent 1px);
+                linear-gradient(to right, rgba(160, 140, 110, 0.08) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(160, 140, 110, 0.08) 1px, transparent 1px);
         }
         .dark .bg-arch-grid {
             background-image: 
@@ -212,19 +212,19 @@
             box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.16);
         }
 
-        /* Custom Scrollbar matching the warm theme */
+        /* Custom Scrollbar matching the warm tri-color theme */
         ::-webkit-scrollbar {
             width: 8px;
             height: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #F4F5F7;
+            background: #FEFAF3;
         }
         .dark ::-webkit-scrollbar-track {
             background: #06070B;
         }
         ::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
+            background: #D1C7B7;
             border-radius: 4px;
         }
         .dark ::-webkit-scrollbar-thumb {
@@ -284,12 +284,12 @@
     <!-- =========================================================
          ENTERPRISE HEADER WITH RESPONSIVE MOBILE NAVIGATION DRAWER
     ========================================================== -->
-    <header class="sticky top-0 z-50 bg-white/85 dark:bg-veloce-obsidian/85 backdrop-blur-xl border-b border-slate-200/80 dark:border-white/10 transition-colors">
+    <header class="sticky top-0 z-50 bg-[#FEFAF3]/90 dark:bg-veloce-obsidian/85 backdrop-blur-xl border-b border-[#F7F2EB] dark:border-white/10 transition-colors">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4">
             
             <!-- Left-Aligned Brand Identity: VeloceStack Ribbon-Arrow Vector Logo + Wordmark -->
             <a href="#" onclick="switchView('landing'); return false;" class="flex items-center gap-2.5 sm:gap-3 group shrink-0">
-                <div class="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-slate-100/90 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shadow-sm">
+                <div class="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#FCF9EA] dark:bg-white/5 border border-[#F7F2EB] dark:border-white/10 flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shadow-sm">
                     <svg viewBox="0 0 100 90" class="w-7 h-7 sm:w-8 sm:h-8 overflow-visible" aria-label="VeloceStack Logo">
                         <circle cx="83" cy="17" r="15" fill="url(#veloce-tip-glow)" class="logo-target-ring" />
                         <path d="M 76 11 A 9 9 0 1 1 89 24" fill="none" stroke="#FACC15" stroke-width="2.6" stroke-linecap="round" class="logo-target-ring" />
@@ -310,11 +310,11 @@
             </a>
 
             <!-- Center Navigation: Single-Line Glassmorphic Pill (Desktop) -->
-            <nav class="hidden lg:flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-slate-100/90 dark:bg-veloce-panelDark/90 border border-slate-200/80 dark:border-white/10 text-xs font-medium text-veloce-slate dark:text-slate-300 shadow-sm whitespace-nowrap">
-                <a href="#vision" onclick="navigateToSection('vision'); return false;" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-white/10 hover:text-veloce-navy dark:hover:text-white transition">Our Vision</a>
-                <a href="#expertise" onclick="navigateToSection('expertise'); return false;" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-white/10 hover:text-veloce-navy dark:hover:text-white transition">What We Do</a>
-                <a href="#sla-workflow" onclick="navigateToSection('sla-workflow'); return false;" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-white/10 hover:text-veloce-navy dark:hover:text-white transition">24–48h SLA Explained</a>
-                <a href="#pod-roles" onclick="navigateToSection('pod-roles'); return false;" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-white/10 hover:text-veloce-navy dark:hover:text-white transition">Senior Pod</a>
+            <nav class="hidden lg:flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-[#FCF9EA] dark:bg-veloce-panelDark/90 border border-[#F7F2EB] dark:border-white/10 text-xs font-medium text-veloce-slate dark:text-slate-300 shadow-sm whitespace-nowrap">
+                <a href="#vision" onclick="navigateToSection('vision'); return false;" class="px-3.5 py-1.5 rounded-full hover:bg-[#FEFAF3] dark:hover:bg-white/10 hover:text-veloce-navy dark:hover:text-white transition">Our Vision</a>
+                <a href="#expertise" onclick="navigateToSection('expertise'); return false;" class="px-3.5 py-1.5 rounded-full hover:bg-[#FEFAF3] dark:hover:bg-white/10 hover:text-veloce-navy dark:hover:text-white transition">What We Do</a>
+                <a href="#sla-workflow" onclick="navigateToSection('sla-workflow'); return false;" class="px-3.5 py-1.5 rounded-full hover:bg-[#FEFAF3] dark:hover:bg-white/10 hover:text-veloce-navy dark:hover:text-white transition">24–48h SLA Explained</a>
+                <a href="#pod-roles" onclick="navigateToSection('pod-roles'); return false;" class="px-3.5 py-1.5 rounded-full hover:bg-[#FEFAF3] dark:hover:bg-white/10 hover:text-veloce-navy dark:hover:text-white transition">Senior Pod</a>
                 <button onclick="switchView('models')" class="ml-1 px-3.5 py-1.5 rounded-full bg-purple-500/10 dark:bg-purple-500/20 text-purple-700 dark:text-pink-300 font-semibold border border-purple-300/60 dark:border-pink-500/30 hover:border-pink-500 transition">
                     Subscription Models
                 </button>
@@ -323,7 +323,7 @@
             <!-- Right Actions: Sleek Theme Toggle + Book a Call CTA + Mobile Menu Trigger -->
             <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
                 <!-- Clean Minimalist Theme Toggle Button -->
-                <button onclick="toggleTheme()" id="theme-toggle-btn" aria-label="Toggle Dark/Light Mode" class="px-3 py-2 rounded-xl bg-white dark:bg-veloce-panelDark hover:bg-slate-100 dark:hover:bg-white/10 text-veloce-navy dark:text-slate-200 border border-slate-200/90 dark:border-white/10 flex items-center justify-center transition shadow-sm text-xs font-mono gap-1.5" title="Switch Light / Dark Mode">
+                <button onclick="toggleTheme()" id="theme-toggle-btn" aria-label="Toggle Dark/Light Mode" class="px-3 py-2 rounded-xl bg-[#FCF9EA] dark:bg-veloce-panelDark hover:bg-[#F7F2EB] dark:hover:bg-white/10 text-veloce-navy dark:text-slate-200 border border-[#F7F2EB] dark:border-white/10 flex items-center justify-center transition shadow-sm text-xs font-mono gap-1.5" title="Switch Light / Dark Mode">
                     <i id="theme-icon" class="fa-solid fa-moon text-sm"></i>
                     <span class="hidden sm:inline text-[11px]">Theme</span>
                 </button>
@@ -335,32 +335,32 @@
                 </button>
 
                 <!-- Mobile Navigation Drawer Button -->
-                <button onclick="toggleMobileMenu()" id="mobile-menu-btn" aria-label="Open Navigation Menu" aria-expanded="false" class="lg:hidden w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white dark:bg-veloce-panelDark hover:bg-slate-100 dark:hover:bg-white/10 text-veloce-navy dark:text-slate-200 border border-slate-200/90 dark:border-white/10 flex items-center justify-center transition shadow-sm">
+                <button onclick="toggleMobileMenu()" id="mobile-menu-btn" aria-label="Open Navigation Menu" aria-expanded="false" class="lg:hidden w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#FCF9EA] dark:bg-veloce-panelDark hover:bg-[#F7F2EB] dark:hover:bg-white/10 text-veloce-navy dark:text-slate-200 border border-[#F7F2EB] dark:border-white/10 flex items-center justify-center transition shadow-sm">
                     <i id="mobile-menu-icon" class="fa-solid fa-bars text-sm"></i>
                 </button>
             </div>
         </div>
 
         <!-- Collapsible Mobile Navigation Drawer -->
-        <div id="mobile-nav-drawer" class="hidden lg:hidden border-t border-slate-200/80 dark:border-white/10 bg-white/95 dark:bg-veloce-panelDark/95 backdrop-blur-xl px-4 pt-3 pb-5 shadow-xl">
+        <div id="mobile-nav-drawer" class="hidden lg:hidden border-t border-[#F7F2EB] dark:border-white/10 bg-[#FEFAF3]/95 dark:bg-veloce-panelDark/95 backdrop-blur-xl px-4 pt-3 pb-5 shadow-xl">
             <div class="flex flex-col space-y-1.5 text-sm font-semibold text-veloce-navy dark:text-slate-200">
-                <a href="#vision" onclick="navigateToSection('vision'); return false;" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-white/5 transition">
+                <a href="#vision" onclick="navigateToSection('vision'); return false;" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl hover:bg-[#FCF9EA] dark:hover:bg-white/5 transition">
                     <span>Our Vision & Moats</span>
                     <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
                 </a>
-                <a href="#expertise" onclick="navigateToSection('expertise'); return false;" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-white/5 transition">
+                <a href="#expertise" onclick="navigateToSection('expertise'); return false;" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl hover:bg-[#FCF9EA] dark:hover:bg-white/5 transition">
                     <span>What We Do (Core + Custom)</span>
                     <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
                 </a>
-                <a href="#sla-workflow" onclick="navigateToSection('sla-workflow'); return false;" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-white/5 transition">
+                <a href="#sla-workflow" onclick="navigateToSection('sla-workflow'); return false;" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl hover:bg-[#FCF9EA] dark:hover:bg-white/5 transition">
                     <span>24–48h SLA Explained</span>
                     <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
                 </a>
-                <a href="#pod-roles" onclick="navigateToSection('pod-roles'); return false;" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-white/5 transition">
+                <a href="#pod-roles" onclick="navigateToSection('pod-roles'); return false;" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl hover:bg-[#FCF9EA] dark:hover:bg-white/5 transition">
                     <span>5-Role Senior Engineering Pod</span>
                     <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
                 </a>
-                <div class="pt-2 mt-1 border-t border-slate-200/70 dark:border-white/10 flex flex-col sm:flex-row gap-2.5">
+                <div class="pt-2 mt-1 border-t border-[#F7F2EB] dark:border-white/10 flex flex-col sm:flex-row gap-2.5">
                     <button onclick="switchView('models')" class="w-full py-2.5 px-4 rounded-xl bg-purple-500/10 dark:bg-purple-500/20 text-purple-700 dark:text-pink-300 font-mono text-xs font-bold border border-purple-300/60 dark:border-pink-500/30 text-center">
                         Explore Subscription Models &rarr;
                     </button>
@@ -378,11 +378,11 @@
     <main id="view-landing" class="flex-1">
 
         <!-- 1. HERO SECTION WITH MOBILE-OPTIMIZED ARCHITECTURAL EMBLEM DOCK -->
-        <section class="relative pt-10 pb-16 sm:pt-16 sm:pb-24 px-4 sm:px-6 border-b border-slate-200/80 dark:border-white/10">
+        <section class="relative pt-10 pb-16 sm:pt-16 sm:pb-24 px-4 sm:px-6 border-b border-[#F7F2EB] dark:border-white/10">
             <div class="max-w-4xl mx-auto text-center space-y-6">
                 
                 <!-- Sleek Floating Architectural Emblem Dock (Graceful Mobile Wrapping) -->
-                <div class="inline-flex flex-wrap sm:flex-nowrap items-center justify-center sm:justify-start gap-3 p-2.5 sm:p-2 sm:pr-5 rounded-2xl sm:rounded-full bg-white/95 dark:bg-veloce-panelDark/95 border border-slate-200/90 dark:border-white/10 shadow-md mb-1 max-w-full">
+                <div class="inline-flex flex-wrap sm:flex-nowrap items-center justify-center sm:justify-start gap-3 p-2.5 sm:p-2 sm:pr-5 rounded-2xl sm:rounded-full bg-[#FCF9EA] dark:bg-veloce-panelDark/95 border border-[#F7F2EB] dark:border-white/10 shadow-md mb-1 max-w-full">
                     <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-orange-500/10 dark:from-purple-500/20 dark:via-pink-500/20 dark:to-orange-500/20 border border-purple-500/20 flex items-center justify-center shrink-0">
                         <svg viewBox="0 0 100 90" class="w-6 h-6 sm:w-7 sm:h-7 overflow-visible" aria-hidden="true">
                             <circle cx="83" cy="17" r="14" fill="url(#veloce-tip-glow)" class="logo-target-ring" />
@@ -419,13 +419,13 @@
 
                 <!-- 3 Pillars of Swift Execution -->
                 <div class="pt-1 flex flex-wrap items-center justify-center gap-2 sm:gap-3.5 text-xs font-mono text-veloce-slate dark:text-slate-300">
-                    <span class="px-3 sm:px-3.5 py-1.5 rounded-lg bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10 shadow-sm">
+                    <span class="px-3 sm:px-3.5 py-1.5 rounded-lg bg-[#FCF9EA] dark:bg-veloce-panelDark border border-[#F7F2EB] dark:border-white/10 shadow-sm">
                         <i class="fa-solid fa-bolt text-orange-500 mr-1.5"></i>24–48h Atomic Ticket Turnaround
                     </span>
-                    <span class="px-3 sm:px-3.5 py-1.5 rounded-lg bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10 shadow-sm">
+                    <span class="px-3 sm:px-3.5 py-1.5 rounded-lg bg-[#FCF9EA] dark:bg-veloce-panelDark border border-[#F7F2EB] dark:border-white/10 shadow-sm">
                         <i class="fa-solid fa-video text-pink-500 mr-1.5"></i>90-Sec Loom Proof on Every PR
                     </span>
-                    <span class="px-3 sm:px-3.5 py-1.5 rounded-lg bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10 shadow-sm">
+                    <span class="px-3 sm:px-3.5 py-1.5 rounded-lg bg-[#FCF9EA] dark:bg-veloce-panelDark border border-[#F7F2EB] dark:border-white/10 shadow-sm">
                         <i class="fa-solid fa-code-branch text-purple-500 mr-1.5"></i>Core Pillars + Any Custom Code Scope
                     </span>
                 </div>
@@ -436,7 +436,7 @@
                         <span>Book a Call & Tell Us Your Work</span>
                         <i class="fa-solid fa-arrow-down text-xs cta-arrow"></i>
                     </button>
-                    <button onclick="navigateToSection('sla-workflow')" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-white dark:bg-veloce-panelDark hover:bg-slate-50 dark:hover:bg-white/5 text-veloce-navy dark:text-slate-200 font-semibold text-sm sm:text-base border border-slate-300/90 dark:border-white/10 transition shadow-sm">
+                    <button onclick="navigateToSection('sla-workflow')" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-[#FCF9EA] dark:bg-veloce-panelDark hover:bg-[#F7F2EB] dark:hover:bg-white/5 text-veloce-navy dark:text-slate-200 font-semibold text-sm sm:text-base border border-[#F7F2EB] dark:border-white/10 transition shadow-sm">
                         <span>See How 24–48h Delivery Works</span>
                         <i class="fa-solid fa-arrow-right text-xs text-pink-500"></i>
                     </button>
@@ -463,80 +463,80 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
                 <!-- Expertise 1: Royal Violet (#7C3AED) -->
-                <div onclick="prefillAndScroll('Action-Taking AI Agents & RAG Systems', 'We want to build and deploy a custom AI agent / RAG system connected safely to our internal docs, database, or CRM.')" class="card-surface group cursor-pointer rounded-2xl p-6 sm:p-7 bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10 hover:border-purple-500 dark:hover:border-purple-500 flex flex-col justify-between">
+                <div onclick="prefillAndScroll('Action-Taking AI Agents & RAG Systems', 'We want to build and deploy a custom AI agent / RAG system connected safely to our internal docs, database, or CRM.')" class="card-surface group cursor-pointer rounded-2xl p-6 sm:p-7 bg-[#FCF9EA] dark:bg-veloce-panelDark border border-[#F7F2EB] dark:border-white/10 hover:border-purple-500 dark:hover:border-purple-500 flex flex-col justify-between">
                     <div>
                         <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
                             <div class="w-11 h-11 rounded-xl bg-purple-500/10 dark:bg-purple-500/20 text-purple-600 dark:text-purple-400 flex items-center justify-center text-lg border border-purple-500/20">
                                 <i class="fa-solid fa-robot"></i>
                             </div>
-                            <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-purple-50 dark:bg-purple-950/80 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/60">OpenAI • Claude • pgvector</span>
+                            <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-[#FEFAF3] dark:bg-purple-950/80 text-purple-700 dark:text-purple-300 border border-[#F7F2EB] dark:border-purple-800/60">OpenAI • Claude • pgvector</span>
                         </div>
                         <h3 class="text-lg sm:text-xl font-bold text-veloce-navy dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">1. Action-Taking AI Agents & RAG Systems</h3>
                         <p class="text-sm text-veloce-slate dark:text-slate-400 mt-2 leading-relaxed">
                             Move beyond basic chat wrappers. We engineer production AI agents connected to your live PostgreSQL database, CRM, Slack, or WhatsApp—complete with strict tool-calling guardrails, citation accuracy, and prompt-injection defense.
                         </p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-slate-100 dark:border-white/5 flex items-center justify-between text-xs font-mono text-purple-600 dark:text-purple-400 font-bold">
+                    <div class="mt-6 pt-4 border-t border-[#F7F2EB] dark:border-white/5 flex items-center justify-between text-xs font-mono text-purple-600 dark:text-purple-400 font-bold">
                         <span>Scope AI Agent Architecture</span>
                         <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
                     </div>
                 </div>
 
                 <!-- Expertise 2: Vibrant Magenta (#EC4899) -->
-                <div onclick="prefillAndScroll('Full-Stack SaaS & MVP Engineering', 'We need rapid full-stack development (React/Next.js, Node.js, database architecture, and payment webhooks) shipped to production.')" class="card-surface group cursor-pointer rounded-2xl p-6 sm:p-7 bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10 hover:border-pink-500 dark:hover:border-pink-500 flex flex-col justify-between">
+                <div onclick="prefillAndScroll('Full-Stack SaaS & MVP Engineering', 'We need rapid full-stack development (React/Next.js, Node.js, database architecture, and payment webhooks) shipped to production.')" class="card-surface group cursor-pointer rounded-2xl p-6 sm:p-7 bg-[#FCF9EA] dark:bg-veloce-panelDark border border-[#F7F2EB] dark:border-white/10 hover:border-pink-500 dark:hover:border-pink-500 flex flex-col justify-between">
                     <div>
                         <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
                             <div class="w-11 h-11 rounded-xl bg-pink-500/10 dark:bg-pink-500/20 text-pink-600 dark:text-pink-400 flex items-center justify-center text-lg border border-pink-500/20">
                                 <i class="fa-solid fa-layer-group"></i>
                             </div>
-                            <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-pink-50 dark:bg-pink-950/60 text-pink-700 dark:text-pink-300 border border-pink-200 dark:border-pink-800/60">Next.js • Node.js • Supabase</span>
+                            <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-[#FEFAF3] dark:bg-pink-950/60 text-pink-700 dark:text-pink-300 border border-[#F7F2EB] dark:border-pink-800/60">Next.js • Node.js • Supabase</span>
                         </div>
                         <h3 class="text-lg sm:text-xl font-bold text-veloce-navy dark:text-white group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors">2. Full-Stack SaaS & MVP Engineering</h3>
                         <p class="text-sm text-veloce-slate dark:text-slate-400 mt-2 leading-relaxed">
                             From high-velocity feature sprints on your existing product to complete greenfield SaaS platforms. We build clean multi-tenant architectures, role-based dashboards, and Razorpay/Stripe subscription engines.
                         </p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-slate-100 dark:border-white/5 flex items-center justify-between text-xs font-mono text-pink-600 dark:text-pink-400 font-bold">
+                    <div class="mt-6 pt-4 border-t border-[#F7F2EB] dark:border-white/5 flex items-center justify-between text-xs font-mono text-pink-600 dark:text-pink-400 font-bold">
                         <span>Scope Full-Stack Sprint</span>
                         <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
                     </div>
                 </div>
 
                 <!-- Expertise 3: Blaze Orange (#F97316) -->
-                <div onclick="prefillAndScroll('Workflow Automation & Revenue Ops', 'We want to eliminate manual operational work by automating lead routing, onboarding, or billing via n8n/Make and custom webhooks.')" class="card-surface group cursor-pointer rounded-2xl p-6 sm:p-7 bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10 hover:border-orange-500 dark:hover:border-orange-500 flex flex-col justify-between">
+                <div onclick="prefillAndScroll('Workflow Automation & Revenue Ops', 'We want to eliminate manual operational work by automating lead routing, onboarding, or billing via n8n/Make and custom webhooks.')" class="card-surface group cursor-pointer rounded-2xl p-6 sm:p-7 bg-[#FCF9EA] dark:bg-veloce-panelDark border border-[#F7F2EB] dark:border-white/10 hover:border-orange-500 dark:hover:border-orange-500 flex flex-col justify-between">
                     <div>
                         <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
                             <div class="w-11 h-11 rounded-xl bg-orange-500/10 dark:bg-orange-500/20 text-orange-600 dark:text-orange-400 flex items-center justify-center text-lg border border-orange-500/20">
                                 <i class="fa-solid fa-gears"></i>
                             </div>
-                            <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-orange-50 dark:bg-orange-950/60 text-orange-700 dark:text-orange-300 border border-orange-200 dark:border-orange-800/60">n8n • Make • Custom Webhooks</span>
+                            <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-[#FEFAF3] dark:bg-orange-950/60 text-orange-700 dark:text-orange-300 border border-[#F7F2EB] dark:border-orange-800/60">n8n • Make • Custom Webhooks</span>
                         </div>
                         <h3 class="text-lg sm:text-xl font-bold text-veloce-navy dark:text-white group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">3. Workflow Automation & Revenue Ops</h3>
                         <p class="text-sm text-veloce-slate dark:text-slate-400 mt-2 leading-relaxed">
                             Replace hundreds of hours of manual operations. We architect resilient background pipelines that connect your forms, CRM, Slack, invoicing, and AI enrichment into a zero-touch operational engine.
                         </p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-slate-100 dark:border-white/5 flex items-center justify-between text-xs font-mono text-orange-600 dark:text-orange-400 font-bold">
+                    <div class="mt-6 pt-4 border-t border-[#F7F2EB] dark:border-white/5 flex items-center justify-between text-xs font-mono text-orange-600 dark:text-orange-400 font-bold">
                         <span>Scope Automation Pipeline</span>
                         <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
                     </div>
                 </div>
 
                 <!-- Expertise 4: Solar Gold (#EAB308) -->
-                <div onclick="prefillAndScroll('Cloud Infra, Security & LLM FinOps', 'We need to harden our cloud deployment/security, set up automated Playwright QA, or reduce our monthly AWS/OpenAI API bill.')" class="card-surface group cursor-pointer rounded-2xl p-6 sm:p-7 bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10 hover:border-amber-500 dark:hover:border-amber-400 flex flex-col justify-between">
+                <div onclick="prefillAndScroll('Cloud Infra, Security & LLM FinOps', 'We need to harden our cloud deployment/security, set up automated Playwright QA, or reduce our monthly AWS/OpenAI API bill.')" class="card-surface group cursor-pointer rounded-2xl p-6 sm:p-7 bg-[#FCF9EA] dark:bg-veloce-panelDark border border-[#F7F2EB] dark:border-white/10 hover:border-amber-500 dark:hover:border-amber-400 flex flex-col justify-between">
                     <div>
                         <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
                             <div class="w-11 h-11 rounded-xl bg-amber-500/10 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center text-lg border border-amber-500/20">
                                 <i class="fa-solid fa-shield-halved"></i>
                             </div>
-                            <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800/60">AWS • Docker • Playwright • FinOps</span>
+                            <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-[#FEFAF3] dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-[#F7F2EB] dark:border-amber-800/60">AWS • Docker • Playwright • FinOps</span>
                         </div>
                         <h3 class="text-lg sm:text-xl font-bold text-veloce-navy dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">4. Cloud Infra, Prototype Hardening & LLM FinOps</h3>
                         <p class="text-sm text-veloce-slate dark:text-slate-400 mt-2 leading-relaxed">
                             We rescue fragile AI-generated prototypes and harden them for real traffic—setting up Docker/AWS CI/CD, Playwright E2E test suites, and semantic caching that slashes monthly LLM API token bills by 40–60%.
                         </p>
                     </div>
-                    <div class="mt-6 pt-4 border-t border-slate-100 dark:border-white/5 flex items-center justify-between text-xs font-mono text-amber-600 dark:text-amber-400 font-bold">
+                    <div class="mt-6 pt-4 border-t border-[#F7F2EB] dark:border-white/5 flex items-center justify-between text-xs font-mono text-amber-600 dark:text-amber-400 font-bold">
                         <span>Scope Cloud & FinOps Audit</span>
                         <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
                     </div>
@@ -544,7 +544,7 @@
             </div>
 
             <!-- 5th Pillar: Custom & Bespoke Engineering Card (Mobile-Responsive Stack) -->
-            <div onclick="prefillAndScroll('Custom / Bespoke Engineering Request', 'We have a custom engineering requirement outside standard templates (describe your custom architecture, app, migration, or integration below):')" class="card-surface cursor-pointer mt-5 sm:mt-6 p-6 sm:p-8 rounded-2xl bg-white dark:bg-veloce-panelDark border-2 border-dashed border-purple-400/60 dark:border-pink-500/40 hover:border-pink-500 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+            <div onclick="prefillAndScroll('Custom / Bespoke Engineering Request', 'We have a custom engineering requirement outside standard templates (describe your custom architecture, app, migration, or integration below):')" class="card-surface cursor-pointer mt-5 sm:mt-6 p-6 sm:p-8 rounded-2xl bg-[#FCF9EA] dark:bg-veloce-panelDark border-2 border-dashed border-purple-400/60 dark:border-pink-500/40 hover:border-pink-500 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
                 <div class="flex flex-col sm:flex-row items-start gap-4 max-w-3xl">
                     <div class="w-12 h-12 rounded-2xl bg-veloce-gradient text-white flex items-center justify-center text-xl shrink-0 shadow-md">
                         <i class="fa-solid fa-wand-magic-sparkles"></i>
@@ -573,12 +573,12 @@
         <!-- 3. INTERACTIVE "BOOK A CALL" WORK SCOPE CONTAINER (WITH CURSOR SPOTLIGHT) -->
         <section id="book-call-section" class="py-10 px-4 sm:px-6 max-w-4xl mx-auto scroll-mt-20">
             <div id="work-intake-box" class="p-[2px] rounded-3xl bg-veloce-gradient veloce-border-glow">
-                <div class="bg-white dark:bg-veloce-panelDark rounded-[22px] p-5 sm:p-10 shadow-xl relative overflow-hidden">
+                <div class="bg-[#FCF9EA] dark:bg-veloce-panelDark rounded-[22px] p-5 sm:p-10 shadow-xl relative overflow-hidden">
                     <!-- Interactive Cursor-Tracking Radial Spotlight -->
                     <div class="cursor-spotlight" id="intake-spotlight"></div>
 
                     <!-- Header -->
-                    <div class="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 sm:pb-6 mb-6 border-b border-slate-200 dark:border-white/10">
+                    <div class="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 sm:pb-6 mb-6 border-b border-[#F7F2EB] dark:border-white/10">
                         <div>
                             <div class="inline-flex items-center gap-2 text-[11px] sm:text-xs font-mono uppercase tracking-wider text-pink-600 dark:text-pink-400 font-bold">
                                 <span class="w-2 h-2 rounded-full bg-pink-500 animate-ping"></span>
@@ -599,15 +599,15 @@
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                             <div>
                                 <label for="client-name" class="block text-xs font-mono uppercase text-veloce-slate dark:text-slate-400 font-semibold mb-2">Your Name *</label>
-                                <input type="text" id="client-name" required placeholder="e.g. Siddharth Rao" class="veloce-input w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border border-slate-300 dark:border-white/15 text-veloce-navy dark:text-white text-base sm:text-sm">
+                                <input type="text" id="client-name" required placeholder="e.g. Siddharth Rao" class="veloce-input w-full px-3.5 py-2.5 rounded-xl bg-[#FEFAF3] dark:bg-veloce-obsidian border border-[#F7F2EB] dark:border-white/15 text-veloce-navy dark:text-white text-base sm:text-sm">
                             </div>
                             <div>
                                 <label for="client-company" class="block text-xs font-mono uppercase text-veloce-slate dark:text-slate-400 font-semibold mb-2">Company / Startup *</label>
-                                <input type="text" id="client-company" required placeholder="e.g. NovaFlow Labs" class="veloce-input w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border border-slate-300 dark:border-white/15 text-veloce-navy dark:text-white text-base sm:text-sm">
+                                <input type="text" id="client-company" required placeholder="e.g. NovaFlow Labs" class="veloce-input w-full px-3.5 py-2.5 rounded-xl bg-[#FEFAF3] dark:bg-veloce-obsidian border border-[#F7F2EB] dark:border-white/15 text-veloce-navy dark:text-white text-base sm:text-sm">
                             </div>
                             <div>
                                 <label for="client-email" class="block text-xs font-mono uppercase text-veloce-slate dark:text-slate-400 font-semibold mb-2">Work Email *</label>
-                                <input type="email" id="client-email" required placeholder="sid@novaflow.ai" class="veloce-input w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border border-slate-300 dark:border-white/15 text-veloce-navy dark:text-white text-base sm:text-sm">
+                                <input type="email" id="client-email" required placeholder="sid@novaflow.ai" class="veloce-input w-full px-3.5 py-2.5 rounded-xl bg-[#FEFAF3] dark:bg-veloce-obsidian border border-[#F7F2EB] dark:border-white/15 text-veloce-navy dark:text-white text-base sm:text-sm">
                             </div>
                         </div>
 
@@ -615,7 +615,7 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
                                 <label for="client-category" class="block text-xs font-mono uppercase text-veloce-slate dark:text-slate-400 font-semibold mb-2">Primary Expertise or Custom Request *</label>
-                                <select id="client-category" class="veloce-input w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border border-slate-300 dark:border-white/15 text-veloce-navy dark:text-white text-base sm:text-sm">
+                                <select id="client-category" class="veloce-input w-full px-3.5 py-2.5 rounded-xl bg-[#FEFAF3] dark:bg-veloce-obsidian border border-[#F7F2EB] dark:border-white/15 text-veloce-navy dark:text-white text-base sm:text-sm">
                                     <option value="Action-Taking AI Agents & RAG Systems">1. Action-Taking AI Agents & RAG Systems</option>
                                     <option value="Full-Stack SaaS & MVP Engineering">2. Full-Stack SaaS & MVP Engineering (React/Node)</option>
                                     <option value="Workflow Automation & Revenue Ops">3. Workflow Automation & Revenue Ops (n8n/APIs)</option>
@@ -625,7 +625,7 @@
                             </div>
                             <div>
                                 <label for="client-model" class="block text-xs font-mono uppercase text-veloce-slate dark:text-slate-400 font-semibold mb-2">Engagement Model Interest *</label>
-                                <select id="client-model" class="veloce-input w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border border-slate-300 dark:border-white/15 text-veloce-navy dark:text-white text-base sm:text-sm">
+                                <select id="client-model" class="veloce-input w-full px-3.5 py-2.5 rounded-xl bg-[#FEFAF3] dark:bg-veloce-obsidian border border-[#F7F2EB] dark:border-white/15 text-veloce-navy dark:text-white text-base sm:text-sm">
                                     <option value="Recommend Best Fit After Reviewing My Scope" selected>Recommend Best Fit After Reviewing My Scope</option>
                                     <option value="5-Day Diagnostic & Prototype Micro-Sprint">5-Day Diagnostic & Prototype Micro-Sprint (Trial)</option>
                                     <option value="Growth Engineering Retainer (24–48h Ticket Queue)">Growth Engineering Subscription (Ongoing 24–48h Queue)</option>
@@ -647,21 +647,21 @@
 
                             <!-- 1-Click Quick Prompt Chips -->
                             <div class="flex flex-wrap gap-2 mb-3">
-                                <button type="button" onclick="setWorkTemplate('We want to build an action-taking AI Agent / RAG assistant connected to our internal knowledge base and PostgreSQL database with role-based permissions.')" class="text-xs bg-slate-100 dark:bg-veloce-obsidian hover:bg-pink-50 dark:hover:bg-pink-500/20 text-veloce-navy dark:text-slate-300 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-white/10 transition">
+                                <button type="button" onclick="setWorkTemplate('We want to build an action-taking AI Agent / RAG assistant connected to our internal knowledge base and PostgreSQL database with role-based permissions.')" class="text-xs bg-[#FEFAF3] dark:bg-veloce-obsidian hover:bg-pink-50 dark:hover:bg-pink-500/20 text-veloce-navy dark:text-slate-300 px-3 py-1.5 rounded-lg border border-[#F7F2EB] dark:border-white/10 transition">
                                     + Build AI Agent / RAG
                                 </button>
-                                <button type="button" onclick="setWorkTemplate('We have an active React/Next.js and Node.js product roadmap and need a reliable senior pod to ship features and bug fixes every 24–48 hours.')" class="text-xs bg-slate-100 dark:bg-veloce-obsidian hover:bg-pink-50 dark:hover:bg-pink-500/20 text-veloce-navy dark:text-slate-300 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-white/10 transition">
+                                <button type="button" onclick="setWorkTemplate('We have an active React/Next.js and Node.js product roadmap and need a reliable senior pod to ship features and bug fixes every 24–48 hours.')" class="text-xs bg-[#FEFAF3] dark:bg-veloce-obsidian hover:bg-pink-50 dark:hover:bg-pink-500/20 text-veloce-navy dark:text-slate-300 px-3 py-1.5 rounded-lg border border-[#F7F2EB] dark:border-white/10 transition">
                                     + 24–48h Feature Sprints
                                 </button>
-                                <button type="button" onclick="setWorkTemplate('We built an initial MVP prototype using AI coding tools and need senior architects to harden authentication, database security, and cloud CI/CD for launch.')" class="text-xs bg-slate-100 dark:bg-veloce-obsidian hover:bg-pink-50 dark:hover:bg-pink-500/20 text-veloce-navy dark:text-slate-300 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-white/10 transition">
+                                <button type="button" onclick="setWorkTemplate('We built an initial MVP prototype using AI coding tools and need senior architects to harden authentication, database security, and cloud CI/CD for launch.')" class="text-xs bg-[#FEFAF3] dark:bg-veloce-obsidian hover:bg-pink-50 dark:hover:bg-pink-500/20 text-veloce-navy dark:text-slate-300 px-3 py-1.5 rounded-lg border border-[#F7F2EB] dark:border-white/10 transition">
                                     + Harden MVP for Production
                                 </button>
-                                <button type="button" onclick="setWorkTemplate('We have a custom engineering request (custom architecture, API integration, mobile app, or legacy migration) and want your pod to scope and build it.')" class="text-xs bg-slate-100 dark:bg-veloce-obsidian hover:bg-pink-50 dark:hover:bg-pink-500/20 text-veloce-navy dark:text-slate-300 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-white/10 transition">
+                                <button type="button" onclick="setWorkTemplate('We have a custom engineering request (custom architecture, API integration, mobile app, or legacy migration) and want your pod to scope and build it.')" class="text-xs bg-[#FEFAF3] dark:bg-veloce-obsidian hover:bg-pink-50 dark:hover:bg-pink-500/20 text-veloce-navy dark:text-slate-300 px-3 py-1.5 rounded-lg border border-[#F7F2EB] dark:border-white/10 transition">
                                     + Custom Bespoke Request
                                 </button>
                             </div>
 
-                            <textarea id="client-work-details" required rows="4" placeholder="Describe the features, AI workflows, or custom architecture you want us to build, your current tech stack, and your target timeline..." class="veloce-input w-full p-3.5 sm:p-4 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border border-slate-300 dark:border-white/15 text-veloce-navy dark:text-white text-base sm:text-sm leading-relaxed"></textarea>
+                            <textarea id="client-work-details" required rows="4" placeholder="Describe the features, AI workflows, or custom architecture you want us to build, your current tech stack, and your target timeline..." class="veloce-input w-full p-3.5 sm:p-4 rounded-xl bg-[#FEFAF3] dark:bg-veloce-obsidian border border-[#F7F2EB] dark:border-white/15 text-veloce-navy dark:text-white text-base sm:text-sm leading-relaxed"></textarea>
                         </div>
 
                         <!-- Submit -> Next Page (Appointment Scheduler) -->
@@ -681,7 +681,7 @@
         </section>
 
         <!-- 4. CRYSTAL-CLEAR EXPLANATION OF THE 24–48 HOUR SLA MODEL -->
-        <section id="sla-workflow" class="py-16 sm:py-24 px-4 sm:px-6 max-w-6xl mx-auto border-t border-slate-200/80 dark:border-white/10">
+        <section id="sla-workflow" class="py-16 sm:py-24 px-4 sm:px-6 max-w-6xl mx-auto border-t border-[#F7F2EB] dark:border-white/10">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-12 gap-4">
                 <div>
                     <div class="eyebrow-pill font-mono bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20 mb-2.5">
@@ -698,19 +698,19 @@
             </div>
 
             <!-- 4-Step Visual Timeline of a Single 24-48h Ticket -->
-            <div class="mb-10 p-5 sm:p-8 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10 card-surface">
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-5 sm:pb-6 mb-6 border-b border-slate-100 dark:border-white/10">
+            <div class="mb-10 p-5 sm:p-8 rounded-2xl bg-[#FCF9EA] dark:bg-veloce-panelDark border border-[#F7F2EB] dark:border-white/10 card-surface">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-5 sm:pb-6 mb-6 border-b border-[#F7F2EB] dark:border-white/10">
                     <div>
                         <span class="text-xs font-mono uppercase text-pink-600 dark:text-pink-400 font-bold">The 48-Hour Sprint Loop</span>
                         <h3 class="text-lg sm:text-xl font-extrabold text-veloce-navy dark:text-white mt-0.5">Step-by-Step: What Happens After You Submit a Request</h3>
                     </div>
-                    <span class="self-start sm:self-auto text-xs font-mono px-3 py-1 rounded-full bg-slate-100 dark:bg-veloce-obsidian text-veloce-slate dark:text-slate-300 border border-slate-200/60 dark:border-white/10">
+                    <span class="self-start sm:self-auto text-xs font-mono px-3 py-1 rounded-full bg-[#FEFAF3] dark:bg-veloce-obsidian text-veloce-slate dark:text-slate-300 border border-[#F7F2EB] dark:border-white/10">
                         100% Async via Linear + Slack + Loom
                     </span>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div class="p-5 rounded-xl bg-slate-50/90 dark:bg-veloce-obsidian border border-slate-200/80 dark:border-white/10 relative">
+                    <div class="p-5 rounded-xl bg-[#FEFAF3] dark:bg-veloce-obsidian border border-[#F7F2EB] dark:border-white/10 relative">
                         <div class="flex items-center justify-between mb-3">
                             <span class="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-purple-500/10 text-purple-600 dark:text-purple-400">HOUR 0</span>
                             <i class="fa-solid fa-plus-circle text-purple-500"></i>
@@ -721,7 +721,7 @@
                         </p>
                     </div>
 
-                    <div class="p-5 rounded-xl bg-slate-50/90 dark:bg-veloce-obsidian border border-slate-200/80 dark:border-white/10 relative">
+                    <div class="p-5 rounded-xl bg-[#FEFAF3] dark:bg-veloce-obsidian border border-[#F7F2EB] dark:border-white/10 relative">
                         <div class="flex items-center justify-between mb-3">
                             <span class="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-pink-500/10 text-pink-600 dark:text-pink-400">HOUR 2–6</span>
                             <i class="fa-solid fa-sitemap text-pink-500"></i>
@@ -732,7 +732,7 @@
                         </p>
                     </div>
 
-                    <div class="p-5 rounded-xl bg-slate-50/90 dark:bg-veloce-obsidian border border-slate-200/80 dark:border-white/10 relative">
+                    <div class="p-5 rounded-xl bg-[#FEFAF3] dark:bg-veloce-obsidian border border-[#F7F2EB] dark:border-white/10 relative">
                         <div class="flex items-center justify-between mb-3">
                             <span class="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-orange-500/10 text-orange-600 dark:text-orange-400">HOUR 6–36</span>
                             <i class="fa-solid fa-code text-orange-500"></i>
@@ -743,7 +743,7 @@
                         </p>
                     </div>
 
-                    <div class="p-5 rounded-xl bg-slate-50/90 dark:bg-veloce-obsidian border border-slate-200/80 dark:border-white/10 relative">
+                    <div class="p-5 rounded-xl bg-[#FEFAF3] dark:bg-veloce-obsidian border border-[#F7F2EB] dark:border-white/10 relative">
                         <div class="flex items-center justify-between mb-3">
                             <span class="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">HOUR 24–48</span>
                             <i class="fa-solid fa-video text-emerald-500"></i>
@@ -758,7 +758,7 @@
 
             <!-- Two-Track Comparison Cards (Atomic Tickets vs Multi-Week Systems) -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-                <div class="card-surface p-6 sm:p-7 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10 flex flex-col justify-between">
+                <div class="card-surface p-6 sm:p-7 rounded-2xl bg-[#FCF9EA] dark:bg-veloce-panelDark border border-[#F7F2EB] dark:border-white/10 flex flex-col justify-between">
                     <div>
                         <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-pink-500/10 text-pink-600 dark:text-pink-400 font-mono text-[11px] sm:text-xs font-bold mb-3">
                             <i class="fa-solid fa-bolt"></i>
@@ -775,12 +775,12 @@
                             <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-pink-500 mt-1 shrink-0"></i> <span>Automated n8n CRM lead-enrichment webhook pipeline</span></li>
                         </ul>
                     </div>
-                    <div class="mt-5 pt-4 border-t border-slate-100 dark:border-white/5 text-xs font-mono text-pink-600 dark:text-pink-400 font-semibold">
+                    <div class="mt-5 pt-4 border-t border-[#F7F2EB] dark:border-white/5 text-xs font-mono text-pink-600 dark:text-pink-400 font-semibold">
                         Result: 100% production-ready in 24 to 48 business hours.
                     </div>
                 </div>
 
-                <div class="card-surface p-6 sm:p-7 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10 flex flex-col justify-between">
+                <div class="card-surface p-6 sm:p-7 rounded-2xl bg-[#FCF9EA] dark:bg-veloce-panelDark border border-[#F7F2EB] dark:border-white/10 flex flex-col justify-between">
                     <div>
                         <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-orange-500/10 text-orange-600 dark:text-orange-400 font-mono text-[11px] sm:text-xs font-bold mb-3">
                             <i class="fa-solid fa-cubes"></i>
@@ -797,15 +797,15 @@
                             <li class="flex items-start gap-2.5"><span class="font-mono text-[11px] px-1.5 py-0.5 rounded bg-orange-500/10 text-orange-600 dark:text-orange-400 font-bold shrink-0">Every 48h</span> <span>Testable staging link + Loom proof until launch</span></li>
                         </ul>
                     </div>
-                    <div class="mt-5 pt-4 border-t border-slate-100 dark:border-white/5 text-xs font-mono text-orange-600 dark:text-orange-400 font-semibold">
+                    <div class="mt-5 pt-4 border-t border-[#F7F2EB] dark:border-white/5 text-xs font-mono text-orange-600 dark:text-orange-400 font-semibold">
                         Result: Continuous, visible progress every 48 hours—zero agency ghosting.
                     </div>
                 </div>
             </div>
 
             <!-- Interactive Playable Linear Board Preview -->
-            <div class="rounded-2xl p-5 sm:p-7 bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10 card-surface">
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 mb-6 border-b border-slate-200 dark:border-white/10">
+            <div class="rounded-2xl p-5 sm:p-7 bg-[#FCF9EA] dark:bg-veloce-panelDark border border-[#F7F2EB] dark:border-white/10 card-surface">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 mb-6 border-b border-[#F7F2EB] dark:border-white/10">
                     <div>
                         <div class="flex items-center gap-2">
                             <span class="w-2.5 h-2.5 rounded-full bg-pink-500 shrink-0"></span>
@@ -833,7 +833,7 @@
         </section>
 
         <!-- 5. OUR VISION, WHY US OVER RAW AI, & THE 5-ROLE SENIOR POD -->
-        <section id="vision" class="py-16 sm:py-24 px-4 sm:px-6 border-t border-slate-200/80 dark:border-white/10">
+        <section id="vision" class="py-16 sm:py-24 px-4 sm:px-6 border-t border-[#F7F2EB] dark:border-white/10">
             <div class="max-w-6xl mx-auto space-y-16 sm:space-y-20">
                 <!-- Vision & AI Moat -->
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -854,28 +854,28 @@
                     </div>
 
                     <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="card-surface p-5 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10">
+                        <div class="card-surface p-5 rounded-2xl bg-[#FCF9EA] dark:bg-veloce-panelDark border border-[#F7F2EB] dark:border-white/10">
                             <div class="text-xs font-mono font-bold text-purple-600 dark:text-purple-400">MOAT 01</div>
                             <h3 class="text-base font-bold text-veloce-navy dark:text-white mt-1">AI-Accelerated Velocity</h3>
                             <p class="text-xs text-veloce-slate dark:text-slate-400 mt-1.5 leading-relaxed">
                                 We weaponize internal starter boilerplates and AI workflows to ship in 48 hours what traditional agencies drag out for weeks.
                             </p>
                         </div>
-                        <div class="card-surface p-5 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10">
+                        <div class="card-surface p-5 rounded-2xl bg-[#FCF9EA] dark:bg-veloce-panelDark border border-[#F7F2EB] dark:border-white/10">
                             <div class="text-xs font-mono font-bold text-pink-600 dark:text-pink-400">MOAT 02</div>
                             <h3 class="text-base font-bold text-veloce-navy dark:text-white mt-1">End-to-End Accountability</h3>
                             <p class="text-xs text-veloce-slate dark:text-slate-400 mt-1.5 leading-relaxed">
                                 Every Pull Request is reviewed by a Principal Architect and verified by automated Playwright E2E tests before staging sign-off.
                             </p>
                         </div>
-                        <div class="card-surface p-5 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10">
+                        <div class="card-surface p-5 rounded-2xl bg-[#FCF9EA] dark:bg-veloce-panelDark border border-[#F7F2EB] dark:border-white/10">
                             <div class="text-xs font-mono font-bold text-orange-600 dark:text-orange-400">MOAT 03</div>
                             <h3 class="text-base font-bold text-veloce-navy dark:text-white mt-1">Zero Meeting Overhead</h3>
                             <p class="text-xs text-veloce-slate dark:text-slate-400 mt-1.5 leading-relaxed">
                                 Asynchronous Slack Connect + Linear boards + 90-second Loom demos keep our builders focused 100% on shipping your product.
                             </p>
                         </div>
-                        <div class="card-surface p-5 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10">
+                        <div class="card-surface p-5 rounded-2xl bg-[#FCF9EA] dark:bg-veloce-panelDark border border-[#F7F2EB] dark:border-white/10">
                             <div class="text-xs font-mono font-bold text-amber-600 dark:text-amber-400">MOAT 04</div>
                             <h3 class="text-base font-bold text-veloce-navy dark:text-white mt-1">Consultative Scoping</h3>
                             <p class="text-xs text-veloce-slate dark:text-slate-400 mt-1.5 leading-relaxed">
@@ -903,35 +903,35 @@
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-                        <div class="card-surface p-5 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10">
+                        <div class="card-surface p-5 rounded-2xl bg-[#FCF9EA] dark:bg-veloce-panelDark border border-[#F7F2EB] dark:border-white/10">
                             <span class="text-[11px] font-mono font-bold text-purple-600 dark:text-purple-400">01 / ARCHITECTURE</span>
                             <h4 class="text-base font-bold text-veloce-navy dark:text-white mt-1">Principal Architect</h4>
                             <p class="text-xs text-veloce-slate dark:text-slate-400 mt-2 leading-relaxed">
                                 System design, database modeling, ticket scoping, and mandatory Pull Request code reviews.
                             </p>
                         </div>
-                        <div class="card-surface p-5 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10">
+                        <div class="card-surface p-5 rounded-2xl bg-[#FCF9EA] dark:bg-veloce-panelDark border border-[#F7F2EB] dark:border-white/10">
                             <span class="text-[11px] font-mono font-bold text-pink-600 dark:text-pink-400">02 / BACKEND & AI</span>
                             <h4 class="text-base font-bold text-veloce-navy dark:text-white mt-1">Backend & AI Lead</h4>
                             <p class="text-xs text-veloce-slate dark:text-slate-400 mt-2 leading-relaxed">
                                 Node.js/Python APIs, Supabase/PostgreSQL, RAG vector pipelines, and tool-calling LLM agents.
                             </p>
                         </div>
-                        <div class="card-surface p-5 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10">
+                        <div class="card-surface p-5 rounded-2xl bg-[#FCF9EA] dark:bg-veloce-panelDark border border-[#F7F2EB] dark:border-white/10">
                             <span class="text-[11px] font-mono font-bold text-orange-600 dark:text-orange-400">03 / FRONTEND UX</span>
                             <h4 class="text-base font-bold text-veloce-navy dark:text-white mt-1">Frontend & UI Lead</h4>
                             <p class="text-xs text-veloce-slate dark:text-slate-400 mt-2 leading-relaxed">
                                 High-speed React.js & Next.js interfaces, Tailwind design systems, and complex state flows.
                             </p>
                         </div>
-                        <div class="card-surface p-5 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10">
+                        <div class="card-surface p-5 rounded-2xl bg-[#FCF9EA] dark:bg-veloce-panelDark border border-[#F7F2EB] dark:border-white/10">
                             <span class="text-[11px] font-mono font-bold text-amber-600 dark:text-amber-400">04 / QA & DEVOPS</span>
                             <h4 class="text-base font-bold text-veloce-navy dark:text-white mt-1">QA & Cloud Lead</h4>
                             <p class="text-xs text-veloce-slate dark:text-slate-400 mt-2 leading-relaxed">
                                 AWS/Vercel CI/CD pipelines, Playwright automated E2E testing, and security vulnerability checks.
                             </p>
                         </div>
-                        <div class="card-surface p-5 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10 sm:col-span-2 lg:col-span-1">
+                        <div class="card-surface p-5 rounded-2xl bg-[#FCF9EA] dark:bg-veloce-panelDark border border-[#F7F2EB] dark:border-white/10 sm:col-span-2 lg:col-span-1">
                             <span class="text-[11px] font-mono font-bold text-purple-600 dark:text-pink-400">05 / DELIVERY</span>
                             <h4 class="text-base font-bold text-veloce-navy dark:text-white mt-1">Client Strategy Lead</h4>
                             <p class="text-xs text-veloce-slate dark:text-slate-400 mt-2 leading-relaxed">
@@ -973,7 +973,7 @@
     ========================================================== -->
     <section id="view-models" class="hidden flex-1 py-10 sm:py-16 px-4 sm:px-6 max-w-6xl mx-auto w-full">
         <!-- Top Back Bar -->
-        <div class="mb-8 flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-slate-200 dark:border-white/10">
+        <div class="mb-8 flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-[#F7F2EB] dark:border-white/10">
             <button onclick="switchView('landing')" class="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-veloce-slate dark:text-slate-300 hover:text-pink-600 dark:hover:text-white transition">
                 <i class="fa-solid fa-arrow-left"></i>
                 <span>Back to Main Enterprise Overview</span>
@@ -994,7 +994,7 @@
         </div>
 
         <!-- INTERACTIVE RETAINER FIT FINDER -->
-        <div class="mb-10 sm:mb-12 p-5 sm:p-8 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10 card-surface">
+        <div class="mb-10 sm:mb-12 p-5 sm:p-8 rounded-2xl bg-[#FCF9EA] dark:bg-veloce-panelDark border border-[#F7F2EB] dark:border-white/10 card-surface">
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-6">
                 <div>
                     <span class="text-xs font-mono uppercase text-pink-600 dark:text-pink-400 font-bold">Interactive Model Matcher</span>
@@ -1004,19 +1004,19 @@
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-                <button onclick="highlightRecommendedModel('sprint')" id="matcher-sprint" class="matcher-btn text-left p-4 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border-2 border-pink-500 transition">
+                <button onclick="highlightRecommendedModel('sprint')" id="matcher-sprint" class="matcher-btn text-left p-4 rounded-xl bg-[#FEFAF3] dark:bg-veloce-obsidian border-2 border-pink-500 transition">
                     <div class="text-xs font-mono font-bold text-purple-600 dark:text-purple-400">01 / TEST VELOCITY FIRST</div>
                     <div class="text-sm font-bold text-veloce-navy dark:text-white mt-1">"We want to test your pod on a 5-day prototype or audit first."</div>
                 </button>
-                <button onclick="highlightRecommendedModel('growth')" id="matcher-growth" class="matcher-btn text-left p-4 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border border-slate-200 dark:border-white/10 hover:border-pink-400 transition">
+                <button onclick="highlightRecommendedModel('growth')" id="matcher-growth" class="matcher-btn text-left p-4 rounded-xl bg-[#FEFAF3] dark:bg-veloce-obsidian border border-[#F7F2EB] dark:border-white/10 hover:border-pink-400 transition">
                     <div class="text-xs font-mono font-bold text-pink-600 dark:text-pink-400">02 / CONTINUOUS SHIPPING</div>
                     <div class="text-sm font-bold text-veloce-navy dark:text-white mt-1">"We need ongoing full-stack features & AI agents every 24–48h."</div>
                 </button>
-                <button onclick="highlightRecommendedModel('scale')" id="matcher-scale" class="matcher-btn text-left p-4 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border border-slate-200 dark:border-white/10 hover:border-pink-400 transition">
+                <button onclick="highlightRecommendedModel('scale')" id="matcher-scale" class="matcher-btn text-left p-4 rounded-xl bg-[#FEFAF3] dark:bg-veloce-obsidian border border-[#F7F2EB] dark:border-white/10 hover:border-pink-400 transition">
                     <div class="text-xs font-mono font-bold text-orange-600 dark:text-orange-400">03 / HIGH-VELOCITY POD</div>
                     <div class="text-sm font-bold text-veloce-navy dark:text-white mt-1">"We have heavy parallel roadmaps and need 2x concurrent tracks."</div>
                 </button>
-                <button onclick="highlightRecommendedModel('care')" id="matcher-care" class="matcher-btn text-left p-4 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border border-slate-200 dark:border-white/10 hover:border-pink-400 transition">
+                <button onclick="highlightRecommendedModel('care')" id="matcher-care" class="matcher-btn text-left p-4 rounded-xl bg-[#FEFAF3] dark:bg-veloce-obsidian border border-[#F7F2EB] dark:border-white/10 hover:border-pink-400 transition">
                     <div class="text-xs font-mono font-bold text-amber-600 dark:text-amber-400">04 / STABILITY & FINOPS</div>
                     <div class="text-sm font-bold text-veloce-navy dark:text-white mt-1">"We need AI prompt tuning, bug fixes, and cloud cost reduction."</div>
                 </button>
@@ -1026,7 +1026,7 @@
         <!-- THE 4 ENGAGEMENT & SUBSCRIPTION MODELS -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             <!-- Model 1: 5-Day Diagnostic & Prototype Micro-Sprint -->
-            <div id="model-card-sprint" class="model-card rounded-2xl p-6 sm:p-7 bg-white dark:bg-veloce-panelDark border-2 border-pink-500 flex flex-col justify-between relative veloce-border-glow shadow-sm">
+            <div id="model-card-sprint" class="model-card rounded-2xl p-6 sm:p-7 bg-[#FCF9EA] dark:bg-veloce-panelDark border-2 border-pink-500 flex flex-col justify-between relative veloce-border-glow shadow-sm">
                 <div>
                     <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
                         <span class="px-2.5 py-1 rounded-md bg-purple-500/15 text-purple-700 dark:text-purple-300 font-mono text-[11px] sm:text-xs font-bold">
@@ -1050,7 +1050,7 @@
             </div>
 
             <!-- Model 2: Growth Engineering Subscription -->
-            <div id="model-card-growth" class="model-card rounded-2xl p-6 sm:p-7 bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 flex flex-col justify-between relative shadow-sm">
+            <div id="model-card-growth" class="model-card rounded-2xl p-6 sm:p-7 bg-[#FCF9EA] dark:bg-veloce-panelDark border border-[#F7F2EB] dark:border-white/10 flex flex-col justify-between relative shadow-sm">
                 <div>
                     <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
                         <span class="px-2.5 py-1 rounded-md bg-pink-500/15 text-pink-600 dark:text-pink-300 font-mono text-[11px] sm:text-xs font-bold">
@@ -1074,7 +1074,7 @@
             </div>
 
             <!-- Model 3: Dedicated Scale Pod Retainer -->
-            <div id="model-card-scale" class="model-card rounded-2xl p-6 sm:p-7 bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 flex flex-col justify-between relative shadow-sm">
+            <div id="model-card-scale" class="model-card rounded-2xl p-6 sm:p-7 bg-[#FCF9EA] dark:bg-veloce-panelDark border border-[#F7F2EB] dark:border-white/10 flex flex-col justify-between relative shadow-sm">
                 <div>
                     <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
                         <span class="px-2.5 py-1 rounded-md bg-orange-500/15 text-orange-600 dark:text-orange-300 font-mono text-[11px] sm:text-xs font-bold">
@@ -1098,7 +1098,7 @@
             </div>
 
             <!-- Model 4: Care, Security & AI FinOps Subscription -->
-            <div id="model-card-care" class="model-card rounded-2xl p-6 sm:p-7 bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 flex flex-col justify-between relative shadow-sm">
+            <div id="model-card-care" class="model-card rounded-2xl p-6 sm:p-7 bg-[#FCF9EA] dark:bg-veloce-panelDark border border-[#F7F2EB] dark:border-white/10 flex flex-col justify-between relative shadow-sm">
                 <div>
                     <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
                         <span class="px-2.5 py-1 rounded-md bg-amber-500/15 text-amber-600 dark:text-amber-300 font-mono text-[11px] sm:text-xs font-bold">
@@ -1123,7 +1123,7 @@
         </div>
 
         <!-- Bottom CTA Banner on Models Page -->
-        <div class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 card-surface">
+        <div class="p-6 sm:p-8 rounded-2xl bg-[#FCF9EA] dark:bg-veloce-panelDark border border-[#F7F2EB] dark:border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 card-surface">
             <div>
                 <h4 class="text-lg font-bold text-veloce-navy dark:text-white">Ready to receive your custom-scoped engagement proposal?</h4>
                 <p class="text-xs sm:text-sm text-veloce-slate dark:text-slate-400 mt-0.5">
@@ -1141,7 +1141,7 @@
     ========================================================== -->
     <section id="view-scheduler" class="hidden flex-1 py-10 sm:py-16 px-4 sm:px-6 max-w-5xl mx-auto w-full">
         <!-- Back Navigation -->
-        <div class="mb-8 flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-slate-200 dark:border-white/10">
+        <div class="mb-8 flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-[#F7F2EB] dark:border-white/10">
             <button onclick="switchView('landing')" class="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-veloce-slate dark:text-slate-300 hover:text-pink-600 dark:hover:text-white transition">
                 <i class="fa-solid fa-arrow-left"></i>
                 <span>Back & Edit Project Scope</span>
@@ -1153,7 +1153,7 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
             <!-- Left Column: Client's Captured Brief -->
-            <div class="lg:col-span-5 bg-white dark:bg-veloce-panelDark rounded-2xl p-6 border border-slate-200/90 dark:border-white/10 space-y-5 card-surface">
+            <div class="lg:col-span-5 bg-[#FCF9EA] dark:bg-veloce-panelDark rounded-2xl p-6 border border-[#F7F2EB] dark:border-white/10 space-y-5 card-surface">
                 <div>
                     <span class="text-[11px] font-mono uppercase text-pink-600 dark:text-pink-400 font-bold">Captured Work Scope</span>
                     <h3 class="text-xl font-extrabold text-veloce-navy dark:text-white mt-0.5">Tailored Scoping & Architecture Sync</h3>
@@ -1162,7 +1162,7 @@
                     </p>
                 </div>
 
-                <div class="space-y-3 pt-3 border-t border-slate-200 dark:border-white/10 text-xs sm:text-sm">
+                <div class="space-y-3 pt-3 border-t border-[#F7F2EB] dark:border-white/10 text-xs sm:text-sm">
                     <div>
                         <span class="text-[11px] font-mono text-veloce-slate dark:text-slate-400 block">CLIENT & ORGANIZATION</span>
                         <span id="summary-client" class="font-bold text-veloce-navy dark:text-white break-words">—</span>
@@ -1177,7 +1177,7 @@
                     </div>
                     <div>
                         <span class="text-[11px] font-mono text-veloce-slate dark:text-slate-400 block">WORK WE WILL DO FOR YOU</span>
-                        <div id="summary-work" class="mt-1.5 p-3.5 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border border-slate-200 dark:border-white/10 text-veloce-navy dark:text-slate-300 text-xs leading-relaxed whitespace-pre-line break-words">—</div>
+                        <div id="summary-work" class="mt-1.5 p-3.5 rounded-xl bg-[#FEFAF3] dark:bg-veloce-obsidian border border-[#F7F2EB] dark:border-white/10 text-veloce-navy dark:text-slate-300 text-xs leading-relaxed whitespace-pre-line break-words">—</div>
                     </div>
                 </div>
 
@@ -1193,14 +1193,14 @@
 
             <!-- Right Column: Interactive Date & Time Slot Selector -->
             <div class="lg:col-span-7 p-[2px] rounded-2xl bg-veloce-gradient veloce-border-glow">
-                <div class="bg-white dark:bg-veloce-panelDark rounded-[14px] p-5 sm:p-8 shadow-xl">
+                <div class="bg-[#FCF9EA] dark:bg-veloce-panelDark rounded-[14px] p-5 sm:p-8 shadow-xl">
                     <div id="scheduler-interactive-area">
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-200 dark:border-white/10">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-[#F7F2EB] dark:border-white/10">
                             <div>
                                 <h3 class="text-lg font-extrabold text-veloce-navy dark:text-white">Select Date & Time</h3>
                                 <p class="text-xs text-veloce-slate dark:text-slate-400">15-Minute Architecture & Custom Proposal Sync</p>
                             </div>
-                            <select id="timezone-select" class="veloce-input px-3 py-2 rounded-lg bg-slate-100 dark:bg-veloce-obsidian border border-slate-200 dark:border-white/15 text-base sm:text-xs font-mono text-veloce-navy dark:text-slate-300">
+                            <select id="timezone-select" class="veloce-input px-3 py-2 rounded-lg bg-[#FEFAF3] dark:bg-veloce-obsidian border border-[#F7F2EB] dark:border-white/15 text-base sm:text-xs font-mono text-veloce-navy dark:text-slate-300">
                                 <option value="IST (GMT+5:30)">🇮🇳 IST (GMT+5:30)</option>
                                 <option value="UTC / GMT">🌍 UTC / GMT</option>
                                 <option value="EST (US Eastern)">🇺🇸 EST (US Eastern)</option>
@@ -1215,15 +1215,15 @@
                                     <div class="text-[10px] font-mono text-pink-600 dark:text-pink-400 font-bold">TOMORROW</div>
                                     <div class="text-sm font-bold mt-0.5">Thu, Oct 29</div>
                                 </button>
-                                <button type="button" onclick="selectDatePill(this, 'Fri, Oct 30')" class="date-pill p-3 rounded-xl border border-slate-200 dark:border-white/10 hover:border-pink-400 text-veloce-navy dark:text-slate-200 text-left transition">
+                                <button type="button" onclick="selectDatePill(this, 'Fri, Oct 30')" class="date-pill p-3 rounded-xl border border-[#F7F2EB] dark:border-white/10 hover:border-pink-400 text-veloce-navy dark:text-slate-200 text-left transition">
                                     <div class="text-[10px] font-mono text-slate-400">FRIDAY</div>
                                     <div class="text-sm font-bold mt-0.5">Oct 30</div>
                                 </button>
-                                <button type="button" onclick="selectDatePill(this, 'Mon, Nov 2')" class="date-pill p-3 rounded-xl border border-slate-200 dark:border-white/10 hover:border-pink-400 text-veloce-navy dark:text-slate-200 text-left transition">
+                                <button type="button" onclick="selectDatePill(this, 'Mon, Nov 2')" class="date-pill p-3 rounded-xl border border-[#F7F2EB] dark:border-white/10 hover:border-pink-400 text-veloce-navy dark:text-slate-200 text-left transition">
                                     <div class="text-[10px] font-mono text-slate-400">MONDAY</div>
                                     <div class="text-sm font-bold mt-0.5">Nov 2</div>
                                 </button>
-                                <button type="button" onclick="selectDatePill(this, 'Tue, Nov 3')" class="date-pill p-3 rounded-xl border border-slate-200 dark:border-white/10 hover:border-pink-400 text-veloce-navy dark:text-slate-200 text-left transition">
+                                <button type="button" onclick="selectDatePill(this, 'Tue, Nov 3')" class="date-pill p-3 rounded-xl border border-[#F7F2EB] dark:border-white/10 hover:border-pink-400 text-veloce-navy dark:text-slate-200 text-left transition">
                                     <div class="text-[10px] font-mono text-slate-400">TUESDAY</div>
                                     <div class="text-sm font-bold mt-0.5">Nov 3</div>
                                 </button>
@@ -1237,26 +1237,26 @@
                                 <button type="button" onclick="selectTimePill(this, '11:00 AM')" class="time-pill py-3 px-4 rounded-xl border-2 border-pink-500 bg-pink-500/10 text-pink-600 dark:text-pink-300 font-mono text-xs font-bold transition">
                                     11:00 AM
                                 </button>
-                                <button type="button" onclick="selectTimePill(this, '02:30 PM')" class="time-pill py-3 px-4 rounded-xl border border-slate-200 dark:border-white/10 hover:border-pink-400 text-veloce-navy dark:text-slate-300 font-mono text-xs font-semibold transition">
+                                <button type="button" onclick="selectTimePill(this, '02:30 PM')" class="time-pill py-3 px-4 rounded-xl border border-[#F7F2EB] dark:border-white/10 hover:border-pink-400 text-veloce-navy dark:text-slate-300 font-mono text-xs font-semibold transition">
                                     02:30 PM
                                 </button>
-                                <button type="button" onclick="selectTimePill(this, '04:30 PM')" class="time-pill py-3 px-4 rounded-xl border border-slate-200 dark:border-white/10 hover:border-pink-400 text-veloce-navy dark:text-slate-300 font-mono text-xs font-semibold transition">
+                                <button type="button" onclick="selectTimePill(this, '04:30 PM')" class="time-pill py-3 px-4 rounded-xl border border-[#F7F2EB] dark:border-white/10 hover:border-pink-400 text-veloce-navy dark:text-slate-300 font-mono text-xs font-semibold transition">
                                     04:30 PM
                                 </button>
-                                <button type="button" onclick="selectTimePill(this, '06:30 PM')" class="time-pill py-3 px-4 rounded-xl border border-slate-200 dark:border-white/10 hover:border-pink-400 text-veloce-navy dark:text-slate-300 font-mono text-xs font-semibold transition">
+                                <button type="button" onclick="selectTimePill(this, '06:30 PM')" class="time-pill py-3 px-4 rounded-xl border border-[#F7F2EB] dark:border-white/10 hover:border-pink-400 text-veloce-navy dark:text-slate-300 font-mono text-xs font-semibold transition">
                                     06:30 PM
                                 </button>
-                                <button type="button" onclick="selectTimePill(this, '08:30 PM')" class="time-pill py-3 px-4 rounded-xl border border-slate-200 dark:border-white/10 hover:border-pink-400 text-veloce-navy dark:text-slate-300 font-mono text-xs font-semibold transition">
+                                <button type="button" onclick="selectTimePill(this, '08:30 PM')" class="time-pill py-3 px-4 rounded-xl border border-[#F7F2EB] dark:border-white/10 hover:border-pink-400 text-veloce-navy dark:text-slate-300 font-mono text-xs font-semibold transition">
                                     08:30 PM
                                 </button>
-                                <button type="button" onclick="selectTimePill(this, '10:00 PM')" class="time-pill py-3 px-4 rounded-xl border border-slate-200 dark:border-white/10 hover:border-pink-400 text-veloce-navy dark:text-slate-300 font-mono text-xs font-semibold transition">
+                                <button type="button" onclick="selectTimePill(this, '10:00 PM')" class="time-pill py-3 px-4 rounded-xl border border-[#F7F2EB] dark:border-white/10 hover:border-pink-400 text-veloce-navy dark:text-slate-300 font-mono text-xs font-semibold transition">
                                     10:00 PM
                                 </button>
                             </div>
                         </div>
 
                         <!-- Confirm Button -->
-                        <div class="mt-8 pt-6 border-t border-slate-200 dark:border-white/10">
+                        <div class="mt-8 pt-6 border-t border-[#F7F2EB] dark:border-white/10">
                             <button type="button" onclick="confirmFinalAppointment()" class="magnetic-cta w-full py-4 rounded-xl bg-veloce-btn text-white font-extrabold text-sm sm:text-base shadow-lg transition flex items-center justify-center gap-2">
                                 <i class="fa-regular fa-calendar-check"></i>
                                 <span>Confirm Appointment & Lock Technical Review</span>
@@ -1278,14 +1278,14 @@
                                 Calendar invitation and Google Meet link sent to <strong id="confirmed-email" class="text-veloce-navy dark:text-white break-all"></strong>. We will present your tailored roadmap and subscription options on the call.
                             </p>
                         </div>
-                        <div class="p-4 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border border-slate-200 dark:border-white/10 max-w-md mx-auto font-mono text-xs text-pink-600 dark:text-pink-400 font-bold" id="confirmed-slot-badge">
+                        <div class="p-4 rounded-xl bg-[#FEFAF3] dark:bg-veloce-obsidian border border-[#F7F2EB] dark:border-white/10 max-w-md mx-auto font-mono text-xs text-pink-600 dark:text-pink-400 font-bold" id="confirmed-slot-badge">
                             —
                         </div>
                         <div class="pt-2 flex flex-wrap justify-center gap-3">
                             <button onclick="switchView('landing')" class="px-5 py-2.5 rounded-xl bg-veloce-btn text-white font-bold text-xs sm:text-sm transition shadow-md">
                                 &larr; Return to Homepage
                             </button>
-                            <button onclick="switchView('models')" class="px-5 py-2.5 rounded-xl border border-slate-300 dark:border-white/15 text-veloce-navy dark:text-slate-300 font-semibold text-xs sm:text-sm hover:border-pink-500 transition">
+                            <button onclick="switchView('models')" class="px-5 py-2.5 rounded-xl border border-[#F7F2EB] dark:border-white/15 text-veloce-navy dark:text-slate-300 font-semibold text-xs sm:text-sm hover:border-pink-500 transition">
                                 Review Subscription Models
                             </button>
                         </div>
@@ -1298,7 +1298,7 @@
     <!-- =========================================================
          MINIMALISTIC ENTERPRISE FOOTER WITH MOBILE-RESPONSIVE LOCKUP
     ========================================================== -->
-    <footer class="border-t border-slate-200/80 dark:border-white/10 py-10 px-4 sm:px-8 bg-white/80 dark:bg-veloce-obsidian/90 mt-12 sm:mt-16">
+    <footer class="border-t border-[#F7F2EB] dark:border-white/10 py-10 px-4 sm:px-8 bg-[#FEFAF3]/90 dark:bg-veloce-obsidian/90 mt-12 sm:mt-16">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-veloce-slate dark:text-slate-400">
             <!-- Brand & Tagline Lockup (Stacks cleanly on mobile) -->
             <div class="flex flex-col sm:flex-row items-center text-center sm:text-left gap-2 sm:gap-3">
@@ -1537,25 +1537,25 @@
             grid.innerHTML = boardColumns.map((col, colIdx) => {
                 const items = boardTickets.filter(t => t.stage === colIdx);
                 return `
-                    <div class="rounded-xl p-4 bg-slate-50/90 dark:bg-veloce-obsidian border border-slate-200/90 dark:border-white/10 flex flex-col justify-between min-h-[210px]">
+                    <div class="rounded-xl p-4 bg-[#FEFAF3] dark:bg-veloce-obsidian border border-[#F7F2EB] dark:border-white/10 flex flex-col justify-between min-h-[210px]">
                         <div>
-                            <div class="flex items-center justify-between gap-2 pb-2.5 mb-3 border-b border-slate-200 dark:border-white/10">
+                            <div class="flex items-center justify-between gap-2 pb-2.5 mb-3 border-b border-[#F7F2EB] dark:border-white/10">
                                 <span class="text-xs font-mono font-bold text-veloce-navy dark:text-white">${col.name}</span>
                                 <span class="text-[10px] font-mono ${col.badgeClass} font-semibold shrink-0">${col.sub}</span>
                             </div>
                             <div class="space-y-2.5">
                                 ${items.length === 0 ? `
-                                    <div class="py-8 text-center text-[11px] font-mono text-slate-400 dark:text-slate-600 border border-dashed border-slate-200 dark:border-white/5 rounded-xl">
+                                    <div class="py-8 text-center text-[11px] font-mono text-slate-400 dark:text-slate-600 border border-dashed border-[#F7F2EB] dark:border-white/5 rounded-xl">
                                         No tickets in stage
                                     </div>
                                 ` : items.map(t => `
-                                    <div class="p-3 rounded-xl bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10 shadow-sm transition hover:border-pink-400/60">
+                                    <div class="p-3 rounded-xl bg-[#FCF9EA] dark:bg-veloce-panelDark border border-[#F7F2EB] dark:border-white/10 shadow-sm transition hover:border-pink-400/60">
                                         <div class="flex items-center justify-between text-[10px] font-mono text-slate-400">
                                             <span>${t.id}</span>
                                             <span class="px-1.5 py-0.5 rounded bg-pink-500/10 text-pink-600 dark:text-pink-300 font-semibold">${t.tag}</span>
                                         </div>
                                         <div class="text-xs font-bold text-veloce-navy dark:text-white mt-1.5 leading-snug">${t.title}</div>
-                                        <div class="mt-2.5 pt-2 border-t border-slate-100 dark:border-white/5 flex items-center justify-between text-[11px] font-mono">
+                                        <div class="mt-2.5 pt-2 border-t border-[#F7F2EB] dark:border-white/5 flex items-center justify-between text-[11px] font-mono">
                                             <span class="text-veloce-slate dark:text-slate-400">${t.sla}</span>
                                             ${colIdx < 3 ? `
                                                 <button onclick="advanceDemoTicket('${t.id}')" class="px-2 py-0.5 rounded bg-pink-500/10 text-pink-600 dark:text-pink-400 hover:bg-pink-500 hover:text-white transition font-bold">
@@ -1613,11 +1613,11 @@
                 const btn = document.getElementById('matcher-' + k);
                 const card = document.getElementById('model-card-' + k);
                 if (k === key) {
-                    btn.className = 'matcher-btn text-left p-4 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border-2 border-pink-500 transition';
-                    card.className = 'model-card rounded-2xl p-6 sm:p-7 bg-white dark:bg-veloce-panelDark border-2 border-pink-500 flex flex-col justify-between relative veloce-border-glow shadow-sm';
+                    btn.className = 'matcher-btn text-left p-4 rounded-xl bg-[#FEFAF3] dark:bg-veloce-obsidian border-2 border-pink-500 transition';
+                    card.className = 'model-card rounded-2xl p-6 sm:p-7 bg-[#FCF9EA] dark:bg-veloce-panelDark border-2 border-pink-500 flex flex-col justify-between relative veloce-border-glow shadow-sm';
                 } else {
-                    btn.className = 'matcher-btn text-left p-4 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border border-slate-200 dark:border-white/10 hover:border-pink-400 transition';
-                    card.className = 'model-card rounded-2xl p-6 sm:p-7 bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 flex flex-col justify-between relative shadow-sm';
+                    btn.className = 'matcher-btn text-left p-4 rounded-xl bg-[#FEFAF3] dark:bg-veloce-obsidian border border-[#F7F2EB] dark:border-white/10 hover:border-pink-400 transition';
+                    card.className = 'model-card rounded-2xl p-6 sm:p-7 bg-[#FCF9EA] dark:bg-veloce-panelDark border border-[#F7F2EB] dark:border-white/10 flex flex-col justify-between relative shadow-sm';
                 }
             });
         }
@@ -1650,7 +1650,7 @@
         function selectDatePill(btn, dateStr) {
             selectedDate = dateStr;
             document.querySelectorAll('.date-pill').forEach(el => {
-                el.className = 'date-pill p-3 rounded-xl border border-slate-200 dark:border-white/10 hover:border-pink-400 text-veloce-navy dark:text-slate-200 text-left transition';
+                el.className = 'date-pill p-3 rounded-xl border border-[#F7F2EB] dark:border-white/10 hover:border-pink-400 text-veloce-navy dark:text-slate-200 text-left transition';
             });
             btn.className = 'date-pill p-3 rounded-xl border-2 border-pink-500 bg-pink-500/10 text-veloce-navy dark:text-white text-left transition';
         }
@@ -1658,7 +1658,7 @@
         function selectTimePill(btn, timeStr) {
             selectedTime = timeStr;
             document.querySelectorAll('.time-pill').forEach(el => {
-                el.className = 'time-pill py-3 px-4 rounded-xl border border-slate-200 dark:border-white/10 hover:border-pink-400 text-veloce-navy dark:text-slate-300 font-mono text-xs font-semibold transition';
+                el.className = 'time-pill py-3 px-4 rounded-xl border border-[#F7F2EB] dark:border-white/10 hover:border-pink-400 text-veloce-navy dark:text-slate-300 font-mono text-xs font-semibold transition';
             });
             btn.className = 'time-pill py-3 px-4 rounded-xl border-2 border-pink-500 bg-pink-500/10 text-pink-600 dark:text-pink-300 font-mono text-xs font-bold transition';
         }
