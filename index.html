@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth overflow-x-hidden">
+<html lang="en" class="scroll-smooth overflow-x-hidden dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,14 +68,10 @@
             background: linear-gradient(135deg, #5B21B6 0%, #C026D3 38%, #EC4899 65%, #F97316 88%, #C5A059 100%);
         }
         .bg-veloce-btn {
-            background: linear-gradient(135deg, #1A1816 0%, #3D3530 100%);
+            background: linear-gradient(135deg, #6D28D9 0%, #DB2777 52%, #F97316 100%);
             transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background 0.25s ease;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 8px 24px -6px rgba(26, 24, 22, 0.25), inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
-        }
-        .dark .bg-veloce-btn {
-            background: linear-gradient(135deg, #6D28D9 0%, #DB2777 52%, #F97316 100%);
             box-shadow: 0 8px 24px -6px rgba(219, 39, 119, 0.38), inset 0 1px 0 0 rgba(255, 255, 255, 0.22);
         }
         .bg-veloce-btn::after {
@@ -1315,30 +1311,28 @@
          JAVASCRIPT
     ========================================================== -->
     <script>
+        // 1. DEFAULT TO DARK MODE (Unless user explicitly toggled to light)
         function initTheme() {
             const savedTheme = localStorage.getItem('veloce_theme');
             const htmlEl = document.documentElement;
             const icon = document.getElementById('theme-icon');
 
             if (savedTheme) {
-                if (savedTheme === 'dark') {
-                    htmlEl.classList.add('dark');
-                    if (icon) icon.className = 'fa-solid fa-sun text-amber-400 text-xs sm:text-sm';
-                } else {
+                if (savedTheme === 'light') {
                     htmlEl.classList.remove('dark');
                     if (icon) icon.className = 'fa-solid fa-moon text-veloce-navy text-xs sm:text-sm';
+                } else {
+                    htmlEl.classList.add('dark');
+                    if (icon) icon.className = 'fa-solid fa-sun text-amber-400 text-xs sm:text-sm';
                 }
             } else {
-                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                    htmlEl.classList.add('dark');
-                    if (icon) icon.className = 'fa-solid fa-sun text-amber-400 text-xs sm:text-sm';
-                } else {
-                    htmlEl.classList.remove('dark');
-                    if (icon) icon.className = 'fa-solid fa-moon text-veloce-navy text-xs sm:text-sm';
-                }
+                // FORCE DARK MODE AS DEFAULT ON FIRST VISIT
+                htmlEl.classList.add('dark');
+                if (icon) icon.className = 'fa-solid fa-sun text-amber-400 text-xs sm:text-sm';
             }
         }
 
+        // TOGGLE THEME MANUALLY WITH VIEW TRANSITIONS API
         function toggleTheme() {
             const htmlEl = document.documentElement;
             const icon = document.getElementById('theme-icon');
