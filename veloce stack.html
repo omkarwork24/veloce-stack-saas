@@ -74,15 +74,17 @@
             box-shadow: 0 14px 34px -6px rgba(236, 72, 153, 0.48), 0 0 0 4px rgba(236, 72, 153, 0.14);
         }
         .text-veloce-gradient {
-            background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 48%, #F97316 82%, #FACC15 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 48%, #F97316 82%, #FACC15 100%);
+    background-clip: text; /* Add this standard property */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
         html:not(.dark) .text-veloce-gradient {
-            background: linear-gradient(135deg, #5B21B6 0%, #DB2777 50%, #EA580C 90%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    background: linear-gradient(135deg, #5B21B6 0%, #DB2777 50%, #EA580C 90%);
+    background-clip: text; /* Add this standard property */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
         /* Minimalistic Architectural Grid Background */
         .bg-arch-grid {
