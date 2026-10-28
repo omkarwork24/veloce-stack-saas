@@ -28,8 +28,8 @@
                             panel: '#FFFFFF',
                             panelDark: '#0D1017',
                             panelLight: '#F1F4F9',
-                            paper: '#F7F8FC',
-                            navy: '#0B0F19',
+                            paper: '#F4F5F7',     /* Softer, eye-friendly warm light background */
+                            navy: '#1E293B',      /* Rich charcoal text instead of harsh pure black */
                             slate: '#475569',
                             slateDark: '#94A3B8',
                             violet: '#6D28D9',
@@ -51,7 +51,7 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* Silky smooth transitions for all background, text, borders, and shadows during theme switching */
+        /* Silky smooth transition for background, text, borders, and shadows during theme switching */
         *, *::before, *::after {
             transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
         }
@@ -109,12 +109,12 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* Minimalistic Architectural Grid Background with soft radial fade */
+        /* Softened architectural grid background for light mode */
         .bg-arch-grid {
             background-size: 36px 36px;
             background-image: 
-                linear-gradient(to right, rgba(11, 15, 25, 0.032) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(11, 15, 25, 0.032) 1px, transparent 1px);
+                linear-gradient(to right, rgba(15, 23, 42, 0.025) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(15, 23, 42, 0.025) 1px, transparent 1px);
         }
         .dark .bg-arch-grid {
             background-image: 
@@ -212,13 +212,13 @@
             box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.16);
         }
 
-        /* Custom Scrollbar */
+        /* Custom Scrollbar matching the warm theme */
         ::-webkit-scrollbar {
             width: 8px;
             height: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #F7F8FC;
+            background: #F4F5F7;
         }
         .dark ::-webkit-scrollbar-track {
             background: #06070B;
@@ -1361,7 +1361,6 @@
             const htmlEl = document.documentElement;
             const icon = document.getElementById('theme-icon');
 
-            // Use View Transitions API if supported for silky smooth animation
             if (!document.startViewTransition) {
                 executeThemeSwitch(htmlEl, icon);
                 return;
