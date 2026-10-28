@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth overflow-x-hidden">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,7 +30,7 @@
                             panelLight: '#F1F4F9',
                             paper: '#F7F8FC',
                             navy: '#0B0F19',
-                            slate: '#525B72',
+                            slate: '#475569',
                             slateDark: '#94A3B8',
                             violet: '#6D28D9',
                             magenta: '#EC4899',
@@ -44,6 +44,13 @@
     </script>
 
     <style>
+        /* Prevent any accidental horizontal scroll across mobile viewports */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
         /* Signature Brand Gradients extracted directly from the VeloceStack Logo */
         .bg-veloce-gradient {
             background: linear-gradient(135deg, #5B21B6 0%, #C026D3 38%, #EC4899 65%, #F97316 88%, #FACC15 100%);
@@ -53,6 +60,7 @@
             transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background 0.25s ease;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 8px 24px -6px rgba(219, 39, 119, 0.38), inset 0 1px 0 0 rgba(255, 255, 255, 0.22);
         }
         .bg-veloce-btn::after {
             content: '';
@@ -71,22 +79,26 @@
         }
         .bg-veloce-btn:hover {
             background: linear-gradient(135deg, #7C3AED 0%, #EC4899 48%, #FB923C 100%);
-            box-shadow: 0 14px 34px -6px rgba(236, 72, 153, 0.48), 0 0 0 4px rgba(236, 72, 153, 0.14);
+            box-shadow: 0 14px 34px -6px rgba(236, 72, 153, 0.48), 0 0 0 4px rgba(236, 72, 153, 0.14), inset 0 1px 0 0 rgba(255, 255, 255, 0.3);
         }
-        .text-veloce-gradient {
-    background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 48%, #F97316 82%, #FACC15 100%);
-    background-clip: text; /* Add this standard property */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-        html:not(.dark) .text-veloce-gradient {
-    background: linear-gradient(135deg, #5B21B6 0%, #DB2777 50%, #EA580C 90%);
-    background-clip: text; /* Add this standard property */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+        .bg-veloce-btn:active {
+            transform: scale(0.98);
+        }
 
-        /* Minimalistic Architectural Grid Background */
+        .text-veloce-gradient {
+            background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 48%, #F97316 82%, #FACC15 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        html:not(.dark) .text-veloce-gradient {
+            background: linear-gradient(135deg, #5B21B6 0%, #DB2777 50%, #EA580C 90%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Minimalistic Architectural Grid Background with soft radial fade */
         .bg-arch-grid {
             background-size: 36px 36px;
             background-image: 
@@ -99,18 +111,42 @@
                 linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
         }
 
-        /* Card & Container Effects */
+        /* Polished Card & Surface Elevation */
         .card-surface {
-            transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.24s ease, box-shadow 0.24s ease;
+            transition: transform 0.26s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.26s ease, box-shadow 0.26s ease;
+            box-shadow: 0 4px 20px -4px rgba(11, 15, 25, 0.04), 0 2px 6px -1px rgba(11, 15, 25, 0.02);
         }
-        .card-surface:hover {
-            transform: translateY(-3px);
+        .dark .card-surface {
+            box-shadow: 0 8px 28px -6px rgba(0, 0, 0, 0.45), inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
         }
+        @media (hover: hover) and (pointer: fine) {
+            .card-surface:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 20px 38px -12px rgba(11, 15, 25, 0.1), 0 4px 12px -2px rgba(11, 15, 25, 0.04);
+            }
+            .dark .card-surface:hover {
+                box-shadow: 0 20px 42px -12px rgba(0, 0, 0, 0.65), 0 0 24px -6px rgba(236, 72, 153, 0.14), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+            }
+        }
+
+        /* Refined Eyebrow Badge Pill */
+        .eyebrow-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.3rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.7rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
         .veloce-border-glow {
-            box-shadow: 0 25px 65px -15px rgba(219, 39, 119, 0.14), 0 10px 30px -10px rgba(109, 40, 217, 0.1);
+            box-shadow: 0 25px 65px -15px rgba(219, 39, 119, 0.16), 0 10px 30px -10px rgba(109, 40, 217, 0.12);
         }
         .dark .veloce-border-glow {
-            box-shadow: 0 25px 70px -15px rgba(236, 72, 153, 0.22), 0 10px 35px -10px rgba(124, 58, 237, 0.22);
+            box-shadow: 0 25px 70px -15px rgba(236, 72, 153, 0.24), 0 10px 35px -10px rgba(124, 58, 237, 0.24);
         }
 
         /* Interactive Cursor-Proximity Spotlight on Book-a-Call Container */
@@ -118,9 +154,11 @@
             position: relative;
             transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
         }
-        #work-intake-box:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 30px 80px -15px rgba(236, 72, 153, 0.25), 0 12px 36px -10px rgba(109, 40, 217, 0.2);
+        @media (hover: hover) and (pointer: fine) {
+            #work-intake-box:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 30px 80px -15px rgba(236, 72, 153, 0.25), 0 12px 36px -10px rgba(109, 40, 217, 0.2);
+            }
         }
         .cursor-spotlight {
             pointer-events: none;
@@ -129,7 +167,7 @@
             border-radius: 22px;
             opacity: 0;
             transition: opacity 0.3s ease;
-            background: radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(236, 72, 153, 0.08), transparent 45%);
+            background: radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(236, 72, 153, 0.09), transparent 45%);
         }
         #work-intake-box:hover .cursor-spotlight {
             opacity: 1;
@@ -151,6 +189,16 @@
         .logo-target-ring {
             transform-origin: 83px 17px;
             animation: target-pulse 2.6s infinite ease-in-out;
+        }
+
+        /* Polished Form Focus States */
+        .veloce-input {
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+        }
+        .veloce-input:focus {
+            outline: none;
+            border-color: #EC4899;
+            box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.16);
         }
 
         /* Custom Scrollbar */
@@ -176,10 +224,10 @@
         }
     </style>
 </head>
-<body class="bg-veloce-paper dark:bg-veloce-obsidian text-veloce-navy dark:text-slate-100 font-sans antialiased selection:bg-pink-500 selection:text-white transition-colors duration-200 bg-arch-grid min-h-screen flex flex-col justify-between">
+<body class="bg-veloce-paper dark:bg-veloce-obsidian text-veloce-navy dark:text-slate-100 font-sans antialiased selection:bg-pink-500 selection:text-white transition-colors duration-200 bg-arch-grid min-h-screen flex flex-col justify-between overflow-x-hidden">
 
     <!-- Shared SVG Definitions for the VeloceStack Ribbon-Arrow Logo -->
-    <svg width="0" height="0" class="absolute pointer-events-none">
+    <svg width="0" height="0" class="absolute pointer-events-none" aria-hidden="true">
         <defs>
             <!-- Left Wing Deep Royal Violet Gradient -->
             <linearGradient id="veloce-left-wing" x1="0%" y1="0%" x2="90%" y2="100%">
@@ -216,20 +264,22 @@
         </defs>
     </svg>
 
-    <!-- Soft Minimalistic Ambient Spotlights -->
-    <div class="fixed top-0 left-1/4 w-[540px] h-[340px] bg-purple-600/5 dark:bg-purple-600/12 rounded-full blur-[140px] pointer-events-none -z-10"></div>
-    <div class="fixed top-12 right-1/4 w-[460px] h-[320px] bg-pink-500/5 dark:bg-orange-500/10 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+    <!-- Contained Soft Minimalistic Ambient Spotlights (Overflow-Safe on Mobile) -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10" aria-hidden="true">
+        <div class="absolute -top-10 left-1/4 w-[320px] sm:w-[560px] h-[260px] sm:h-[360px] bg-purple-600/8 dark:bg-purple-600/14 rounded-full blur-[120px] sm:blur-[140px]"></div>
+        <div class="absolute top-12 right-1/4 w-[280px] sm:w-[480px] h-[240px] sm:h-[340px] bg-pink-500/8 dark:bg-orange-500/12 rounded-full blur-[120px] sm:blur-[140px]"></div>
+    </div>
 
     <!-- =========================================================
-         DECLUTTERED ENTERPRISE HEADER (LEFT-ALIGNED LOGO, NO BRAND KIT)
+         ENTERPRISE HEADER WITH RESPONSIVE MOBILE NAVIGATION DRAWER
     ========================================================== -->
     <header class="sticky top-0 z-50 bg-white/85 dark:bg-veloce-obsidian/85 backdrop-blur-xl border-b border-slate-200/80 dark:border-white/10 transition-colors">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4">
             
             <!-- Left-Aligned Brand Identity: VeloceStack Ribbon-Arrow Vector Logo + Wordmark -->
-            <a href="#" onclick="switchView('landing'); return false;" class="flex items-center gap-3 group shrink-0">
-                <div class="relative w-10 h-10 rounded-xl bg-slate-100/90 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shadow-sm">
-                    <svg viewBox="0 0 100 90" class="w-8 h-8 overflow-visible" aria-label="VeloceStack Logo">
+            <a href="#" onclick="switchView('landing'); return false;" class="flex items-center gap-2.5 sm:gap-3 group shrink-0">
+                <div class="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-slate-100/90 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shadow-sm">
+                    <svg viewBox="0 0 100 90" class="w-7 h-7 sm:w-8 sm:h-8 overflow-visible" aria-label="VeloceStack Logo">
                         <circle cx="83" cy="17" r="15" fill="url(#veloce-tip-glow)" class="logo-target-ring" />
                         <path d="M 76 11 A 9 9 0 1 1 89 24" fill="none" stroke="#FACC15" stroke-width="2.6" stroke-linecap="round" class="logo-target-ring" />
                         <circle cx="83" cy="17" r="3.2" fill="#FEF08A" />
@@ -240,42 +290,72 @@
                     </svg>
                 </div>
                 <div class="flex flex-col leading-none">
-                    <div class="flex items-baseline gap-1">
-                        <span class="font-extrabold text-xl sm:text-2xl tracking-[-0.04em] text-veloce-navy dark:text-white">veloce</span>
-                        <span class="font-medium text-lg sm:text-xl tracking-tight text-veloce-slate dark:text-slate-300">stack</span>
+                    <div class="flex items-baseline gap-0.5 sm:gap-1">
+                        <span class="font-extrabold text-lg sm:text-2xl tracking-[-0.04em] text-veloce-navy dark:text-white">veloce</span>
+                        <span class="font-medium text-base sm:text-xl tracking-tight text-veloce-slate dark:text-slate-300">stack</span>
                     </div>
-                    <span class="text-[9px] font-mono uppercase tracking-[0.2em] text-pink-600 dark:text-pink-400 font-semibold mt-0.5">Enterprise Studio</span>
+                    <span class="text-[8px] sm:text-[9px] font-mono uppercase tracking-[0.18em] sm:tracking-[0.2em] text-pink-600 dark:text-pink-400 font-semibold mt-0.5">Enterprise Studio</span>
                 </div>
             </a>
 
-            <!-- Center Navigation: Single-Line Glassmorphic Pill (Zero Wrapping) -->
-            <nav class="hidden lg:flex items-center gap-1 px-3 py-1.5 rounded-full bg-slate-100/90 dark:bg-veloce-panelDark border border-slate-200/80 dark:border-white/10 text-xs font-medium text-veloce-slate dark:text-slate-300 shadow-sm whitespace-nowrap">
-                <a href="#vision" onclick="navigateToSection('vision')" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-white/10 hover:text-veloce-navy dark:hover:text-white transition">Our Vision</a>
-                <a href="#expertise" onclick="navigateToSection('expertise')" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-white/10 hover:text-veloce-navy dark:hover:text-white transition">What We Do</a>
-                <a href="#sla-workflow" onclick="navigateToSection('sla-workflow')" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-white/10 hover:text-veloce-navy dark:hover:text-white transition">24–48h SLA Explained</a>
-                <a href="#pod-roles" onclick="navigateToSection('pod-roles')" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-white/10 hover:text-veloce-navy dark:hover:text-white transition">Senior Pod</a>
+            <!-- Center Navigation: Single-Line Glassmorphic Pill (Desktop) -->
+            <nav class="hidden lg:flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-slate-100/90 dark:bg-veloce-panelDark/90 border border-slate-200/80 dark:border-white/10 text-xs font-medium text-veloce-slate dark:text-slate-300 shadow-sm whitespace-nowrap">
+                <a href="#vision" onclick="navigateToSection('vision'); return false;" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-white/10 hover:text-veloce-navy dark:hover:text-white transition">Our Vision</a>
+                <a href="#expertise" onclick="navigateToSection('expertise'); return false;" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-white/10 hover:text-veloce-navy dark:hover:text-white transition">What We Do</a>
+                <a href="#sla-workflow" onclick="navigateToSection('sla-workflow'); return false;" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-white/10 hover:text-veloce-navy dark:hover:text-white transition">24–48h SLA Explained</a>
+                <a href="#pod-roles" onclick="navigateToSection('pod-roles'); return false;" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-white/10 hover:text-veloce-navy dark:hover:text-white transition">Senior Pod</a>
                 <button onclick="switchView('models')" class="ml-1 px-3.5 py-1.5 rounded-full bg-purple-500/10 dark:bg-purple-500/20 text-purple-700 dark:text-pink-300 font-semibold border border-purple-300/60 dark:border-pink-500/30 hover:border-pink-500 transition">
                     Subscription Models
                 </button>
             </nav>
 
-            <!-- Right Actions: Theme Toggle + Magnetic Book a Call CTA -->
-            <div class="flex items-center gap-2.5 shrink-0">
-                <!-- Mobile Models Link -->
-                <button onclick="switchView('models')" class="lg:hidden px-3 py-2 rounded-xl bg-purple-500/10 text-purple-700 dark:text-pink-300 font-mono text-xs font-semibold border border-purple-400/30">
-                    Models
+            <!-- Right Actions: Theme Toggle + Book a Call CTA + Mobile Menu Trigger -->
+            <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+                <!-- 1-Click Light / Dark Mode Toggle -->
+                <button onclick="toggleTheme()" id="theme-toggle-btn" aria-label="Toggle Dark/Light Mode" class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white dark:bg-veloce-panelDark hover:bg-slate-100 dark:hover:bg-white/10 text-veloce-navy dark:text-slate-200 border border-slate-200/90 dark:border-white/10 flex items-center justify-center transition shadow-sm" title="Switch Light / Dark Mode">
+                    <i id="theme-icon" class="fa-solid fa-moon text-veloce-navy text-xs sm:text-sm"></i>
                 </button>
 
-                <!-- 1-Click Light / Dark Mode Toggle (Light Mode Default) -->
-                <button onclick="toggleTheme()" id="theme-toggle-btn" aria-label="Toggle Dark/Light Mode" class="w-10 h-10 rounded-xl bg-white dark:bg-veloce-panelDark hover:bg-slate-100 dark:hover:bg-white/10 text-veloce-navy dark:text-slate-200 border border-slate-200 dark:border-white/10 flex items-center justify-center transition shadow-sm" title="Switch Light / Dark Mode">
-                    <i id="theme-icon" class="fa-solid fa-moon text-veloce-navy text-sm"></i>
-                </button>
-
-                <!-- Primary Gradient CTA with Cursor-Proximity Magnetic Animation -->
-                <button onclick="openWorkIntakeContainer()" class="magnetic-cta inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-veloce-btn text-white font-bold text-xs sm:text-sm shadow-md whitespace-nowrap">
+                <!-- Primary Gradient CTA -->
+                <button onclick="openWorkIntakeContainer()" class="magnetic-cta inline-flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-veloce-btn text-white font-bold text-xs sm:text-sm shadow-md whitespace-nowrap">
                     <span>Book a Call</span>
                     <i class="fa-solid fa-arrow-up-right-from-square text-[10px] cta-arrow"></i>
                 </button>
+
+                <!-- Mobile Navigation Drawer Button -->
+                <button onclick="toggleMobileMenu()" id="mobile-menu-btn" aria-label="Open Navigation Menu" aria-expanded="false" class="lg:hidden w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white dark:bg-veloce-panelDark hover:bg-slate-100 dark:hover:bg-white/10 text-veloce-navy dark:text-slate-200 border border-slate-200/90 dark:border-white/10 flex items-center justify-center transition shadow-sm">
+                    <i id="mobile-menu-icon" class="fa-solid fa-bars text-sm"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Collapsible Mobile Navigation Drawer -->
+        <div id="mobile-nav-drawer" class="hidden lg:hidden border-t border-slate-200/80 dark:border-white/10 bg-white/95 dark:bg-veloce-panelDark/95 backdrop-blur-xl px-4 pt-3 pb-5 shadow-xl">
+            <div class="flex flex-col space-y-1.5 text-sm font-semibold text-veloce-navy dark:text-slate-200">
+                <a href="#vision" onclick="navigateToSection('vision'); return false;" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-white/5 transition">
+                    <span>Our Vision & Moats</span>
+                    <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                </a>
+                <a href="#expertise" onclick="navigateToSection('expertise'); return false;" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-white/5 transition">
+                    <span>What We Do (Core + Custom)</span>
+                    <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                </a>
+                <a href="#sla-workflow" onclick="navigateToSection('sla-workflow'); return false;" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-white/5 transition">
+                    <span>24–48h SLA Explained</span>
+                    <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                </a>
+                <a href="#pod-roles" onclick="navigateToSection('pod-roles'); return false;" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-white/5 transition">
+                    <span>5-Role Senior Engineering Pod</span>
+                    <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                </a>
+                <div class="pt-2 mt-1 border-t border-slate-200/70 dark:border-white/10 flex flex-col sm:flex-row gap-2.5">
+                    <button onclick="switchView('models')" class="w-full py-2.5 px-4 rounded-xl bg-purple-500/10 dark:bg-purple-500/20 text-purple-700 dark:text-pink-300 font-mono text-xs font-bold border border-purple-300/60 dark:border-pink-500/30 text-center">
+                        Explore Subscription Models &rarr;
+                    </button>
+                    <button onclick="openWorkIntakeContainer()" class="w-full py-2.5 px-4 rounded-xl bg-veloce-btn text-white font-bold text-xs text-center shadow-sm">
+                        Scope Your Project Now
+                    </button>
+                </div>
             </div>
         </div>
     </header>
@@ -285,14 +365,14 @@
     ========================================================== -->
     <main id="view-landing" class="flex-1">
 
-        <!-- 1. HERO SECTION WITH REDESIGNED ARCHITECTURAL EMBLEM DOCK -->
-        <section class="relative pt-12 pb-16 sm:pt-16 sm:pb-24 px-4 sm:px-6 border-b border-slate-200/80 dark:border-white/10">
+        <!-- 1. HERO SECTION WITH MOBILE-OPTIMIZED ARCHITECTURAL EMBLEM DOCK -->
+        <section class="relative pt-10 pb-16 sm:pt-16 sm:pb-24 px-4 sm:px-6 border-b border-slate-200/80 dark:border-white/10">
             <div class="max-w-4xl mx-auto text-center space-y-6">
                 
-                <!-- Redesigned Main Body Logo: Sleek Floating Architectural Emblem Dock -->
-                <div class="inline-flex items-center gap-3.5 p-2 pr-5 rounded-full bg-white/95 dark:bg-veloce-panelDark/95 border border-slate-200/90 dark:border-white/10 shadow-md mb-2">
-                    <div class="w-11 h-11 rounded-full bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-orange-500/10 dark:from-purple-500/20 dark:via-pink-500/20 dark:to-orange-500/20 border border-purple-500/20 flex items-center justify-center shrink-0">
-                        <svg viewBox="0 0 100 90" class="w-7 h-7 overflow-visible" aria-hidden="true">
+                <!-- Sleek Floating Architectural Emblem Dock (Graceful Mobile Wrapping) -->
+                <div class="inline-flex flex-wrap sm:flex-nowrap items-center justify-center sm:justify-start gap-3 p-2.5 sm:p-2 sm:pr-5 rounded-2xl sm:rounded-full bg-white/95 dark:bg-veloce-panelDark/95 border border-slate-200/90 dark:border-white/10 shadow-md mb-1 max-w-full">
+                    <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-orange-500/10 dark:from-purple-500/20 dark:via-pink-500/20 dark:to-orange-500/20 border border-purple-500/20 flex items-center justify-center shrink-0">
+                        <svg viewBox="0 0 100 90" class="w-6 h-6 sm:w-7 sm:h-7 overflow-visible" aria-hidden="true">
                             <circle cx="83" cy="17" r="14" fill="url(#veloce-tip-glow)" class="logo-target-ring" />
                             <path d="M 76 11 A 9 9 0 1 1 89 24" fill="none" stroke="#FACC15" stroke-width="2.5" stroke-linecap="round" class="logo-target-ring" />
                             <circle cx="83" cy="17" r="3" fill="#FEF08A" />
@@ -302,21 +382,21 @@
                             <path d="M 34 53 C 42 61, 50 58, 59 48 C 65 41, 71 32, 76 24" fill="none" stroke="url(#veloce-ribbon-highlight)" stroke-width="2.4" stroke-linecap="round" />
                         </svg>
                     </div>
-                    <div class="text-left leading-tight">
-                        <div class="flex items-center gap-1.5">
+                    <div class="text-center sm:text-left leading-tight min-w-0">
+                        <div class="flex flex-wrap items-center justify-center sm:justify-start gap-1.5">
                             <span class="font-extrabold text-sm tracking-tight text-veloce-navy dark:text-white">veloce stack</span>
-                            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-bold border border-emerald-500/20">
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-bold border border-emerald-500/20 whitespace-nowrap">
                                 ● 24–48H TICKET SLA
                             </span>
                         </div>
-                        <div class="text-[11px] font-mono text-veloce-slate dark:text-slate-400">
+                        <div class="text-[11px] font-mono text-veloce-slate dark:text-slate-400 mt-0.5">
                             On-Demand Full-Stack, AI & Custom Engineering Pod
                         </div>
                     </div>
                 </div>
 
                 <!-- Main Headline -->
-                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-veloce-navy dark:text-white leading-[1.08]">
+                <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-[-0.03em] text-veloce-navy dark:text-white leading-[1.12] sm:leading-[1.08]">
                     We architect, automate, and ship production software & AI systems—<span class="text-veloce-gradient">swiftly.</span>
                 </h1>
 
@@ -326,25 +406,25 @@
                 </p>
 
                 <!-- 3 Pillars of Swift Execution -->
-                <div class="pt-1 flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 text-xs font-mono text-veloce-slate dark:text-slate-300">
-                    <span class="px-3.5 py-1.5 rounded-lg bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 shadow-sm">
+                <div class="pt-1 flex flex-wrap items-center justify-center gap-2 sm:gap-3.5 text-xs font-mono text-veloce-slate dark:text-slate-300">
+                    <span class="px-3 sm:px-3.5 py-1.5 rounded-lg bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10 shadow-sm">
                         <i class="fa-solid fa-bolt text-orange-500 mr-1.5"></i>24–48h Atomic Ticket Turnaround
                     </span>
-                    <span class="px-3.5 py-1.5 rounded-lg bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 shadow-sm">
+                    <span class="px-3 sm:px-3.5 py-1.5 rounded-lg bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10 shadow-sm">
                         <i class="fa-solid fa-video text-pink-500 mr-1.5"></i>90-Sec Loom Proof on Every PR
                     </span>
-                    <span class="px-3.5 py-1.5 rounded-lg bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 shadow-sm">
+                    <span class="px-3 sm:px-3.5 py-1.5 rounded-lg bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10 shadow-sm">
                         <i class="fa-solid fa-code-branch text-purple-500 mr-1.5"></i>Core Pillars + Any Custom Code Scope
                     </span>
                 </div>
 
                 <!-- Dual Hero CTAs -->
-                <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3.5">
-                    <button onclick="openWorkIntakeContainer()" class="magnetic-cta w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-veloce-btn text-white font-bold text-sm sm:text-base shadow-lg">
+                <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-3.5">
+                    <button onclick="openWorkIntakeContainer()" class="magnetic-cta w-full sm:w-auto inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-4 rounded-xl bg-veloce-btn text-white font-bold text-sm sm:text-base shadow-lg">
                         <span>Book a Call & Tell Us Your Work</span>
                         <i class="fa-solid fa-arrow-down text-xs cta-arrow"></i>
                     </button>
-                    <button onclick="navigateToSection('sla-workflow')" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-white dark:bg-veloce-panelDark hover:bg-slate-50 dark:hover:bg-white/5 text-veloce-navy dark:text-slate-200 font-semibold text-sm sm:text-base border border-slate-300 dark:border-white/10 transition">
+                    <button onclick="navigateToSection('sla-workflow')" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-white dark:bg-veloce-panelDark hover:bg-slate-50 dark:hover:bg-white/5 text-veloce-navy dark:text-slate-200 font-semibold text-sm sm:text-base border border-slate-300/90 dark:border-white/10 transition shadow-sm">
                         <span>See How 24–48h Delivery Works</span>
                         <i class="fa-solid fa-arrow-right text-xs text-pink-500"></i>
                     </button>
@@ -353,104 +433,107 @@
         </section>
 
         <!-- 2. OUR EXPERTISE + CUSTOM BESPOKE ENGINEERING ("ANYTHING YOU DEMAND") -->
-        <section id="expertise" class="py-16 sm:py-20 px-4 sm:px-6 max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+        <section id="expertise" class="py-16 sm:py-24 px-4 sm:px-6 max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-12 gap-4">
                 <div>
-                    <div class="text-xs font-mono uppercase tracking-widest text-pink-600 dark:text-pink-400 font-bold">01 / What We Do • Core Velocity Engines + Custom Builds</div>
-                    <h2 class="text-2xl sm:text-3xl font-extrabold text-veloce-navy dark:text-white mt-1">
+                    <div class="eyebrow-pill font-mono bg-pink-500/10 text-pink-600 dark:text-pink-400 border border-pink-500/20 mb-2.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-pink-500"></span>
+                        <span>01 / What We Do • Core Velocity Engines + Custom Builds</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-veloce-navy dark:text-white">
                         Four Core Capabilities — Plus Any Custom Engineering You Demand
                     </h2>
                 </div>
-                <p class="text-xs sm:text-sm text-veloce-slate dark:text-slate-400 max-w-md">
+                <p class="text-xs sm:text-sm text-veloce-slate dark:text-slate-400 max-w-md leading-relaxed">
                     Click any card below to pre-load it into your project scope brief, or describe your custom engineering requirement.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
                 <!-- Expertise 1: Royal Violet (#7C3AED) -->
-                <div onclick="prefillAndScroll('Action-Taking AI Agents & RAG Systems', 'We want to build and deploy a custom AI agent / RAG system connected safely to our internal docs, database, or CRM.')" class="card-surface cursor-pointer rounded-2xl p-6 sm:p-7 bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 hover:border-purple-500 dark:hover:border-purple-500 flex flex-col justify-between shadow-sm">
+                <div onclick="prefillAndScroll('Action-Taking AI Agents & RAG Systems', 'We want to build and deploy a custom AI agent / RAG system connected safely to our internal docs, database, or CRM.')" class="card-surface group cursor-pointer rounded-2xl p-6 sm:p-7 bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10 hover:border-purple-500 dark:hover:border-purple-500 flex flex-col justify-between">
                     <div>
-                        <div class="flex items-center justify-between mb-4">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
                             <div class="w-11 h-11 rounded-xl bg-purple-500/10 dark:bg-purple-500/20 text-purple-600 dark:text-purple-400 flex items-center justify-center text-lg border border-purple-500/20">
                                 <i class="fa-solid fa-robot"></i>
                             </div>
                             <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-purple-50 dark:bg-purple-950/80 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/60">OpenAI • Claude • pgvector</span>
                         </div>
-                        <h3 class="text-lg sm:text-xl font-bold text-veloce-navy dark:text-white">1. Action-Taking AI Agents & RAG Systems</h3>
+                        <h3 class="text-lg sm:text-xl font-bold text-veloce-navy dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">1. Action-Taking AI Agents & RAG Systems</h3>
                         <p class="text-sm text-veloce-slate dark:text-slate-400 mt-2 leading-relaxed">
                             Move beyond basic chat wrappers. We engineer production AI agents connected to your live PostgreSQL database, CRM, Slack, or WhatsApp—complete with strict tool-calling guardrails, citation accuracy, and prompt-injection defense.
                         </p>
                     </div>
                     <div class="mt-6 pt-4 border-t border-slate-100 dark:border-white/5 flex items-center justify-between text-xs font-mono text-purple-600 dark:text-purple-400 font-bold">
                         <span>Scope AI Agent Architecture</span>
-                        <i class="fa-solid fa-arrow-right"></i>
+                        <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
                     </div>
                 </div>
 
                 <!-- Expertise 2: Vibrant Magenta (#EC4899) -->
-                <div onclick="prefillAndScroll('Full-Stack SaaS & MVP Engineering', 'We need rapid full-stack development (React/Next.js, Node.js, database architecture, and payment webhooks) shipped to production.')" class="card-surface cursor-pointer rounded-2xl p-6 sm:p-7 bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 hover:border-pink-500 dark:hover:border-pink-500 flex flex-col justify-between shadow-sm">
+                <div onclick="prefillAndScroll('Full-Stack SaaS & MVP Engineering', 'We need rapid full-stack development (React/Next.js, Node.js, database architecture, and payment webhooks) shipped to production.')" class="card-surface group cursor-pointer rounded-2xl p-6 sm:p-7 bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10 hover:border-pink-500 dark:hover:border-pink-500 flex flex-col justify-between">
                     <div>
-                        <div class="flex items-center justify-between mb-4">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
                             <div class="w-11 h-11 rounded-xl bg-pink-500/10 dark:bg-pink-500/20 text-pink-600 dark:text-pink-400 flex items-center justify-center text-lg border border-pink-500/20">
                                 <i class="fa-solid fa-layer-group"></i>
                             </div>
                             <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-pink-50 dark:bg-pink-950/60 text-pink-700 dark:text-pink-300 border border-pink-200 dark:border-pink-800/60">Next.js • Node.js • Supabase</span>
                         </div>
-                        <h3 class="text-lg sm:text-xl font-bold text-veloce-navy dark:text-white">2. Full-Stack SaaS & MVP Engineering</h3>
+                        <h3 class="text-lg sm:text-xl font-bold text-veloce-navy dark:text-white group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors">2. Full-Stack SaaS & MVP Engineering</h3>
                         <p class="text-sm text-veloce-slate dark:text-slate-400 mt-2 leading-relaxed">
                             From high-velocity feature sprints on your existing product to complete greenfield SaaS platforms. We build clean multi-tenant architectures, role-based dashboards, and Razorpay/Stripe subscription engines.
                         </p>
                     </div>
                     <div class="mt-6 pt-4 border-t border-slate-100 dark:border-white/5 flex items-center justify-between text-xs font-mono text-pink-600 dark:text-pink-400 font-bold">
                         <span>Scope Full-Stack Sprint</span>
-                        <i class="fa-solid fa-arrow-right"></i>
+                        <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
                     </div>
                 </div>
 
                 <!-- Expertise 3: Blaze Orange (#F97316) -->
-                <div onclick="prefillAndScroll('Workflow Automation & Revenue Ops', 'We want to eliminate manual operational work by automating lead routing, onboarding, or billing via n8n/Make and custom webhooks.')" class="card-surface cursor-pointer rounded-2xl p-6 sm:p-7 bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 hover:border-orange-500 dark:hover:border-orange-500 flex flex-col justify-between shadow-sm">
+                <div onclick="prefillAndScroll('Workflow Automation & Revenue Ops', 'We want to eliminate manual operational work by automating lead routing, onboarding, or billing via n8n/Make and custom webhooks.')" class="card-surface group cursor-pointer rounded-2xl p-6 sm:p-7 bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10 hover:border-orange-500 dark:hover:border-orange-500 flex flex-col justify-between">
                     <div>
-                        <div class="flex items-center justify-between mb-4">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
                             <div class="w-11 h-11 rounded-xl bg-orange-500/10 dark:bg-orange-500/20 text-orange-600 dark:text-orange-400 flex items-center justify-center text-lg border border-orange-500/20">
                                 <i class="fa-solid fa-gears"></i>
                             </div>
                             <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-orange-50 dark:bg-orange-950/60 text-orange-700 dark:text-orange-300 border border-orange-200 dark:border-orange-800/60">n8n • Make • Custom Webhooks</span>
                         </div>
-                        <h3 class="text-lg sm:text-xl font-bold text-veloce-navy dark:text-white">3. Workflow Automation & Revenue Ops</h3>
+                        <h3 class="text-lg sm:text-xl font-bold text-veloce-navy dark:text-white group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">3. Workflow Automation & Revenue Ops</h3>
                         <p class="text-sm text-veloce-slate dark:text-slate-400 mt-2 leading-relaxed">
                             Replace hundreds of hours of manual operations. We architect resilient background pipelines that connect your forms, CRM, Slack, invoicing, and AI enrichment into a zero-touch operational engine.
                         </p>
                     </div>
                     <div class="mt-6 pt-4 border-t border-slate-100 dark:border-white/5 flex items-center justify-between text-xs font-mono text-orange-600 dark:text-orange-400 font-bold">
                         <span>Scope Automation Pipeline</span>
-                        <i class="fa-solid fa-arrow-right"></i>
+                        <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
                     </div>
                 </div>
 
                 <!-- Expertise 4: Solar Gold (#EAB308) -->
-                <div onclick="prefillAndScroll('Cloud Infra, Security & LLM FinOps', 'We need to harden our cloud deployment/security, set up automated Playwright QA, or reduce our monthly AWS/OpenAI API bill.')" class="card-surface cursor-pointer rounded-2xl p-6 sm:p-7 bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 hover:border-amber-500 dark:hover:border-amber-400 flex flex-col justify-between shadow-sm">
+                <div onclick="prefillAndScroll('Cloud Infra, Security & LLM FinOps', 'We need to harden our cloud deployment/security, set up automated Playwright QA, or reduce our monthly AWS/OpenAI API bill.')" class="card-surface group cursor-pointer rounded-2xl p-6 sm:p-7 bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10 hover:border-amber-500 dark:hover:border-amber-400 flex flex-col justify-between">
                     <div>
-                        <div class="flex items-center justify-between mb-4">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
                             <div class="w-11 h-11 rounded-xl bg-amber-500/10 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center text-lg border border-amber-500/20">
                                 <i class="fa-solid fa-shield-halved"></i>
                             </div>
                             <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800/60">AWS • Docker • Playwright • FinOps</span>
                         </div>
-                        <h3 class="text-lg sm:text-xl font-bold text-veloce-navy dark:text-white">4. Cloud Infra, Prototype Hardening & LLM FinOps</h3>
+                        <h3 class="text-lg sm:text-xl font-bold text-veloce-navy dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">4. Cloud Infra, Prototype Hardening & LLM FinOps</h3>
                         <p class="text-sm text-veloce-slate dark:text-slate-400 mt-2 leading-relaxed">
                             We rescue fragile AI-generated prototypes and harden them for real traffic—setting up Docker/AWS CI/CD, Playwright E2E test suites, and semantic caching that slashes monthly LLM API token bills by 40–60%.
                         </p>
                     </div>
                     <div class="mt-6 pt-4 border-t border-slate-100 dark:border-white/5 flex items-center justify-between text-xs font-mono text-amber-600 dark:text-amber-400 font-bold">
                         <span>Scope Cloud & FinOps Audit</span>
-                        <i class="fa-solid fa-arrow-right"></i>
+                        <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
                     </div>
                 </div>
             </div>
 
-            <!-- 5th Pillar: Custom & Bespoke Engineering Card ("We Build Anything You Demand") -->
-            <div onclick="prefillAndScroll('Custom / Bespoke Engineering Request', 'We have a custom engineering requirement outside standard templates (describe your custom architecture, app, migration, or integration below):')" class="card-surface cursor-pointer mt-5 p-6 sm:p-8 rounded-2xl bg-white dark:bg-veloce-panelDark border-2 border-dashed border-purple-400/60 dark:border-pink-500/40 hover:border-pink-500 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 shadow-sm">
-                <div class="flex items-start gap-4 max-w-3xl">
+            <!-- 5th Pillar: Custom & Bespoke Engineering Card (Mobile-Responsive Stack) -->
+            <div onclick="prefillAndScroll('Custom / Bespoke Engineering Request', 'We have a custom engineering requirement outside standard templates (describe your custom architecture, app, migration, or integration below):')" class="card-surface cursor-pointer mt-5 sm:mt-6 p-6 sm:p-8 rounded-2xl bg-white dark:bg-veloce-panelDark border-2 border-dashed border-purple-400/60 dark:border-pink-500/40 hover:border-pink-500 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+                <div class="flex flex-col sm:flex-row items-start gap-4 max-w-3xl">
                     <div class="w-12 h-12 rounded-2xl bg-veloce-gradient text-white flex items-center justify-center text-xl shrink-0 shadow-md">
                         <i class="fa-solid fa-wand-magic-sparkles"></i>
                     </div>
@@ -464,13 +547,13 @@
                         <h3 class="text-lg sm:text-xl font-extrabold text-veloce-navy dark:text-white mt-1.5">
                             Need Something Outside These Four Boxes? We Architect & Build Custom Demands.
                         </h3>
-                        <p class="text-xs sm:text-sm text-veloce-slate dark:text-slate-400 mt-1 leading-relaxed">
-                            Our four pillars above are our most requested velocity tracks—not our limits. Whether you need <strong>custom mobile apps, legacy codebase migrations, complex third-party API bridges, custom data pipelines, or specialized backend systems</strong>, our senior pod scopes it into atomic 24–48h sprints and ships it.
+                        <p class="text-xs sm:text-sm text-veloce-slate dark:text-slate-400 mt-1.5 leading-relaxed">
+                            Our four pillars above are our most requested velocity tracks—not our limits. Whether you need <strong class="text-veloce-navy dark:text-slate-200">custom mobile apps, legacy codebase migrations, complex third-party API bridges, custom data pipelines, or specialized backend systems</strong>, our senior pod scopes it into atomic 24–48h sprints and ships it.
                         </p>
                     </div>
                 </div>
-                <button type="button" class="magnetic-cta px-6 py-3.5 rounded-xl bg-veloce-btn text-white font-bold text-xs sm:text-sm shrink-0 shadow-md">
-                    Scope Custom Work &rarr;
+                <button type="button" class="magnetic-cta w-full lg:w-auto inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-veloce-btn text-white font-bold text-xs sm:text-sm shrink-0 shadow-md">
+                    <span>Scope Custom Work &rarr;</span>
                 </button>
             </div>
         </section>
@@ -478,49 +561,49 @@
         <!-- 3. INTERACTIVE "BOOK A CALL" WORK SCOPE CONTAINER (WITH CURSOR SPOTLIGHT) -->
         <section id="book-call-section" class="py-10 px-4 sm:px-6 max-w-4xl mx-auto scroll-mt-20">
             <div id="work-intake-box" class="p-[2px] rounded-3xl bg-veloce-gradient veloce-border-glow">
-                <div class="bg-white dark:bg-veloce-panelDark rounded-[22px] p-6 sm:p-10 shadow-xl relative overflow-hidden">
+                <div class="bg-white dark:bg-veloce-panelDark rounded-[22px] p-5 sm:p-10 shadow-xl relative overflow-hidden">
                     <!-- Interactive Cursor-Tracking Radial Spotlight -->
                     <div class="cursor-spotlight" id="intake-spotlight"></div>
 
                     <!-- Header -->
-                    <div class="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-6 mb-6 border-b border-slate-200 dark:border-white/10">
+                    <div class="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 sm:pb-6 mb-6 border-b border-slate-200 dark:border-white/10">
                         <div>
-                            <div class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-pink-600 dark:text-pink-400 font-bold">
+                            <div class="inline-flex items-center gap-2 text-[11px] sm:text-xs font-mono uppercase tracking-wider text-pink-600 dark:text-pink-400 font-bold">
                                 <span class="w-2 h-2 rounded-full bg-pink-500 animate-ping"></span>
                                 <span>STEP 1 OF 2 • PROBLEM-FIRST SCOPING CONTAINER</span>
                             </div>
-                            <h2 class="text-2xl sm:text-3xl font-extrabold text-veloce-navy dark:text-white mt-1">
+                            <h2 class="text-xl sm:text-3xl font-extrabold text-veloce-navy dark:text-white mt-1.5">
                                 Tell Us What Work We Are Going to Do for You
                             </h2>
-                            <p class="text-xs sm:text-sm text-veloce-slate dark:text-slate-400 mt-1">
+                            <p class="text-xs sm:text-sm text-veloce-slate dark:text-slate-400 mt-1 leading-relaxed">
                                 Standard or 100% custom—describe your requirement below. Our Principal Architect reviews your brief and prepares a tailored 24–48h sprint roadmap for your call.
                             </p>
                         </div>
                     </div>
 
-                    <!-- Work Brief Form -->
-                    <form id="work-scope-form" onsubmit="proceedToSchedulePage(event)" class="relative z-10 space-y-6">
+                    <!-- Work Brief Form (text-base sm:text-sm prevents iOS Safari auto-zoom) -->
+                    <form id="work-scope-form" onsubmit="proceedToSchedulePage(event)" class="relative z-10 space-y-5 sm:space-y-6">
                         <!-- Row 1: Name, Company, Work Email -->
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                             <div>
-                                <label class="block text-xs font-mono uppercase text-veloce-slate dark:text-slate-400 font-semibold mb-2">Your Name *</label>
-                                <input type="text" id="client-name" required placeholder="e.g. Siddharth Rao" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border border-slate-300 dark:border-white/15 text-veloce-navy dark:text-white text-sm focus:outline-none focus:border-pink-500 transition">
+                                <label for="client-name" class="block text-xs font-mono uppercase text-veloce-slate dark:text-slate-400 font-semibold mb-2">Your Name *</label>
+                                <input type="text" id="client-name" required placeholder="e.g. Siddharth Rao" class="veloce-input w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border border-slate-300 dark:border-white/15 text-veloce-navy dark:text-white text-base sm:text-sm">
                             </div>
                             <div>
-                                <label class="block text-xs font-mono uppercase text-veloce-slate dark:text-slate-400 font-semibold mb-2">Company / Startup *</label>
-                                <input type="text" id="client-company" required placeholder="e.g. NovaFlow Labs" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border border-slate-300 dark:border-white/15 text-veloce-navy dark:text-white text-sm focus:outline-none focus:border-pink-500 transition">
+                                <label for="client-company" class="block text-xs font-mono uppercase text-veloce-slate dark:text-slate-400 font-semibold mb-2">Company / Startup *</label>
+                                <input type="text" id="client-company" required placeholder="e.g. NovaFlow Labs" class="veloce-input w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border border-slate-300 dark:border-white/15 text-veloce-navy dark:text-white text-base sm:text-sm">
                             </div>
                             <div>
-                                <label class="block text-xs font-mono uppercase text-veloce-slate dark:text-slate-400 font-semibold mb-2">Work Email *</label>
-                                <input type="email" id="client-email" required placeholder="sid@novaflow.ai" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border border-slate-300 dark:border-white/15 text-veloce-navy dark:text-white text-sm focus:outline-none focus:border-pink-500 transition">
+                                <label for="client-email" class="block text-xs font-mono uppercase text-veloce-slate dark:text-slate-400 font-semibold mb-2">Work Email *</label>
+                                <input type="email" id="client-email" required placeholder="sid@novaflow.ai" class="veloce-input w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border border-slate-300 dark:border-white/15 text-veloce-navy dark:text-white text-base sm:text-sm">
                             </div>
                         </div>
 
                         <!-- Row 2: Expertise Vertical & Preferred Engagement Structure -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-xs font-mono uppercase text-veloce-slate dark:text-slate-400 font-semibold mb-2">Primary Expertise or Custom Request *</label>
-                                <select id="client-category" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border border-slate-300 dark:border-white/15 text-veloce-navy dark:text-white text-sm focus:outline-none focus:border-pink-500 transition">
+                                <label for="client-category" class="block text-xs font-mono uppercase text-veloce-slate dark:text-slate-400 font-semibold mb-2">Primary Expertise or Custom Request *</label>
+                                <select id="client-category" class="veloce-input w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border border-slate-300 dark:border-white/15 text-veloce-navy dark:text-white text-base sm:text-sm">
                                     <option value="Action-Taking AI Agents & RAG Systems">1. Action-Taking AI Agents & RAG Systems</option>
                                     <option value="Full-Stack SaaS & MVP Engineering">2. Full-Stack SaaS & MVP Engineering (React/Node)</option>
                                     <option value="Workflow Automation & Revenue Ops">3. Workflow Automation & Revenue Ops (n8n/APIs)</option>
@@ -529,8 +612,8 @@
                                 </select>
                             </div>
                             <div>
-                                <label class="block text-xs font-mono uppercase text-veloce-slate dark:text-slate-400 font-semibold mb-2">Engagement Model Interest *</label>
-                                <select id="client-model" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border border-slate-300 dark:border-white/15 text-veloce-navy dark:text-white text-sm focus:outline-none focus:border-pink-500 transition">
+                                <label for="client-model" class="block text-xs font-mono uppercase text-veloce-slate dark:text-slate-400 font-semibold mb-2">Engagement Model Interest *</label>
+                                <select id="client-model" class="veloce-input w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border border-slate-300 dark:border-white/15 text-veloce-navy dark:text-white text-base sm:text-sm">
                                     <option value="Recommend Best Fit After Reviewing My Scope" selected>Recommend Best Fit After Reviewing My Scope</option>
                                     <option value="5-Day Diagnostic & Prototype Micro-Sprint">5-Day Diagnostic & Prototype Micro-Sprint (Trial)</option>
                                     <option value="Growth Engineering Retainer (24–48h Ticket Queue)">Growth Engineering Subscription (Ongoing 24–48h Queue)</option>
@@ -544,10 +627,10 @@
                         <!-- Row 3: Rich Work Description Container with Quick-Fill Templates -->
                         <div>
                             <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-                                <label class="block text-xs font-mono uppercase text-veloce-navy dark:text-white font-bold">
+                                <label for="client-work-details" class="block text-xs font-mono uppercase text-veloce-navy dark:text-white font-bold">
                                     Mention What Work We Are Going to Do for You *
                                 </label>
-                                <span class="text-[11px] font-mono text-veloce-slate dark:text-slate-400">Click to auto-fill a sample scope:</span>
+                                <span class="text-[11px] font-mono text-veloce-slate dark:text-slate-400">Tap to auto-fill a sample scope:</span>
                             </div>
 
                             <!-- 1-Click Quick Prompt Chips -->
@@ -566,16 +649,16 @@
                                 </button>
                             </div>
 
-                            <textarea id="client-work-details" required rows="4" placeholder="Describe the features, AI workflows, or custom architecture you want us to build, your current tech stack, and your target timeline..." class="w-full p-4 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border border-slate-300 dark:border-white/15 text-veloce-navy dark:text-white text-sm focus:outline-none focus:border-pink-500 transition leading-relaxed"></textarea>
+                            <textarea id="client-work-details" required rows="4" placeholder="Describe the features, AI workflows, or custom architecture you want us to build, your current tech stack, and your target timeline..." class="veloce-input w-full p-3.5 sm:p-4 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border border-slate-300 dark:border-white/15 text-veloce-navy dark:text-white text-base sm:text-sm leading-relaxed"></textarea>
                         </div>
 
                         <!-- Submit -> Next Page (Appointment Scheduler) -->
-                        <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
-                            <div class="text-xs text-veloce-slate dark:text-slate-400 flex items-center gap-2">
-                                <i class="fa-solid fa-shield-halved text-orange-500"></i>
+                        <div class="pt-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                            <div class="text-xs text-veloce-slate dark:text-slate-400 flex items-start sm:items-center gap-2 leading-relaxed">
+                                <i class="fa-solid fa-shield-halved text-orange-500 mt-0.5 sm:mt-0 shrink-0"></i>
                                 <span>No payment required today — 15-min technical architecture & scoping call</span>
                             </div>
-                            <button type="submit" class="magnetic-cta w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-veloce-btn text-white font-bold text-sm sm:text-base shadow-lg">
+                            <button type="submit" class="magnetic-cta w-full sm:w-auto inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-4 rounded-xl bg-veloce-btn text-white font-bold text-sm sm:text-base shadow-lg shrink-0">
                                 <span>Schedule Appointment (Next Page)</span>
                                 <i class="fa-solid fa-arrow-right cta-arrow"></i>
                             </button>
@@ -586,33 +669,36 @@
         </section>
 
         <!-- 4. CRYSTAL-CLEAR EXPLANATION OF THE 24–48 HOUR SLA MODEL -->
-        <section id="sla-workflow" class="py-16 sm:py-20 px-4 sm:px-6 max-w-6xl mx-auto border-t border-slate-200/80 dark:border-white/10">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <section id="sla-workflow" class="py-16 sm:py-24 px-4 sm:px-6 max-w-6xl mx-auto border-t border-slate-200/80 dark:border-white/10">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-12 gap-4">
                 <div>
-                    <div class="text-xs font-mono uppercase tracking-widest text-orange-600 dark:text-orange-400 font-bold">02 / Zero Confusion • How the 24–48h SLA Actually Works</div>
-                    <h2 class="text-2xl sm:text-3xl font-extrabold text-veloce-navy dark:text-white mt-1">
+                    <div class="eyebrow-pill font-mono bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20 mb-2.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+                        <span>02 / Zero Confusion • How the 24–48h SLA Actually Works</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-veloce-navy dark:text-white">
                         How We Ship Production Code Every 24 to 48 Hours
                     </h2>
                 </div>
-                <p class="text-xs sm:text-sm text-veloce-slate dark:text-slate-400 max-w-md">
+                <p class="text-xs sm:text-sm text-veloce-slate dark:text-slate-400 max-w-md leading-relaxed">
                     Does "24–48h SLA" mean a whole SaaS is built in two days? No—it means we eliminate multi-week black boxes by breaking every project into verifiable 24–48 hour deliverables.
                 </p>
             </div>
 
             <!-- 4-Step Visual Timeline of a Single 24-48h Ticket -->
-            <div class="mb-10 p-6 sm:p-8 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 shadow-sm">
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-6 mb-6 border-b border-slate-100 dark:border-white/10">
+            <div class="mb-10 p-5 sm:p-8 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10 card-surface">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-5 sm:pb-6 mb-6 border-b border-slate-100 dark:border-white/10">
                     <div>
                         <span class="text-xs font-mono uppercase text-pink-600 dark:text-pink-400 font-bold">The 48-Hour Sprint Loop</span>
                         <h3 class="text-lg sm:text-xl font-extrabold text-veloce-navy dark:text-white mt-0.5">Step-by-Step: What Happens After You Submit a Request</h3>
                     </div>
-                    <span class="text-xs font-mono px-3 py-1 rounded-full bg-slate-100 dark:bg-veloce-obsidian text-veloce-slate dark:text-slate-300">
+                    <span class="self-start sm:self-auto text-xs font-mono px-3 py-1 rounded-full bg-slate-100 dark:bg-veloce-obsidian text-veloce-slate dark:text-slate-300 border border-slate-200/60 dark:border-white/10">
                         100% Async via Linear + Slack + Loom
                     </span>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div class="p-5 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border border-slate-200/80 dark:border-white/10 relative">
+                    <div class="p-5 rounded-xl bg-slate-50/90 dark:bg-veloce-obsidian border border-slate-200/80 dark:border-white/10 relative">
                         <div class="flex items-center justify-between mb-3">
                             <span class="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-purple-500/10 text-purple-600 dark:text-purple-400">HOUR 0</span>
                             <i class="fa-solid fa-plus-circle text-purple-500"></i>
@@ -623,7 +709,7 @@
                         </p>
                     </div>
 
-                    <div class="p-5 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border border-slate-200/80 dark:border-white/10 relative">
+                    <div class="p-5 rounded-xl bg-slate-50/90 dark:bg-veloce-obsidian border border-slate-200/80 dark:border-white/10 relative">
                         <div class="flex items-center justify-between mb-3">
                             <span class="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-pink-500/10 text-pink-600 dark:text-pink-400">HOUR 2–6</span>
                             <i class="fa-solid fa-sitemap text-pink-500"></i>
@@ -634,7 +720,7 @@
                         </p>
                     </div>
 
-                    <div class="p-5 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border border-slate-200/80 dark:border-white/10 relative">
+                    <div class="p-5 rounded-xl bg-slate-50/90 dark:bg-veloce-obsidian border border-slate-200/80 dark:border-white/10 relative">
                         <div class="flex items-center justify-between mb-3">
                             <span class="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-orange-500/10 text-orange-600 dark:text-orange-400">HOUR 6–36</span>
                             <i class="fa-solid fa-code text-orange-500"></i>
@@ -645,7 +731,7 @@
                         </p>
                     </div>
 
-                    <div class="p-5 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border border-slate-200/80 dark:border-white/10 relative">
+                    <div class="p-5 rounded-xl bg-slate-50/90 dark:bg-veloce-obsidian border border-slate-200/80 dark:border-white/10 relative">
                         <div class="flex items-center justify-between mb-3">
                             <span class="text-[11px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">HOUR 24–48</span>
                             <i class="fa-solid fa-video text-emerald-500"></i>
@@ -660,20 +746,21 @@
 
             <!-- Two-Track Comparison Cards (Atomic Tickets vs Multi-Week Systems) -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-                <div class="p-6 sm:p-7 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 shadow-sm flex flex-col justify-between">
+                <div class="card-surface p-6 sm:p-7 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10 flex flex-col justify-between">
                     <div>
-                        <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-pink-500/10 text-pink-600 dark:text-pink-400 font-mono text-xs font-bold mb-3">
-                            <i class="fa-solid fa-bolt"></i> TRACK A: SINGLE ATOMIC TICKETS (SHIPPED IN 24–48H)
+                        <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-pink-500/10 text-pink-600 dark:text-pink-400 font-mono text-[11px] sm:text-xs font-bold mb-3">
+                            <i class="fa-solid fa-bolt"></i>
+                            <span>TRACK A: SINGLE ATOMIC TICKETS (SHIPPED IN 24–48H)</span>
                         </div>
                         <h3 class="text-lg font-bold text-veloce-navy dark:text-white">What Ships Completely in 1 Ticket (24–48 Hours)?</h3>
                         <p class="text-sm text-veloce-slate dark:text-slate-400 mt-2 leading-relaxed">
                             Focused product features, integrations, and optimizations that can be coded, tested, and deployed as a standalone unit:
                         </p>
-                        <ul class="mt-4 space-y-2 text-xs sm:text-sm text-veloce-navy dark:text-slate-300">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-pink-500"></i> <span> Razorpay / Stripe webhook & subscription upgrade flow</span></li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-pink-500"></i> <span> RAG vector ingestion pipeline + citation guardrails</span></li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-pink-500"></i> <span> Next.js analytics dashboard view with role-based auth</span></li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-pink-500"></i> <span> Automated n8n CRM lead-enrichment webhook pipeline</span></li>
+                        <ul class="mt-4 space-y-2.5 text-xs sm:text-sm text-veloce-navy dark:text-slate-300">
+                            <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-pink-500 mt-1 shrink-0"></i> <span>Razorpay / Stripe webhook & subscription upgrade flow</span></li>
+                            <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-pink-500 mt-1 shrink-0"></i> <span>RAG vector ingestion pipeline + citation guardrails</span></li>
+                            <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-pink-500 mt-1 shrink-0"></i> <span>Next.js analytics dashboard view with role-based auth</span></li>
+                            <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-pink-500 mt-1 shrink-0"></i> <span>Automated n8n CRM lead-enrichment webhook pipeline</span></li>
                         </ul>
                     </div>
                     <div class="mt-5 pt-4 border-t border-slate-100 dark:border-white/5 text-xs font-mono text-pink-600 dark:text-pink-400 font-semibold">
@@ -681,20 +768,21 @@
                     </div>
                 </div>
 
-                <div class="p-6 sm:p-7 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 shadow-sm flex flex-col justify-between">
+                <div class="card-surface p-6 sm:p-7 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10 flex flex-col justify-between">
                     <div>
-                        <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-orange-500/10 text-orange-600 dark:text-orange-400 font-mono text-xs font-bold mb-3">
-                            <i class="fa-solid fa-cubes"></i> TRACK B: FULL MVP / SYSTEM BUILDS (2–5 WEEKS VIA 48H SLICES)
+                        <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-md bg-orange-500/10 text-orange-600 dark:text-orange-400 font-mono text-[11px] sm:text-xs font-bold mb-3">
+                            <i class="fa-solid fa-cubes"></i>
+                            <span>TRACK B: FULL MVP / SYSTEM BUILDS (2–5 WEEKS VIA 48H SLICES)</span>
                         </div>
                         <h3 class="text-lg font-bold text-veloce-navy dark:text-white">What About a Full SaaS MVP or Complex Custom Platform?</h3>
                         <p class="text-sm text-veloce-slate dark:text-slate-400 mt-2 leading-relaxed">
                             A complete greenfield product takes 2 to 5 weeks—but you <strong>never wait weeks in the dark</strong>. We slice the entire roadmap into 48-hour staging checkpoints:
                         </p>
-                        <ul class="mt-4 space-y-2 text-xs sm:text-sm text-veloce-navy dark:text-slate-300">
-                            <li class="flex items-center gap-2"><span class="font-mono text-[11px] px-1.5 py-0.5 rounded bg-orange-500/10 text-orange-600 dark:text-orange-400 font-bold">Hrs 1–48</span> <span>Database schema, multi-tenant auth & CI/CD staging live</span></li>
-                            <li class="flex items-center gap-2"><span class="font-mono text-[11px] px-1.5 py-0.5 rounded bg-orange-500/10 text-orange-600 dark:text-orange-400 font-bold">Hrs 49–96</span> <span>Core API endpoints & AI agent tool-calling engine live</span></li>
-                            <li class="flex items-center gap-2"><span class="font-mono text-[11px] px-1.5 py-0.5 rounded bg-orange-500/10 text-orange-600 dark:text-orange-400 font-bold">Hrs 97–144</span> <span>Interactive React dashboard UI & billing webhooks live</span></li>
-                            <li class="flex items-center gap-2"><span class="font-mono text-[11px] px-1.5 py-0.5 rounded bg-orange-500/10 text-orange-600 dark:text-orange-400 font-bold">Every 48h</span> <span>Testable staging link + Loom proof until launch</span></li>
+                        <ul class="mt-4 space-y-2.5 text-xs sm:text-sm text-veloce-navy dark:text-slate-300">
+                            <li class="flex items-start gap-2.5"><span class="font-mono text-[11px] px-1.5 py-0.5 rounded bg-orange-500/10 text-orange-600 dark:text-orange-400 font-bold shrink-0">Hrs 1–48</span> <span>Database schema, multi-tenant auth & CI/CD staging live</span></li>
+                            <li class="flex items-start gap-2.5"><span class="font-mono text-[11px] px-1.5 py-0.5 rounded bg-orange-500/10 text-orange-600 dark:text-orange-400 font-bold shrink-0">Hrs 49–96</span> <span>Core API endpoints & AI agent tool-calling engine live</span></li>
+                            <li class="flex items-start gap-2.5"><span class="font-mono text-[11px] px-1.5 py-0.5 rounded bg-orange-500/10 text-orange-600 dark:text-orange-400 font-bold shrink-0">Hrs 97–144</span> <span>Interactive React dashboard UI & billing webhooks live</span></li>
+                            <li class="flex items-start gap-2.5"><span class="font-mono text-[11px] px-1.5 py-0.5 rounded bg-orange-500/10 text-orange-600 dark:text-orange-400 font-bold shrink-0">Every 48h</span> <span>Testable staging link + Loom proof until launch</span></li>
                         </ul>
                     </div>
                     <div class="mt-5 pt-4 border-t border-slate-100 dark:border-white/5 text-xs font-mono text-orange-600 dark:text-orange-400 font-semibold">
@@ -704,18 +792,18 @@
             </div>
 
             <!-- Interactive Playable Linear Board Preview -->
-            <div class="rounded-2xl p-5 sm:p-7 bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 shadow-sm">
+            <div class="rounded-2xl p-5 sm:p-7 bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10 card-surface">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 mb-6 border-b border-slate-200 dark:border-white/10">
                     <div>
                         <div class="flex items-center gap-2">
-                            <span class="w-2.5 h-2.5 rounded-full bg-pink-500"></span>
-                            <h3 class="text-base sm:text-lg font-bold text-veloce-navy dark:text-white font-mono">Interactive Demo: Try Moving a Ticket Through Our 24–48h Board</h3>
+                            <span class="w-2.5 h-2.5 rounded-full bg-pink-500 shrink-0"></span>
+                            <h3 class="text-sm sm:text-lg font-bold text-veloce-navy dark:text-white font-mono">Interactive Demo: Try Moving a Ticket Through Our 24–48h Board</h3>
                         </div>
-                        <p class="text-xs text-veloce-slate dark:text-slate-400 mt-0.5">
-                            Click <strong>"Advance &rarr;"</strong> on any ticket below to see how your tasks move from Backlog to Production.
+                        <p class="text-xs text-veloce-slate dark:text-slate-400 mt-1">
+                            Tap <strong>"Advance &rarr;"</strong> on any ticket below to see how your tasks move from Backlog to Production.
                         </p>
                     </div>
-                    <div class="flex items-center gap-2">
+                    <div class="flex items-center gap-2 self-start sm:self-auto">
                         <button onclick="addDemoTicket()" class="px-3 py-1.5 rounded-lg bg-purple-500/10 hover:bg-veloce-btn hover:text-white text-purple-700 dark:text-pink-300 text-xs font-mono font-semibold border border-purple-500/20 transition">
                             + Add Sample Ticket
                         </button>
@@ -733,17 +821,20 @@
         </section>
 
         <!-- 5. OUR VISION, WHY US OVER RAW AI, & THE 5-ROLE SENIOR POD -->
-        <section id="vision" class="py-16 sm:py-20 px-4 sm:px-6 border-t border-slate-200/80 dark:border-white/10">
-            <div class="max-w-6xl mx-auto space-y-16">
+        <section id="vision" class="py-16 sm:py-24 px-4 sm:px-6 border-t border-slate-200/80 dark:border-white/10">
+            <div class="max-w-6xl mx-auto space-y-16 sm:space-y-20">
                 <!-- Vision & AI Moat -->
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                     <div class="lg:col-span-6 space-y-4">
-                        <div class="text-xs font-mono uppercase tracking-widest text-purple-600 dark:text-purple-400 font-bold">03 / Our Vision & About Us</div>
-                        <h2 class="text-2xl sm:text-4xl font-extrabold text-veloce-navy dark:text-white leading-tight">
+                        <div class="eyebrow-pill font-mono bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20">
+                            <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
+                            <span>03 / Our Vision & About Us</span>
+                        </div>
+                        <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-veloce-navy dark:text-white leading-tight">
                             AI Writes Isolated Code. <span class="text-veloce-gradient">veloce stack</span> Builds Production Systems.
                         </h2>
                         <p class="text-sm sm:text-base text-veloce-slate dark:text-slate-300 leading-relaxed">
-                            <strong>Our Vision:</strong> Give founders and enterprise leaders an on-demand engineering department that combines AI-accelerated speed with uncompromising human systems architecture.
+                            <strong class="text-veloce-navy dark:text-white">Our Vision:</strong> Give founders and enterprise leaders an on-demand engineering department that combines AI-accelerated speed with uncompromising human systems architecture.
                         </p>
                         <p class="text-sm sm:text-base text-veloce-slate dark:text-slate-400 leading-relaxed">
                             Prompting an LLM gets you 70% of a prototype; the final 30%—multi-tenant security, database deadlocks, webhook idempotency, and cloud cost control—requires seasoned engineers who take full accountability for your uptime.
@@ -751,28 +842,28 @@
                     </div>
 
                     <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="p-5 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 shadow-sm">
+                        <div class="card-surface p-5 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10">
                             <div class="text-xs font-mono font-bold text-purple-600 dark:text-purple-400">MOAT 01</div>
                             <h3 class="text-base font-bold text-veloce-navy dark:text-white mt-1">AI-Accelerated Velocity</h3>
                             <p class="text-xs text-veloce-slate dark:text-slate-400 mt-1.5 leading-relaxed">
                                 We weaponize internal starter boilerplates and AI workflows to ship in 48 hours what traditional agencies drag out for weeks.
                             </p>
                         </div>
-                        <div class="p-5 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 shadow-sm">
+                        <div class="card-surface p-5 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10">
                             <div class="text-xs font-mono font-bold text-pink-600 dark:text-pink-400">MOAT 02</div>
                             <h3 class="text-base font-bold text-veloce-navy dark:text-white mt-1">End-to-End Accountability</h3>
                             <p class="text-xs text-veloce-slate dark:text-slate-400 mt-1.5 leading-relaxed">
                                 Every Pull Request is reviewed by a Principal Architect and verified by automated Playwright E2E tests before staging sign-off.
                             </p>
                         </div>
-                        <div class="p-5 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 shadow-sm">
+                        <div class="card-surface p-5 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10">
                             <div class="text-xs font-mono font-bold text-orange-600 dark:text-orange-400">MOAT 03</div>
                             <h3 class="text-base font-bold text-veloce-navy dark:text-white mt-1">Zero Meeting Overhead</h3>
                             <p class="text-xs text-veloce-slate dark:text-slate-400 mt-1.5 leading-relaxed">
                                 Asynchronous Slack Connect + Linear boards + 90-second Loom demos keep our builders focused 100% on shipping your product.
                             </p>
                         </div>
-                        <div class="p-5 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 shadow-sm">
+                        <div class="card-surface p-5 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10">
                             <div class="text-xs font-mono font-bold text-amber-600 dark:text-amber-400">MOAT 04</div>
                             <h3 class="text-base font-bold text-veloce-navy dark:text-white mt-1">Consultative Scoping</h3>
                             <p class="text-xs text-veloce-slate dark:text-slate-400 mt-1.5 leading-relaxed">
@@ -783,49 +874,52 @@
                 </div>
 
                 <!-- 5 Specialized Pod Roles -->
-                <div id="pod-roles" class="pt-6">
+                <div id="pod-roles" class="pt-4">
                     <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
                         <div>
-                            <div class="text-xs font-mono uppercase tracking-widest text-pink-600 dark:text-pink-400 font-bold">04 / Complete Engineering Coverage</div>
-                            <h3 class="text-2xl sm:text-3xl font-extrabold text-veloce-navy dark:text-white mt-1">
+                            <div class="eyebrow-pill font-mono bg-pink-500/10 text-pink-600 dark:text-pink-400 border border-pink-500/20 mb-2.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-pink-500"></span>
+                                <span>04 / Complete Engineering Coverage</span>
+                            </div>
+                            <h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-veloce-navy dark:text-white">
                                 Five Specialized Leadership Roles in Every Pod
                             </h3>
                         </div>
-                        <p class="text-xs sm:text-sm text-veloce-slate dark:text-slate-400 max-w-md">
+                        <p class="text-xs sm:text-sm text-veloce-slate dark:text-slate-400 max-w-md leading-relaxed">
                             Instead of a single generalist freelancer, your account is backed by five coordinated engineering disciplines.
                         </p>
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-                        <div class="p-5 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 shadow-sm">
+                        <div class="card-surface p-5 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10">
                             <span class="text-[11px] font-mono font-bold text-purple-600 dark:text-purple-400">01 / ARCHITECTURE</span>
                             <h4 class="text-base font-bold text-veloce-navy dark:text-white mt-1">Principal Architect</h4>
                             <p class="text-xs text-veloce-slate dark:text-slate-400 mt-2 leading-relaxed">
                                 System design, database modeling, ticket scoping, and mandatory Pull Request code reviews.
                             </p>
                         </div>
-                        <div class="p-5 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 shadow-sm">
+                        <div class="card-surface p-5 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10">
                             <span class="text-[11px] font-mono font-bold text-pink-600 dark:text-pink-400">02 / BACKEND & AI</span>
                             <h4 class="text-base font-bold text-veloce-navy dark:text-white mt-1">Backend & AI Lead</h4>
                             <p class="text-xs text-veloce-slate dark:text-slate-400 mt-2 leading-relaxed">
                                 Node.js/Python APIs, Supabase/PostgreSQL, RAG vector pipelines, and tool-calling LLM agents.
                             </p>
                         </div>
-                        <div class="p-5 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 shadow-sm">
+                        <div class="card-surface p-5 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10">
                             <span class="text-[11px] font-mono font-bold text-orange-600 dark:text-orange-400">03 / FRONTEND UX</span>
                             <h4 class="text-base font-bold text-veloce-navy dark:text-white mt-1">Frontend & UI Lead</h4>
                             <p class="text-xs text-veloce-slate dark:text-slate-400 mt-2 leading-relaxed">
                                 High-speed React.js & Next.js interfaces, Tailwind design systems, and complex state flows.
                             </p>
                         </div>
-                        <div class="p-5 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 shadow-sm">
+                        <div class="card-surface p-5 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10">
                             <span class="text-[11px] font-mono font-bold text-amber-600 dark:text-amber-400">04 / QA & DEVOPS</span>
                             <h4 class="text-base font-bold text-veloce-navy dark:text-white mt-1">QA & Cloud Lead</h4>
                             <p class="text-xs text-veloce-slate dark:text-slate-400 mt-2 leading-relaxed">
                                 AWS/Vercel CI/CD pipelines, Playwright automated E2E testing, and security vulnerability checks.
                             </p>
                         </div>
-                        <div class="p-5 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 shadow-sm">
+                        <div class="card-surface p-5 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10 sm:col-span-2 lg:col-span-1">
                             <span class="text-[11px] font-mono font-bold text-purple-600 dark:text-pink-400">05 / DELIVERY</span>
                             <h4 class="text-base font-bold text-veloce-navy dark:text-white mt-1">Client Strategy Lead</h4>
                             <p class="text-xs text-veloce-slate dark:text-slate-400 mt-2 leading-relaxed">
@@ -836,22 +930,22 @@
                 </div>
 
                 <!-- Callout Banner to Dedicated Subscription Models Page -->
-                <div class="p-[2px] rounded-3xl bg-veloce-gradient">
-                    <div class="rounded-[22px] p-7 sm:p-10 bg-veloce-navy dark:bg-veloce-panelDark text-white flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 shadow-xl">
+                <div class="p-[2px] rounded-3xl bg-veloce-gradient veloce-border-glow">
+                    <div class="rounded-[22px] p-6 sm:p-10 bg-veloce-navy dark:bg-veloce-panelDark text-white flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 shadow-xl">
                         <div class="space-y-2 max-w-2xl">
                             <span class="text-xs font-mono uppercase tracking-widest text-amber-400 font-bold">Transparent Engagement Architecture</span>
-                            <h3 class="text-2xl sm:text-3xl font-extrabold">
+                            <h3 class="text-xl sm:text-3xl font-extrabold leading-tight">
                                 How Do Our Retainer Subscriptions & Micro-Sprints Work?
                             </h3>
-                            <p class="text-sm text-slate-300 leading-relaxed">
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
                                 Explore our dedicated <strong>Subscription Models</strong> page to see how our 5-Day Diagnostic Micro-Sprint, Ongoing Retainer Queues, and Dedicated Pods operate—and how we tailor proposals around your scope.
                             </p>
                         </div>
                         <div class="flex flex-col sm:flex-row gap-3 w-full lg:w-auto shrink-0">
-                            <button onclick="switchView('models')" class="magnetic-cta px-6 py-4 rounded-xl bg-veloce-btn text-white font-bold text-sm transition text-center shadow-md">
+                            <button onclick="switchView('models')" class="magnetic-cta w-full sm:w-auto px-6 py-4 rounded-xl bg-veloce-btn text-white font-bold text-sm transition text-center shadow-md">
                                 View Subscription Models Page &rarr;
                             </button>
-                            <button onclick="openWorkIntakeContainer()" class="px-6 py-4 rounded-xl bg-white/10 hover:bg-white/15 text-white font-semibold text-sm border border-white/15 transition text-center">
+                            <button onclick="openWorkIntakeContainer()" class="w-full sm:w-auto px-6 py-4 rounded-xl bg-white/10 hover:bg-white/15 text-white font-semibold text-sm border border-white/15 transition text-center">
                                 Scope Your Project First
                             </button>
                         </div>
@@ -865,36 +959,36 @@
     <!-- =========================================================
          VIEW 2: DEDICATED SUBSCRIPTION MODELS PAGE
     ========================================================== -->
-    <section id="view-models" class="hidden flex-1 py-12 sm:py-16 px-4 sm:px-6 max-w-6xl mx-auto w-full">
+    <section id="view-models" class="hidden flex-1 py-10 sm:py-16 px-4 sm:px-6 max-w-6xl mx-auto w-full">
         <!-- Top Back Bar -->
-        <div class="mb-8 flex flex-wrap items-center justify-between gap-4 pb-5 border-b border-slate-200 dark:border-white/10">
+        <div class="mb-8 flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-slate-200 dark:border-white/10">
             <button onclick="switchView('landing')" class="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-veloce-slate dark:text-slate-300 hover:text-pink-600 dark:hover:text-white transition">
                 <i class="fa-solid fa-arrow-left"></i>
                 <span>Back to Main Enterprise Overview</span>
             </button>
-            <span class="text-xs font-mono uppercase tracking-wider px-3 py-1 rounded-full bg-pink-500/10 text-pink-600 dark:text-pink-300 font-bold border border-pink-500/20">
+            <span class="text-[11px] sm:text-xs font-mono uppercase tracking-wider px-3 py-1 rounded-full bg-pink-500/10 text-pink-600 dark:text-pink-300 font-bold border border-pink-500/20">
                 Dedicated Subscription & Engagement Architecture
             </span>
         </div>
 
         <!-- Page Header -->
-        <div class="max-w-3xl space-y-4 mb-12">
+        <div class="max-w-3xl space-y-4 mb-10 sm:mb-12">
             <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-veloce-navy dark:text-white leading-tight">
                 Engagement Models Built Around <span class="text-veloce-gradient">Your Engineering Scope.</span>
             </h1>
-            <p class="text-base sm:text-lg text-veloce-slate dark:text-slate-300 leading-relaxed">
+            <p class="text-sm sm:text-lg text-veloce-slate dark:text-slate-300 leading-relaxed">
                 Every codebase and AI workflow has unique architectural requirements. Instead of forcing you into a generic price tag upfront, we first review your technical brief, match you to one of our four structured engagement models below, and provide a transparent custom proposal.
             </p>
         </div>
 
         <!-- INTERACTIVE RETAINER FIT FINDER -->
-        <div class="mb-12 p-6 sm:p-8 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 shadow-sm">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+        <div class="mb-10 sm:mb-12 p-5 sm:p-8 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10 card-surface">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-6">
                 <div>
                     <span class="text-xs font-mono uppercase text-pink-600 dark:text-pink-400 font-bold">Interactive Model Matcher</span>
-                    <h2 class="text-xl font-extrabold text-veloce-navy dark:text-white mt-0.5">What best describes your current engineering need?</h2>
+                    <h2 class="text-lg sm:text-xl font-extrabold text-veloce-navy dark:text-white mt-0.5">What best describes your current engineering need?</h2>
                 </div>
-                <span class="text-xs font-mono text-veloce-slate dark:text-slate-400">Click an option to highlight your ideal model below:</span>
+                <span class="text-xs font-mono text-veloce-slate dark:text-slate-400">Tap an option to highlight your ideal model below:</span>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
@@ -920,10 +1014,10 @@
         <!-- THE 4 ENGAGEMENT & SUBSCRIPTION MODELS -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             <!-- Model 1: 5-Day Diagnostic & Prototype Micro-Sprint -->
-            <div id="model-card-sprint" class="model-card rounded-2xl p-7 bg-white dark:bg-veloce-panelDark border-2 border-pink-500 flex flex-col justify-between relative veloce-border-glow shadow-sm">
+            <div id="model-card-sprint" class="model-card rounded-2xl p-6 sm:p-7 bg-white dark:bg-veloce-panelDark border-2 border-pink-500 flex flex-col justify-between relative veloce-border-glow shadow-sm">
                 <div>
-                    <div class="flex items-center justify-between gap-2 mb-3">
-                        <span class="px-2.5 py-1 rounded-md bg-purple-500/15 text-purple-700 dark:text-purple-300 font-mono text-xs font-bold">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="px-2.5 py-1 rounded-md bg-purple-500/15 text-purple-700 dark:text-purple-300 font-mono text-[11px] sm:text-xs font-bold">
                             RISK-FREE ENTRY • 100% CREDITED TO MONTH 1
                         </span>
                         <span class="text-xs font-mono text-veloce-slate dark:text-slate-400">5 Business Days</span>
@@ -933,9 +1027,9 @@
                         Designed for founders and CTOs who want to experience our code quality and communication speed before committing to a monthly retainer.
                     </p>
                     <ul class="mt-5 space-y-2.5 text-xs sm:text-sm text-veloce-navy dark:text-slate-300">
-                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-pink-500 mt-1"></i> <span><strong>1 Production Deliverable:</strong> A working AI agent prototype, critical feature, or full codebase & cloud security audit.</span></li>
-                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-pink-500 mt-1"></i> <span><strong>100% Retainer Credit:</strong> Upgrade to any monthly subscription within 48 hours of delivery and 100% of your sprint fee credits toward Month 1.</span></li>
-                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-pink-500 mt-1"></i> <span><strong>Custom Scoped Fixed Quote:</strong> Tailored after a 15-minute review of your repo or workflow.</span></li>
+                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-pink-500 mt-1 shrink-0"></i> <span><strong>1 Production Deliverable:</strong> A working AI agent prototype, critical feature, or full codebase & cloud security audit.</span></li>
+                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-pink-500 mt-1 shrink-0"></i> <span><strong>100% Retainer Credit:</strong> Upgrade to any monthly subscription within 48 hours of delivery and 100% of your sprint fee credits toward Month 1.</span></li>
+                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-pink-500 mt-1 shrink-0"></i> <span><strong>Custom Scoped Fixed Quote:</strong> Tailored after a 15-minute review of your repo or workflow.</span></li>
                     </ul>
                 </div>
                 <button onclick="selectModelAndScope('5-Day Diagnostic & Prototype Micro-Sprint')" class="magnetic-cta mt-7 w-full py-3.5 rounded-xl bg-veloce-btn text-white font-bold text-xs sm:text-sm transition shadow-md">
@@ -944,10 +1038,10 @@
             </div>
 
             <!-- Model 2: Growth Engineering Subscription -->
-            <div id="model-card-growth" class="model-card rounded-2xl p-7 bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 flex flex-col justify-between relative shadow-sm">
+            <div id="model-card-growth" class="model-card rounded-2xl p-6 sm:p-7 bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 flex flex-col justify-between relative shadow-sm">
                 <div>
-                    <div class="flex items-center justify-between gap-2 mb-3">
-                        <span class="px-2.5 py-1 rounded-md bg-pink-500/15 text-pink-600 dark:text-pink-300 font-mono text-xs font-bold">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="px-2.5 py-1 rounded-md bg-pink-500/15 text-pink-600 dark:text-pink-300 font-mono text-[11px] sm:text-xs font-bold">
                             CORE MONTHLY RETAINER • 24–48H SLA
                         </span>
                         <span class="text-xs font-mono text-veloce-slate dark:text-slate-400">Pause or Cancel Anytime</span>
@@ -957,9 +1051,9 @@
                         Your ongoing full-stack and AI engineering engine. Ideal for seed-to-Series A startups shipping weekly product features and AI workflows.
                     </p>
                     <ul class="mt-5 space-y-2.5 text-xs sm:text-sm text-veloce-navy dark:text-slate-300">
-                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-pink-500 mt-1"></i> <span><strong>Unlimited Backlog + 1 Active Sprint Slot:</strong> We execute one high-priority ticket at a time with a 24–48 hour turnaround SLA.</span></li>
-                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-pink-500 mt-1"></i> <span><strong>Full 5-Role Pod Access:</strong> Architect, Backend/AI, Frontend, QA/DevOps, and Strategy Lead included.</span></li>
-                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-pink-500 mt-1"></i> <span><strong>Async Loom Delivery:</strong> Every PR deployed to staging with a 90-second video walkthrough.</span></li>
+                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-pink-500 mt-1 shrink-0"></i> <span><strong>Unlimited Backlog + 1 Active Sprint Slot:</strong> We execute one high-priority ticket at a time with a 24–48 hour turnaround SLA.</span></li>
+                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-pink-500 mt-1 shrink-0"></i> <span><strong>Full 5-Role Pod Access:</strong> Architect, Backend/AI, Frontend, QA/DevOps, and Strategy Lead included.</span></li>
+                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-pink-500 mt-1 shrink-0"></i> <span><strong>Async Loom Delivery:</strong> Every PR deployed to staging with a 90-second video walkthrough.</span></li>
                     </ul>
                 </div>
                 <button onclick="selectModelAndScope('Growth Engineering Retainer (24–48h Ticket Queue)')" class="mt-7 w-full py-3.5 rounded-xl bg-veloce-navy dark:bg-veloce-obsidian hover:bg-veloce-btn text-white font-bold text-xs sm:text-sm transition shadow-md">
@@ -968,10 +1062,10 @@
             </div>
 
             <!-- Model 3: Dedicated Scale Pod Retainer -->
-            <div id="model-card-scale" class="model-card rounded-2xl p-7 bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 flex flex-col justify-between relative shadow-sm">
+            <div id="model-card-scale" class="model-card rounded-2xl p-6 sm:p-7 bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 flex flex-col justify-between relative shadow-sm">
                 <div>
-                    <div class="flex items-center justify-between gap-2 mb-3">
-                        <span class="px-2.5 py-1 rounded-md bg-orange-500/15 text-orange-600 dark:text-orange-300 font-mono text-xs font-bold">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="px-2.5 py-1 rounded-md bg-orange-500/15 text-orange-600 dark:text-orange-300 font-mono text-[11px] sm:text-xs font-bold">
                             2X PARALLEL TRACKS • PRIORITY SLA
                         </span>
                         <span class="text-xs font-mono text-veloce-slate dark:text-slate-400">Fractional Department</span>
@@ -981,9 +1075,9 @@
                         Built for scaling tech companies that need simultaneous frontend, backend, and AI agent tracks moving in parallel every day.
                     </p>
                     <ul class="mt-5 space-y-2.5 text-xs sm:text-sm text-veloce-navy dark:text-slate-300">
-                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-orange-500 mt-1"></i> <span><strong>2 Concurrent Active Tickets:</strong> Double the throughput—ship frontend UI and backend/AI pipelines simultaneously.</span></li>
-                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-orange-500 mt-1"></i> <span><strong>Weekly Architecture Syncs:</strong> Live strategic calls with our Principal Architect alongside daily async updates.</span></li>
-                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-orange-500 mt-1"></i> <span><strong>Custom Security & SLA Terms:</strong> Tailored around your compliance and deployment requirements.</span></li>
+                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-orange-500 mt-1 shrink-0"></i> <span><strong>2 Concurrent Active Tickets:</strong> Double the throughput—ship frontend UI and backend/AI pipelines simultaneously.</span></li>
+                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-orange-500 mt-1 shrink-0"></i> <span><strong>Weekly Architecture Syncs:</strong> Live strategic calls with our Principal Architect alongside daily async updates.</span></li>
+                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-orange-500 mt-1 shrink-0"></i> <span><strong>Custom Security & SLA Terms:</strong> Tailored around your compliance and deployment requirements.</span></li>
                     </ul>
                 </div>
                 <button onclick="selectModelAndScope('Dedicated Scale Pod Retainer (2x Parallel Velocity)')" class="mt-7 w-full py-3.5 rounded-xl bg-veloce-navy dark:bg-veloce-obsidian hover:bg-veloce-btn text-white font-bold text-xs sm:text-sm transition shadow-md">
@@ -992,10 +1086,10 @@
             </div>
 
             <!-- Model 4: Care, Security & AI FinOps Subscription -->
-            <div id="model-card-care" class="model-card rounded-2xl p-7 bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 flex flex-col justify-between relative shadow-sm">
+            <div id="model-card-care" class="model-card rounded-2xl p-6 sm:p-7 bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 flex flex-col justify-between relative shadow-sm">
                 <div>
-                    <div class="flex items-center justify-between gap-2 mb-3">
-                        <span class="px-2.5 py-1 rounded-md bg-amber-500/15 text-amber-600 dark:text-amber-300 font-mono text-xs font-bold">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="px-2.5 py-1 rounded-md bg-amber-500/15 text-amber-600 dark:text-amber-300 font-mono text-[11px] sm:text-xs font-bold">
                             STABILITY, QA & LLM COST CONTROL
                         </span>
                         <span class="text-xs font-mono text-veloce-slate dark:text-slate-400">Ongoing Reliability</span>
@@ -1005,9 +1099,9 @@
                         Keep your production SaaS and AI agents fast, secure, and cost-optimized after launch without hiring full-time DevOps or QA staff.
                     </p>
                     <ul class="mt-5 space-y-2.5 text-xs sm:text-sm text-veloce-navy dark:text-slate-300">
-                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-amber-500 mt-1"></i> <span><strong>Continuous Prompt & FinOps Tuning:</strong> Semantic caching and model routing to keep OpenAI/Anthropic bills low.</span></li>
-                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-amber-500 mt-1"></i> <span><strong>Automated Playwright QA & Patching:</strong> Zero-regression E2E checks, bug fixes, and minor monthly enhancements.</span></li>
-                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-amber-500 mt-1"></i> <span><strong>Monthly ROI & Uptime Report:</strong> Delivered 5 days prior to each renewal cycle.</span></li>
+                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-amber-500 mt-1 shrink-0"></i> <span><strong>Continuous Prompt & FinOps Tuning:</strong> Semantic caching and model routing to keep OpenAI/Anthropic bills low.</span></li>
+                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-amber-500 mt-1 shrink-0"></i> <span><strong>Automated Playwright QA & Patching:</strong> Zero-regression E2E checks, bug fixes, and minor monthly enhancements.</span></li>
+                        <li class="flex items-start gap-2.5"><i class="fa-solid fa-check text-amber-500 mt-1 shrink-0"></i> <span><strong>Monthly ROI & Uptime Report:</strong> Delivered 5 days prior to each renewal cycle.</span></li>
                     </ul>
                 </div>
                 <button onclick="selectModelAndScope('Care & AI Maintenance Subscription')" class="mt-7 w-full py-3.5 rounded-xl bg-veloce-navy dark:bg-veloce-obsidian hover:bg-veloce-btn text-white font-bold text-xs sm:text-sm transition shadow-md">
@@ -1017,14 +1111,14 @@
         </div>
 
         <!-- Bottom CTA Banner on Models Page -->
-        <div class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-sm">
+        <div class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 card-surface">
             <div>
                 <h4 class="text-lg font-bold text-veloce-navy dark:text-white">Ready to receive your custom-scoped engagement proposal?</h4>
                 <p class="text-xs sm:text-sm text-veloce-slate dark:text-slate-400 mt-0.5">
                     Share your project brief in 45 seconds and schedule a 15-minute technical discovery call.
                 </p>
             </div>
-            <button onclick="openWorkIntakeContainer()" class="magnetic-cta px-6 py-3.5 rounded-xl bg-veloce-btn text-white font-bold text-xs sm:text-sm shrink-0 shadow-md">
+            <button onclick="openWorkIntakeContainer()" class="magnetic-cta w-full sm:w-auto px-6 py-3.5 rounded-xl bg-veloce-btn text-white font-bold text-xs sm:text-sm shrink-0 shadow-md text-center">
                 Describe Your Project & Book Call &rarr;
             </button>
         </div>
@@ -1033,25 +1127,25 @@
     <!-- =========================================================
          VIEW 3: NEXT PAGE — APPOINTMENT SCHEDULER & CUSTOM BLUEPRINT
     ========================================================== -->
-    <section id="view-scheduler" class="hidden flex-1 py-12 sm:py-16 px-4 sm:px-6 max-w-5xl mx-auto w-full">
+    <section id="view-scheduler" class="hidden flex-1 py-10 sm:py-16 px-4 sm:px-6 max-w-5xl mx-auto w-full">
         <!-- Back Navigation -->
-        <div class="mb-8 flex flex-wrap items-center justify-between gap-4 pb-5 border-b border-slate-200 dark:border-white/10">
+        <div class="mb-8 flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-slate-200 dark:border-white/10">
             <button onclick="switchView('landing')" class="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-veloce-slate dark:text-slate-300 hover:text-pink-600 dark:hover:text-white transition">
                 <i class="fa-solid fa-arrow-left"></i>
                 <span>Back & Edit Project Scope</span>
             </button>
-            <span class="text-xs font-mono uppercase tracking-wider px-3 py-1 rounded-full bg-orange-500/15 text-orange-600 dark:text-amber-300 font-bold">
+            <span class="text-[11px] sm:text-xs font-mono uppercase tracking-wider px-3 py-1 rounded-full bg-orange-500/15 text-orange-600 dark:text-amber-300 font-bold">
                 Step 2 of 2 • Schedule Technical Scoping Call
             </span>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
             <!-- Left Column: Client's Captured Brief -->
-            <div class="lg:col-span-5 bg-white dark:bg-veloce-panelDark rounded-2xl p-6 border border-slate-200 dark:border-white/10 space-y-5 shadow-sm">
+            <div class="lg:col-span-5 bg-white dark:bg-veloce-panelDark rounded-2xl p-6 border border-slate-200/90 dark:border-white/10 space-y-5 card-surface">
                 <div>
                     <span class="text-[11px] font-mono uppercase text-pink-600 dark:text-pink-400 font-bold">Captured Work Scope</span>
                     <h3 class="text-xl font-extrabold text-veloce-navy dark:text-white mt-0.5">Tailored Scoping & Architecture Sync</h3>
-                    <p class="text-xs text-veloce-slate dark:text-slate-400 mt-1">
+                    <p class="text-xs text-veloce-slate dark:text-slate-400 mt-1 leading-relaxed">
                         Our Principal Architect will prepare a custom execution & pricing blueprint for the scope below prior to your call.
                     </p>
                 </div>
@@ -1059,7 +1153,7 @@
                 <div class="space-y-3 pt-3 border-t border-slate-200 dark:border-white/10 text-xs sm:text-sm">
                     <div>
                         <span class="text-[11px] font-mono text-veloce-slate dark:text-slate-400 block">CLIENT & ORGANIZATION</span>
-                        <span id="summary-client" class="font-bold text-veloce-navy dark:text-white">—</span>
+                        <span id="summary-client" class="font-bold text-veloce-navy dark:text-white break-words">—</span>
                     </div>
                     <div>
                         <span class="text-[11px] font-mono text-veloce-slate dark:text-slate-400 block">SELECTED EXPERTISE / CUSTOM SCOPE</span>
@@ -1071,7 +1165,7 @@
                     </div>
                     <div>
                         <span class="text-[11px] font-mono text-veloce-slate dark:text-slate-400 block">WORK WE WILL DO FOR YOU</span>
-                        <div id="summary-work" class="mt-1.5 p-3.5 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border border-slate-200 dark:border-white/10 text-veloce-navy dark:text-slate-300 text-xs leading-relaxed whitespace-pre-line">—</div>
+                        <div id="summary-work" class="mt-1.5 p-3.5 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border border-slate-200 dark:border-white/10 text-veloce-navy dark:text-slate-300 text-xs leading-relaxed whitespace-pre-line break-words">—</div>
                     </div>
                 </div>
 
@@ -1079,7 +1173,7 @@
                     <div class="text-[11px] font-mono uppercase text-purple-700 dark:text-purple-300 font-bold">
                         <i class="fa-solid fa-user-astronaut mr-1 text-pink-500"></i> Assigned to Your Call
                     </div>
-                    <p class="text-xs text-veloce-navy dark:text-slate-300">
+                    <p class="text-xs text-veloce-navy dark:text-slate-300 leading-relaxed">
                         <strong>Principal Systems Architect</strong> + <strong>Client Strategy Partner</strong> (15-Min Focused Technical Scoping — Zero Fluff)
                     </p>
                 </div>
@@ -1087,14 +1181,14 @@
 
             <!-- Right Column: Interactive Date & Time Slot Selector -->
             <div class="lg:col-span-7 p-[2px] rounded-2xl bg-veloce-gradient veloce-border-glow">
-                <div class="bg-white dark:bg-veloce-panelDark rounded-[14px] p-6 sm:p-8 shadow-xl">
+                <div class="bg-white dark:bg-veloce-panelDark rounded-[14px] p-5 sm:p-8 shadow-xl">
                     <div id="scheduler-interactive-area">
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-slate-200 dark:border-white/10">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-200 dark:border-white/10">
                             <div>
                                 <h3 class="text-lg font-extrabold text-veloce-navy dark:text-white">Select Date & Time</h3>
                                 <p class="text-xs text-veloce-slate dark:text-slate-400">15-Minute Architecture & Custom Proposal Sync</p>
                             </div>
-                            <select id="timezone-select" class="px-2.5 py-1.5 rounded-lg bg-slate-100 dark:bg-veloce-obsidian border border-slate-200 dark:border-white/15 text-xs font-mono text-veloce-navy dark:text-slate-300">
+                            <select id="timezone-select" class="veloce-input px-3 py-2 rounded-lg bg-slate-100 dark:bg-veloce-obsidian border border-slate-200 dark:border-white/15 text-base sm:text-xs font-mono text-veloce-navy dark:text-slate-300">
                                 <option value="IST (GMT+5:30)">🇮🇳 IST (GMT+5:30)</option>
                                 <option value="UTC / GMT">🌍 UTC / GMT</option>
                                 <option value="EST (US Eastern)">🇺🇸 EST (US Eastern)</option>
@@ -1105,13 +1199,9 @@
                         <div class="mt-5">
                             <label class="block text-xs font-mono uppercase text-veloce-slate dark:text-slate-400 font-semibold mb-2.5">1. Choose a Day</label>
                             <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                                <button type="button" onclick="selectDatePill(this, 'Tomorrow, Wed (Oct 28)')" class="date-pill p-3 rounded-xl border-2 border-pink-500 bg-pink-500/10 text-veloce-navy dark:text-white text-left transition">
+                                <button type="button" onclick="selectDatePill(this, 'Tomorrow, Thu (Oct 29)')" class="date-pill p-3 rounded-xl border-2 border-pink-500 bg-pink-500/10 text-veloce-navy dark:text-white text-left transition">
                                     <div class="text-[10px] font-mono text-pink-600 dark:text-pink-400 font-bold">TOMORROW</div>
-                                    <div class="text-sm font-bold mt-0.5">Wed, Oct 28</div>
-                                </button>
-                                <button type="button" onclick="selectDatePill(this, 'Thu, Oct 29')" class="date-pill p-3 rounded-xl border border-slate-200 dark:border-white/10 hover:border-pink-400 text-veloce-navy dark:text-slate-200 text-left transition">
-                                    <div class="text-[10px] font-mono text-slate-400">THURSDAY</div>
-                                    <div class="text-sm font-bold mt-0.5">Oct 29</div>
+                                    <div class="text-sm font-bold mt-0.5">Thu, Oct 29</div>
                                 </button>
                                 <button type="button" onclick="selectDatePill(this, 'Fri, Oct 30')" class="date-pill p-3 rounded-xl border border-slate-200 dark:border-white/10 hover:border-pink-400 text-veloce-navy dark:text-slate-200 text-left transition">
                                     <div class="text-[10px] font-mono text-slate-400">FRIDAY</div>
@@ -1120,6 +1210,10 @@
                                 <button type="button" onclick="selectDatePill(this, 'Mon, Nov 2')" class="date-pill p-3 rounded-xl border border-slate-200 dark:border-white/10 hover:border-pink-400 text-veloce-navy dark:text-slate-200 text-left transition">
                                     <div class="text-[10px] font-mono text-slate-400">MONDAY</div>
                                     <div class="text-sm font-bold mt-0.5">Nov 2</div>
+                                </button>
+                                <button type="button" onclick="selectDatePill(this, 'Tue, Nov 3')" class="date-pill p-3 rounded-xl border border-slate-200 dark:border-white/10 hover:border-pink-400 text-veloce-navy dark:text-slate-200 text-left transition">
+                                    <div class="text-[10px] font-mono text-slate-400">TUESDAY</div>
+                                    <div class="text-sm font-bold mt-0.5">Nov 3</div>
                                 </button>
                             </div>
                         </div>
@@ -1168,8 +1262,8 @@
                                 Scoping Call Confirmed
                             </span>
                             <h3 class="text-2xl font-extrabold text-veloce-navy dark:text-white mt-2">Your Architecture Brief is in Review</h3>
-                            <p class="text-sm text-veloce-slate dark:text-slate-400 mt-1 max-w-md mx-auto">
-                                Calendar invitation and Google Meet link sent to <strong id="confirmed-email" class="text-veloce-navy dark:text-white"></strong>. We will present your tailored roadmap and subscription options on the call.
+                            <p class="text-sm text-veloce-slate dark:text-slate-400 mt-1 max-w-md mx-auto leading-relaxed">
+                                Calendar invitation and Google Meet link sent to <strong id="confirmed-email" class="text-veloce-navy dark:text-white break-all"></strong>. We will present your tailored roadmap and subscription options on the call.
                             </p>
                         </div>
                         <div class="p-4 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border border-slate-200 dark:border-white/10 max-w-md mx-auto font-mono text-xs text-pink-600 dark:text-pink-400 font-bold" id="confirmed-slot-badge">
@@ -1190,21 +1284,27 @@
     </section>
 
     <!-- =========================================================
-         MINIMALISTIC ENTERPRISE FOOTER WITH LOGO LOCKUP
+         MINIMALISTIC ENTERPRISE FOOTER WITH MOBILE-RESPONSIVE LOCKUP
     ========================================================== -->
-    <footer class="border-t border-slate-200/80 dark:border-white/10 py-10 px-4 sm:px-8 bg-white/80 dark:bg-veloce-obsidian/90 mt-16">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-veloce-slate dark:text-slate-400">
-            <div class="flex items-center gap-3">
-                <svg viewBox="0 0 100 90" class="w-8 h-8 overflow-visible" aria-hidden="true">
-                    <circle cx="83" cy="17" r="3" fill="#FACC15" />
-                    <path d="M 8 38 C 17 27, 29 29, 36 45 C 41 56, 45 64, 51 64 C 44 69, 36 62, 29 48 C 24 37, 15 35, 8 38 Z" fill="url(#veloce-left-wing)" />
-                    <path d="M 31 52 C 38 68, 47 76, 58 67 C 66 60, 74 49, 80 41 L 74 36 C 66 46, 58 56, 51 60 C 44 63, 36 58, 31 52 Z" fill="url(#veloce-ribbon-base)" />
-                    <path d="M 27 46 C 35 61, 44 66, 55 56 C 63 48, 70 36, 75 29 L 67 24 L 82 18 L 79 34 L 72 29 C 65 39, 57 52, 48 59 C 39 65, 31 57, 27 46 Z" fill="url(#veloce-arrow-main)" />
-                </svg>
-                <span class="font-extrabold text-sm tracking-tight text-veloce-navy dark:text-white">veloce <span class="font-medium text-veloce-slate dark:text-slate-400">stack</span></span>
-                <span>• Swift Full-Stack, AI & Custom Engineering Studio</span>
+    <footer class="border-t border-slate-200/80 dark:border-white/10 py-10 px-4 sm:px-8 bg-white/80 dark:bg-veloce-obsidian/90 mt-12 sm:mt-16">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-veloce-slate dark:text-slate-400">
+            <!-- Brand & Tagline Lockup (Stacks cleanly on mobile) -->
+            <div class="flex flex-col sm:flex-row items-center text-center sm:text-left gap-2 sm:gap-3">
+                <div class="flex items-center gap-2.5">
+                    <svg viewBox="0 0 100 90" class="w-7 h-7 overflow-visible shrink-0" aria-hidden="true">
+                        <circle cx="83" cy="17" r="3" fill="#FACC15" />
+                        <path d="M 8 38 C 17 27, 29 29, 36 45 C 41 56, 45 64, 51 64 C 44 69, 36 62, 29 48 C 24 37, 15 35, 8 38 Z" fill="url(#veloce-left-wing)" />
+                        <path d="M 31 52 C 38 68, 47 76, 58 67 C 66 60, 74 49, 80 41 L 74 36 C 66 46, 58 56, 51 60 C 44 63, 36 58, 31 52 Z" fill="url(#veloce-ribbon-base)" />
+                        <path d="M 27 46 C 35 61, 44 66, 55 56 C 63 48, 70 36, 75 29 L 67 24 L 82 18 L 79 34 L 72 29 C 65 39, 57 52, 48 59 C 39 65, 31 57, 27 46 Z" fill="url(#veloce-arrow-main)" />
+                    </svg>
+                    <span class="font-extrabold text-sm tracking-tight text-veloce-navy dark:text-white">veloce <span class="font-medium text-veloce-slate dark:text-slate-400">stack</span></span>
+                </div>
+                <span class="hidden sm:inline text-slate-300 dark:text-white/20">•</span>
+                <span>Swift Full-Stack, AI & Custom Engineering Studio</span>
             </div>
-            <div class="flex flex-wrap items-center gap-5">
+
+            <!-- Footer Navigation Links -->
+            <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2.5">
                 <button onclick="navigateToSection('vision')" class="hover:text-veloce-navy dark:hover:text-white transition">Vision</button>
                 <button onclick="navigateToSection('expertise')" class="hover:text-veloce-navy dark:hover:text-white transition">Expertise & Custom</button>
                 <button onclick="navigateToSection('sla-workflow')" class="hover:text-veloce-navy dark:hover:text-white transition">24–48h SLA</button>
@@ -1224,22 +1324,52 @@
             const icon = document.getElementById('theme-icon');
             if (htmlEl.classList.contains('dark')) {
                 htmlEl.classList.remove('dark');
-                icon.className = 'fa-solid fa-moon text-veloce-navy text-sm';
+                icon.className = 'fa-solid fa-moon text-veloce-navy text-xs sm:text-sm';
             } else {
                 htmlEl.classList.add('dark');
-                icon.className = 'fa-solid fa-sun text-amber-400 text-sm';
+                icon.className = 'fa-solid fa-sun text-amber-400 text-xs sm:text-sm';
             }
         }
 
-        // 2. MAGNETIC CURSOR-PROXIMITY PULL ON "BOOK A CALL" BUTTONS & CONTAINER SPOTLIGHT
+        // 2. MOBILE NAVIGATION DRAWER TOGGLE
+        function toggleMobileMenu() {
+            const drawer = document.getElementById('mobile-nav-drawer');
+            const icon = document.getElementById('mobile-menu-icon');
+            const btn = document.getElementById('mobile-menu-btn');
+            if (!drawer) return;
+
+            const isHidden = drawer.classList.contains('hidden');
+            if (isHidden) {
+                drawer.classList.remove('hidden');
+                icon.className = 'fa-solid fa-xmark text-base';
+                btn.setAttribute('aria-expanded', 'true');
+            } else {
+                closeMobileMenu();
+            }
+        }
+
+        function closeMobileMenu() {
+            const drawer = document.getElementById('mobile-nav-drawer');
+            const icon = document.getElementById('mobile-menu-icon');
+            const btn = document.getElementById('mobile-menu-btn');
+            if (!drawer) return;
+            drawer.classList.add('hidden');
+            if (icon) icon.className = 'fa-solid fa-bars text-sm';
+            if (btn) btn.setAttribute('aria-expanded', 'false');
+        }
+
+        // 3. MAGNETIC CURSOR-PROXIMITY PULL (ENABLED ONLY ON FINE POINTER DESKTOPS)
         function initMagneticInteractions() {
+            const supportsHoverAndFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+            if (!supportsHoverAndFinePointer) return;
+
             const ctas = document.querySelectorAll('.magnetic-cta');
             ctas.forEach(btn => {
                 btn.addEventListener('mousemove', (e) => {
                     const rect = btn.getBoundingClientRect();
                     const x = e.clientX - rect.left - rect.width / 2;
                     const y = e.clientY - rect.top - rect.height / 2;
-                    btn.style.transform = `translate(${x * 0.16}px, ${y * 0.22 - 2}px) scale(1.02)`;
+                    btn.style.transform = `translate(${x * 0.14}px, ${y * 0.2 - 2}px) scale(1.015)`;
                 });
                 btn.addEventListener('mouseleave', () => {
                     btn.style.transform = '';
@@ -1258,8 +1388,9 @@
             }
         }
 
-        // 3. MULTI-VIEW NAVIGATION (LANDING <-> MODELS <-> SCHEDULER)
+        // 4. MULTI-VIEW NAVIGATION (LANDING <-> MODELS <-> SCHEDULER)
         function switchView(viewName) {
+            closeMobileMenu();
             const views = {
                 landing: document.getElementById('view-landing'),
                 models: document.getElementById('view-models'),
@@ -1278,6 +1409,7 @@
         }
 
         function navigateToSection(sectionId) {
+            closeMobileMenu();
             switchView('landing');
             setTimeout(() => {
                 const target = document.getElementById(sectionId);
@@ -1285,8 +1417,9 @@
             }, 60);
         }
 
-        // 4. WORK SCOPE CONTAINER HELPERS
+        // 5. WORK SCOPE CONTAINER HELPERS
         function openWorkIntakeContainer() {
+            closeMobileMenu();
             switchView('landing');
             setTimeout(() => {
                 const section = document.getElementById('book-call-section');
@@ -1294,12 +1427,13 @@
                 section.scrollIntoView({ behavior: 'smooth' });
                 box.classList.add('ring-4', 'ring-pink-500/30');
                 setTimeout(() => {
-                    document.getElementById('client-work-details').focus();
-                }, 500);
+                    document.getElementById('client-work-details').focus({ preventScroll: true });
+                }, 450);
             }, 60);
         }
 
         function prefillAndScroll(categoryValue, sampleWorkText) {
+            closeMobileMenu();
             switchView('landing');
             setTimeout(() => {
                 document.getElementById('client-category').value = categoryValue;
@@ -1312,6 +1446,7 @@
         }
 
         function selectModelAndScope(modelName) {
+            closeMobileMenu();
             switchView('landing');
             setTimeout(() => {
                 document.getElementById('client-model').value = modelName;
@@ -1325,7 +1460,7 @@
             workField.focus();
         }
 
-        // 5. INTERACTIVE KANBAN BOARD (24-48H TICKET SLA DEMO)
+        // 6. INTERACTIVE KANBAN BOARD (24-48H TICKET SLA DEMO)
         const defaultTickets = [
             { id: 'VEL-101', title: 'RAG Ingestion Pipeline + Citation Guardrails', tag: 'AI Agent', sla: '36h SLA', stage: 0 },
             { id: 'VEL-102', title: 'Multi-Tenant RBAC Auth & Webhook Sync', tag: 'Full-Stack', sla: '24h SLA', stage: 1 },
@@ -1350,28 +1485,32 @@
             grid.innerHTML = boardColumns.map((col, colIdx) => {
                 const items = boardTickets.filter(t => t.stage === colIdx);
                 return `
-                    <div class="rounded-xl p-4 bg-slate-50 dark:bg-veloce-obsidian border border-slate-200 dark:border-white/10 flex flex-col justify-between min-h-[230px]">
+                    <div class="rounded-xl p-4 bg-slate-50/90 dark:bg-veloce-obsidian border border-slate-200/90 dark:border-white/10 flex flex-col justify-between min-h-[210px]">
                         <div>
-                            <div class="flex items-center justify-between pb-2.5 mb-3 border-b border-slate-200 dark:border-white/10">
+                            <div class="flex items-center justify-between gap-2 pb-2.5 mb-3 border-b border-slate-200 dark:border-white/10">
                                 <span class="text-xs font-mono font-bold text-veloce-navy dark:text-white">${col.name}</span>
-                                <span class="text-[10px] font-mono ${col.badgeClass} font-semibold">${col.sub}</span>
+                                <span class="text-[10px] font-mono ${col.badgeClass} font-semibold shrink-0">${col.sub}</span>
                             </div>
                             <div class="space-y-2.5">
-                                ${items.map(t => `
-                                    <div class="p-3 rounded-xl bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 shadow-sm">
+                                ${items.length === 0 ? `
+                                    <div class="py-8 text-center text-[11px] font-mono text-slate-400 dark:text-slate-600 border border-dashed border-slate-200 dark:border-white/5 rounded-xl">
+                                        No tickets in stage
+                                    </div>
+                                ` : items.map(t => `
+                                    <div class="p-3 rounded-xl bg-white dark:bg-veloce-panelDark border border-slate-200/90 dark:border-white/10 shadow-sm transition hover:border-pink-400/60">
                                         <div class="flex items-center justify-between text-[10px] font-mono text-slate-400">
                                             <span>${t.id}</span>
                                             <span class="px-1.5 py-0.5 rounded bg-pink-500/10 text-pink-600 dark:text-pink-300 font-semibold">${t.tag}</span>
                                         </div>
-                                        <div class="text-xs font-bold text-veloce-navy dark:text-white mt-1 leading-snug">${t.title}</div>
+                                        <div class="text-xs font-bold text-veloce-navy dark:text-white mt-1.5 leading-snug">${t.title}</div>
                                         <div class="mt-2.5 pt-2 border-t border-slate-100 dark:border-white/5 flex items-center justify-between text-[11px] font-mono">
                                             <span class="text-veloce-slate dark:text-slate-400">${t.sla}</span>
                                             ${colIdx < 3 ? `
-                                                <button onclick="advanceDemoTicket('${t.id}')" class="text-pink-600 dark:text-pink-400 hover:underline font-bold">
+                                                <button onclick="advanceDemoTicket('${t.id}')" class="px-2 py-0.5 rounded bg-pink-500/10 text-pink-600 dark:text-pink-400 hover:bg-pink-500 hover:text-white transition font-bold">
                                                     Advance &rarr;
                                                 </button>
                                             ` : `
-                                                <span class="text-orange-600 dark:text-amber-400 font-bold">✓ Live</span>
+                                                <span class="text-emerald-600 dark:text-emerald-400 font-bold">✓ Live</span>
                                             `}
                                         </div>
                                     </div>
@@ -1397,7 +1536,7 @@
                 { title: 'Custom Legacy Database Migration & API Bridge', tag: 'Custom Build', sla: '36h SLA' },
                 { title: 'Automated n8n Lead Enrichment Webhook', tag: 'Automation', sla: '24h SLA' },
                 { title: 'Razorpay / Stripe Subscription Upgrade API', tag: 'Full-Stack', sla: '36h SLA' },
-                { title: 'Claude 3.7 Agent Tool-Calling Guardrails', tag: 'AI Agent', sla: '48h SLA' }
+                { title: 'Claude Agent Tool-Calling Guardrails', tag: 'AI Agent', sla: '48h SLA' }
             ];
             const pick = samples[ticketCounter % samples.length];
             boardTickets.unshift({
@@ -1415,7 +1554,7 @@
             renderKanbanBoard();
         }
 
-        // 6. SUBSCRIPTION MODELS PAGE INTERACTIVE MATCHER
+        // 7. SUBSCRIPTION MODELS PAGE INTERACTIVE MATCHER
         function highlightRecommendedModel(key) {
             const keys = ['sprint', 'growth', 'scale', 'care'];
             keys.forEach(k => {
@@ -1423,16 +1562,16 @@
                 const card = document.getElementById('model-card-' + k);
                 if (k === key) {
                     btn.className = 'matcher-btn text-left p-4 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border-2 border-pink-500 transition';
-                    card.className = 'model-card rounded-2xl p-7 bg-white dark:bg-veloce-panelDark border-2 border-pink-500 flex flex-col justify-between relative veloce-border-glow shadow-sm';
+                    card.className = 'model-card rounded-2xl p-6 sm:p-7 bg-white dark:bg-veloce-panelDark border-2 border-pink-500 flex flex-col justify-between relative veloce-border-glow shadow-sm';
                 } else {
                     btn.className = 'matcher-btn text-left p-4 rounded-xl bg-slate-50 dark:bg-veloce-obsidian border border-slate-200 dark:border-white/10 hover:border-pink-400 transition';
-                    card.className = 'model-card rounded-2xl p-7 bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 flex flex-col justify-between relative shadow-sm';
+                    card.className = 'model-card rounded-2xl p-6 sm:p-7 bg-white dark:bg-veloce-panelDark border border-slate-200 dark:border-white/10 flex flex-col justify-between relative shadow-sm';
                 }
             });
         }
 
-        // 7. STEP 1 -> STEP 2 APPOINTMENT SCHEDULER FLOW
-        let selectedDate = 'Tomorrow, Wed (Oct 28)';
+        // 8. STEP 1 -> STEP 2 APPOINTMENT SCHEDULER FLOW
+        let selectedDate = 'Tomorrow, Thu (Oct 29)';
         let selectedTime = '11:00 AM';
 
         function proceedToSchedulePage(event) {
