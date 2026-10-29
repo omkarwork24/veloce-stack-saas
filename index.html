@@ -75,10 +75,10 @@
             filter: drop-shadow(0 0 32px rgba(197, 160, 89, 0.5));
         }
 
-        /* Neumorphic Theme Switcher Styles (Inspired by Reference Design) */
+        /* Neumorphic Theme Switcher Styles */
         .neumo-track {
-            width: 76px;
-            height: 36px;
+            width: 68px;
+            height: 32px;
             background: #E5E0D8;
             border-radius: 9999px;
             position: relative;
@@ -91,8 +91,8 @@
             box-shadow: inset 3px 3px 6px #08090D, inset -3px -3px 6px #222735;
         }
         .neumo-thumb {
-            width: 30px;
-            height: 30px;
+            width: 26px;
+            height: 26px;
             background: #F4ECE1;
             border-radius: 50%;
             position: absolute;
@@ -107,7 +107,7 @@
         .dark .neumo-thumb {
             background: #252B3B;
             box-shadow: 2px 2px 5px #08090D, -2px -2px 5px #2A3143;
-            transform: translateX(40px);
+            transform: translateX(36px);
         }
 
         /* Signature Brand Gradients */
@@ -354,12 +354,13 @@
 
             <!-- Center Navigation (Desktop) -->
             <nav class="hidden lg:flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-[#F7F4EE] dark:bg-veloce-panelDark/90 border border-[#EFECE6] dark:border-white/10 text-xs font-medium text-veloce-slate dark:text-slate-300 shadow-sm whitespace-nowrap">
-                <a href="#vision" onclick="navigateToSection('vision'); return false;" class="px-3.5 py-1.5 rounded-full hover:bg-[#F4ECE1] dark:hover:bg-white/10 hover:text-veloce-navy dark:hover:text-white transition">Our Vision</a>
-                <a href="#expertise" onclick="navigateToSection('expertise'); return false;" class="px-3.5 py-1.5 rounded-full hover:bg-[#F4ECE1] dark:hover:bg-white/10 hover:text-veloce-navy dark:hover:text-white transition">What We Do</a>
-                <a href="#sla-workflow" onclick="navigateToSection('sla-workflow'); return false;" class="px-3.5 py-1.5 rounded-full hover:bg-[#F4ECE1] dark:hover:bg-white/10 hover:text-veloce-navy dark:hover:text-white transition">24–48h SLA Explained</a>
-                <a href="#pod-roles" onclick="navigateToSection('pod-roles'); return false;" class="px-3.5 py-1.5 rounded-full hover:bg-[#F4ECE1] dark:hover:bg-white/10 hover:text-veloce-navy dark:hover:text-white transition">Senior Pod</a>
-                <button onclick="switchView('models')" class="ml-1 px-3.5 py-1.5 rounded-full bg-[#C5A059]/15 dark:bg-purple-500/20 text-[#8C6D43] dark:text-pink-300 font-semibold border border-[#C5A059]/30 dark:border-pink-500/30 hover:border-[#C5A059] transition">
-                    Subscription Models
+                <a href="#vision" onclick="navigateToSection('vision'); return false;" class="px-3 py-1.5 rounded-full hover:bg-[#F4ECE1] dark:hover:bg-white/10 hover:text-veloce-navy dark:hover:text-white transition">Our Vision</a>
+                <a href="#expertise" onclick="navigateToSection('expertise'); return false;" class="px-3 py-1.5 rounded-full hover:bg-[#F4ECE1] dark:hover:bg-white/10 hover:text-veloce-navy dark:hover:text-white transition">What We Do</a>
+                <a href="#sla-workflow" onclick="navigateToSection('sla-workflow'); return false;" class="px-3 py-1.5 rounded-full hover:bg-[#F4ECE1] dark:hover:bg-white/10 hover:text-veloce-navy dark:hover:text-white transition">24–48h SLA</a>
+                <a href="#pod-roles" onclick="navigateToSection('pod-roles'); return false;" class="px-3 py-1.5 rounded-full hover:bg-[#F4ECE1] dark:hover:bg-white/10 hover:text-veloce-navy dark:hover:text-white transition">Senior Pod</a>
+                <button onclick="switchView('models')" class="px-3 py-1.5 rounded-full hover:bg-[#F4ECE1] dark:hover:bg-white/10 transition">Models</button>
+                <button onclick="switchView('client-login')" class="ml-1 px-3 py-1.5 rounded-full bg-pink-500/15 dark:bg-pink-500/20 text-pink-600 dark:text-pink-300 font-semibold border border-pink-500/30 hover:border-pink-500 transition">
+                    <i class="fa-solid fa-key text-[10px] mr-1"></i> Client Support
                 </button>
             </nav>
 
@@ -398,9 +399,13 @@
                     <span>5-Role Senior Engineering Pod</span>
                     <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
                 </a>
+                <button onclick="switchView('models'); closeMobileMenu();" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl hover:bg-[#F7F4EE] dark:hover:bg-white/5 transition text-left">
+                    <span>Subscription Models</span>
+                    <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                </button>
                 <div class="pt-2 mt-1 border-t border-[#EFECE6] dark:border-white/10 flex flex-col sm:flex-row gap-2.5">
-                    <button onclick="switchView('models')" class="w-full py-2.5 px-4 rounded-xl bg-[#C5A059]/15 dark:bg-purple-500/20 text-[#8C6D43] dark:text-pink-300 font-mono text-xs font-bold border border-[#C5A059]/30 dark:border-pink-500/30 text-center">
-                        Explore Subscription Models &rarr;
+                    <button onclick="switchView('client-login'); closeMobileMenu();" class="w-full py-2.5 px-4 rounded-xl bg-pink-500/15 text-pink-600 dark:text-pink-300 font-mono text-xs font-bold border border-pink-500/30 text-center">
+                        <i class="fa-solid fa-key mr-1"></i> Client Support & Tracking Portal &rarr;
                     </button>
                     <button onclick="openWorkIntakeContainer()" class="w-full py-2.5 px-4 rounded-xl bg-veloce-btn text-white font-bold text-xs text-center shadow-sm">
                         Scope Your Project Now
@@ -1303,6 +1308,143 @@
     </section>
 
     <!-- =========================================================
+         VIEW 4: CLIENT SUPPORT LOGIN (TOKEN ACCESS)
+    ========================================================== -->
+    <section id="view-client-login" class="hidden flex-1 py-12 sm:py-20 px-4 sm:px-6 max-w-md mx-auto w-full flex items-center justify-center">
+        <div class="w-full bg-[#F7F4EE] dark:bg-veloce-panelDark rounded-3xl p-6 sm:p-8 border border-[#EFECE6] dark:border-white/10 card-surface shadow-xl space-y-6">
+            <div class="text-center space-y-2">
+                <div class="w-12 h-12 rounded-2xl bg-pink-500/15 text-pink-600 dark:text-pink-400 flex items-center justify-center mx-auto text-xl border border-pink-500/30">
+                    <i class="fa-solid fa-key"></i>
+                </div>
+                <h1 class="font-serif text-2xl font-bold text-veloce-navy dark:text-white">Client Portal & Support</h1>
+                <p class="text-xs text-veloce-slate dark:text-slate-400 leading-relaxed">
+                    Enter your secure <strong>Token Code</strong> provided during your initial booking call to view your live sprint board and raise tickets.
+                </p>
+            </div>
+
+            <form onsubmit="handleClientLogin(event)" class="space-y-4">
+                <div>
+                    <label for="token-input" class="block text-xs font-mono uppercase text-veloce-slate dark:text-slate-400 font-semibold mb-2">Secure Token Code *</label>
+                    <input type="text" id="token-input" required placeholder="e.g. VEL-TOKEN-8492" class="veloce-input w-full px-4 py-3 rounded-xl bg-[#FEFAF3] dark:bg-veloce-obsidian border border-[#EFECE6] dark:border-white/15 text-veloce-navy dark:text-white text-sm font-mono tracking-wider">
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit" class="magnetic-cta w-full py-3.5 rounded-xl bg-veloce-btn text-white font-bold text-xs sm:text-sm shadow-md transition">
+                        <span>Access Live Sprint Board &rarr;</span>
+                    </button>
+                </div>
+            </form>
+
+            <div class="pt-4 border-t border-[#EFECE6] dark:border-white/10 text-center">
+                <button onclick="switchView('landing')" class="text-xs text-veloce-slate dark:text-slate-400 hover:text-veloce-navy dark:hover:text-white transition">
+                    &larr; Return to Main Studio Overview
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
+         VIEW 5: CLIENT SUPPORT DASHBOARD (LIVE TRACKING & TICKETING)
+    ========================================================== -->
+    <section id="view-client-dashboard" class="hidden flex-1 py-10 px-4 sm:px-6 max-w-6xl mx-auto w-full">
+        <!-- Dashboard Top Bar -->
+        <div class="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 rounded-2xl bg-[#F7F4EE] dark:bg-veloce-panelDark border border-[#EFECE6] dark:border-white/10 card-surface">
+            <div class="flex items-center gap-3.5">
+                <div class="w-12 h-12 rounded-xl bg-veloce-gradient text-white flex items-center justify-center font-serif font-bold text-xl shadow-md">
+                    NF
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h2 class="font-serif text-lg sm:text-xl font-bold text-veloce-navy dark:text-white" id="client-company-title">NovaFlow Labs Workspace</h2>
+                        <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-bold border border-emerald-500/30">
+                            ● Growth Retainer Active
+                        </span>
+                    </div>
+                    <p class="text-xs font-mono text-veloce-slate dark:text-slate-400 mt-0.5">
+                        Token: <span id="active-token-badge" class="text-pink-600 dark:text-pink-400 font-bold">VEL-TOKEN-8492</span> • 24–48h SLA Queue
+                    </p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2.5">
+                <button onclick="openRaiseTicketModal()" class="px-4 py-2.5 rounded-xl bg-veloce-btn text-white font-bold text-xs shadow-sm flex items-center gap-2">
+                    <i class="fa-solid fa-plus text-[10px]"></i>
+                    <span>Raise New Ticket</span>
+                </button>
+                <button onclick="switchView('landing')" class="px-4 py-2.5 rounded-xl bg-[#FEFAF3] dark:bg-veloce-obsidian hover:bg-[#EFECE6] dark:hover:bg-white/10 text-veloce-navy dark:text-slate-300 border border-[#EFECE6] dark:border-white/10 text-xs font-semibold transition">
+                    Logout
+                </button>
+            </div>
+        </div>
+
+        <!-- Metrics Row -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+            <div class="p-5 rounded-2xl bg-[#F7F4EE] dark:bg-veloce-panelDark border border-[#EFECE6] dark:border-white/10 card-surface">
+                <span class="text-[11px] font-mono uppercase text-veloce-slate dark:text-slate-400 font-semibold">Active Sprint Slot</span>
+                <div class="text-base font-bold text-veloce-navy dark:text-white mt-1">VEL-102: RAG Pipeline Integration</div>
+                <div class="text-xs font-mono text-purple-600 dark:text-purple-400 mt-1">In Build (Due in ~18 hours)</div>
+            </div>
+            <div class="p-5 rounded-2xl bg-[#F7F4EE] dark:bg-veloce-panelDark border border-[#EFECE6] dark:border-white/10 card-surface">
+                <span class="text-[11px] font-mono uppercase text-veloce-slate dark:text-slate-400 font-semibold">Next Checkpoint SLA</span>
+                <div class="text-base font-bold text-veloce-navy dark:text-white mt-1">48-Hour Staging Review</div>
+                <div class="text-xs font-mono text-emerald-600 dark:text-emerald-400 mt-1">On Track • 90s Loom Included</div>
+            </div>
+            <div class="p-5 rounded-2xl bg-[#F7F4EE] dark:bg-veloce-panelDark border border-[#EFECE6] dark:border-white/10 card-surface">
+                <span class="text-[11px] font-mono uppercase text-veloce-slate dark:text-slate-400 font-semibold">Total Shipped to Prod</span>
+                <div class="text-base font-bold text-veloce-navy dark:text-white mt-1">12 Production Tickets</div>
+                <div class="text-xs font-mono text-pink-600 dark:text-pink-400 mt-1">100% Playwright Tested</div>
+            </div>
+        </div>
+
+        <!-- Live Kanban Tracker Board -->
+        <div class="rounded-2xl p-5 sm:p-7 bg-[#F7F4EE] dark:bg-veloce-panelDark border border-[#EFECE6] dark:border-white/10 card-surface mb-8">
+            <div class="flex items-center justify-between pb-4 mb-5 border-b border-[#EFECE6] dark:border-white/10">
+                <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <h3 class="text-sm sm:text-base font-bold text-veloce-navy dark:text-white font-mono">Live Sprint & Work Tracker</h3>
+                </div>
+                <span class="text-xs font-mono text-veloce-slate dark:text-slate-400">Updated in real-time by VeloceStack Pod</span>
+            </div>
+
+            <div id="client-kanban-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Populated via JS -->
+            </div>
+        </div>
+
+        <!-- Raise Ticket Modal / Drawer (Inline for Easy Access) -->
+        <div id="raise-ticket-card" class="hidden p-6 rounded-2xl bg-[#F7F4EE] dark:bg-veloce-panelDark border-2 border-pink-500/40 card-surface space-y-4">
+            <div class="flex items-center justify-between pb-3 border-b border-[#EFECE6] dark:border-white/10">
+                <h3 class="font-serif text-lg font-bold text-veloce-navy dark:text-white">Raise a New Ticket for Your Pod</h3>
+                <button onclick="closeRaiseTicketModal()" class="text-xs font-mono text-slate-400 hover:text-veloce-navy dark:hover:text-white">✕ Close</button>
+            </div>
+            <form onsubmit="submitClientTicket(event)" class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="new-ticket-title" class="block text-xs font-mono uppercase text-veloce-slate dark:text-slate-400 font-semibold mb-1.5">Ticket Title *</label>
+                        <input type="text" id="new-ticket-title" required placeholder="e.g. Add dark mode toggle on billing page" class="veloce-input w-full px-3.5 py-2.5 rounded-xl bg-[#FEFAF3] dark:bg-veloce-obsidian border border-[#EFECE6] dark:border-white/15 text-veloce-navy dark:text-white text-xs">
+                    </div>
+                    <div>
+                        <label for="new-ticket-tag" class="block text-xs font-mono uppercase text-veloce-slate dark:text-slate-400 font-semibold mb-1.5">Category Tag *</label>
+                        <select id="new-ticket-tag" class="veloce-input w-full px-3.5 py-2.5 rounded-xl bg-[#FEFAF3] dark:bg-veloce-obsidian border border-[#EFECE6] dark:border-white/15 text-veloce-navy dark:text-white text-xs">
+                            <option value="Full-Stack">Full-Stack Feature</option>
+                            <option value="AI Agent">AI Agent / RAG</option>
+                            <option value="Automation">Workflow Automation</option>
+                            <option value="FinOps/QA">Cloud & FinOps / QA</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label for="new-ticket-desc" class="block text-xs font-mono uppercase text-veloce-slate dark:text-slate-400 font-semibold mb-1.5">Detailed Description *</label>
+                    <textarea id="new-ticket-desc" required rows="3" placeholder="Describe what you want our pod to build or fix..." class="veloce-input w-full p-3.5 rounded-xl bg-[#FEFAF3] dark:bg-veloce-obsidian border border-[#EFECE6] dark:border-white/15 text-veloce-navy dark:text-white text-xs leading-relaxed"></textarea>
+                </div>
+                <div class="flex justify-end gap-2">
+                    <button type="button" onclick="closeRaiseTicketModal()" class="px-4 py-2 rounded-xl border border-[#EFECE6] dark:border-white/15 text-xs font-semibold">Cancel</button>
+                    <button type="submit" class="px-5 py-2 rounded-xl bg-veloce-btn text-white font-bold text-xs shadow-md">Submit to Active Backlog &rarr;</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- =========================================================
          FOOTER
     ========================================================== -->
     <footer class="border-t border-[#EFECE6] dark:border-white/10 py-10 px-4 sm:px-8 bg-[#FEFAF3]/90 dark:bg-veloce-obsidian/90 mt-12 sm:mt-16">
@@ -1326,7 +1468,7 @@
                 <button onclick="navigateToSection('expertise')" class="hover:text-veloce-navy dark:hover:text-white transition">Expertise & Custom</button>
                 <button onclick="navigateToSection('sla-workflow')" class="hover:text-veloce-navy dark:hover:text-white transition">24–48h SLA</button>
                 <button onclick="switchView('models')" class="hover:text-veloce-navy dark:hover:text-white transition">Subscription Models</button>
-                <button onclick="openWorkIntakeContainer()" class="font-bold text-pink-600 dark:text-pink-400 hover:underline">Book a Call</button>
+                <button onclick="switchView('client-login')" class="font-bold text-pink-600 dark:text-pink-400 hover:underline">Client Support Portal</button>
             </div>
         </div>
     </footer>
@@ -1442,14 +1584,18 @@
             const views = {
                 landing: document.getElementById('view-landing'),
                 models: document.getElementById('view-models'),
-                scheduler: document.getElementById('view-scheduler')
+                scheduler: document.getElementById('view-scheduler'),
+                'client-login': document.getElementById('view-client-login'),
+                'client-dashboard': document.getElementById('view-client-dashboard')
             };
 
             Object.keys(views).forEach(k => {
-                if (k === viewName) {
-                    views[k].classList.remove('hidden');
-                } else {
-                    views[k].classList.add('hidden');
+                if (views[k]) {
+                    if (k === viewName) {
+                        views[k].classList.remove('hidden');
+                    } else {
+                        views[k].classList.add('hidden');
+                    }
                 }
             });
 
@@ -1507,6 +1653,96 @@
             workField.focus();
         }
 
+        // Client Login Handler
+        function handleClientLogin(e) {
+            e.preventDefault();
+            const token = document.getElementById('token-input').value.trim();
+            if (token) {
+                document.getElementById('active-token-badge').textContent = token;
+                renderClientKanbanBoard();
+                switchView('client-dashboard');
+            }
+        }
+
+        // Client Portal Kanban & Ticketing state
+        const clientTicketsData = [
+            { id: 'VEL-101', title: 'RAG Ingestion Pipeline + Citation Guardrails', tag: 'AI Agent', sla: 'Shipped', stage: 3, loom: 'https://loom.com' },
+            { id: 'VEL-102', title: 'Multi-Tenant RBAC Auth & Webhook Sync', tag: 'Full-Stack', sla: '24h SLA', stage: 1 },
+            { id: 'VEL-103', title: 'Semantic Cache Layer (Cut OpenAI Bill 45%)', tag: 'FinOps', sla: 'QA Check', stage: 2 }
+        ];
+
+        const boardColumns = [
+            { name: '1. Client Backlog', sub: 'Queued', badgeClass: 'text-veloce-slate dark:text-slate-400' },
+            { name: '2. Active Sprint', sub: 'In Build (24-48h)', badgeClass: 'text-purple-600 dark:text-purple-400' },
+            { name: '3. Loom Video QA', sub: 'Reviewing', badgeClass: 'text-pink-600 dark:text-pink-400' },
+            { name: '4. Shipped to Prod', sub: 'Live', badgeClass: 'text-orange-600 dark:text-amber-400' }
+        ];
+
+        function renderClientKanbanBoard() {
+            const grid = document.getElementById('client-kanban-grid');
+            if (!grid) return;
+
+            grid.innerHTML = boardColumns.map((col, colIdx) => {
+                const items = clientTicketsData.filter(t => t.stage === colIdx);
+                return `
+                    <div class="rounded-xl p-4 bg-[#FEFAF3] dark:bg-veloce-obsidian border border-[#EFECE6] dark:border-white/10 flex flex-col justify-between min-h-[210px]">
+                        <div>
+                            <div class="flex items-center justify-between gap-2 pb-2.5 mb-3 border-b border-[#EFECE6] dark:border-white/10">
+                                <span class="text-xs font-mono font-bold text-veloce-navy dark:text-white">${col.name}</span>
+                                <span class="text-[10px] font-mono ${col.badgeClass} font-semibold shrink-0">${col.sub}</span>
+                            </div>
+                            <div class="space-y-2.5">
+                                ${items.length === 0 ? `
+                                    <div class="py-8 text-center text-[11px] font-mono text-slate-400 dark:text-slate-600 border border-dashed border-[#EFECE6] dark:border-white/5 rounded-xl">
+                                        No tickets in stage
+                                    </div>
+                                ` : items.map(t => `
+                                    <div class="p-3 rounded-xl bg-[#F7F4EE] dark:bg-veloce-panelDark border border-[#EFECE6] dark:border-white/10 shadow-sm">
+                                        <div class="flex items-center justify-between text-[10px] font-mono text-slate-400">
+                                            <span>${t.id}</span>
+                                            <span class="px-1.5 py-0.5 rounded bg-pink-500/10 text-pink-600 dark:text-pink-300 font-semibold">${t.tag}</span>
+                                        </div>
+                                        <div class="text-xs font-bold text-veloce-navy dark:text-white mt-1.5 leading-snug">${t.title}</div>
+                                        <div class="mt-2.5 pt-2 border-t border-[#EFECE6] dark:border-white/5 flex items-center justify-between text-[11px] font-mono">
+                                            <span class="text-veloce-slate dark:text-slate-400">${t.sla}</span>
+                                            ${colIdx === 3 ? `<span class="text-emerald-600 font-bold">✓ Live</span>` : `<span class="text-purple-500">In Progress</span>`}
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function openRaiseTicketModal() {
+            document.getElementById('raise-ticket-card').classList.remove('hidden');
+            document.getElementById('raise-ticket-card').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function closeRaiseTicketModal() {
+            document.getElementById('raise-ticket-card').classList.add('hidden');
+        }
+
+        function submitClientTicket(e) {
+            e.preventDefault();
+            const title = document.getElementById('new-ticket-title').value.trim();
+            const tag = document.getElementById('new-ticket-tag').value;
+            if (title) {
+                clientTicketsData.push({
+                    id: 'VEL-' + (105 + clientTicketsData.length),
+                    title: title,
+                    tag: tag,
+                    sla: '24h SLA',
+                    stage: 0
+                });
+                renderClientKanbanBoard();
+                closeRaiseTicketModal();
+                alert('Ticket successfully submitted to your backlog queue!');
+            }
+        }
+
         const defaultTickets = [
             { id: 'VEL-101', title: 'RAG Ingestion Pipeline + Citation Guardrails', tag: 'AI Agent', sla: '36h SLA', stage: 0 },
             { id: 'VEL-102', title: 'Multi-Tenant RBAC Auth & Webhook Sync', tag: 'Full-Stack', sla: '24h SLA', stage: 1 },
@@ -1517,7 +1753,7 @@
         let boardTickets = JSON.parse(JSON.stringify(defaultTickets));
         let ticketCounter = 105;
 
-        const boardColumns = [
+        const landingColumns = [
             { name: '1. Client Backlog', sub: 'Unlimited Queue', badgeClass: 'text-veloce-slate dark:text-slate-400' },
             { name: '2. Active Sprint', sub: '24–48h SLA Window', badgeClass: 'text-purple-600 dark:text-purple-400' },
             { name: '3. Loom Video QA', sub: '90s Walkthrough', badgeClass: 'text-pink-600 dark:text-pink-400' },
@@ -1528,7 +1764,7 @@
             const grid = document.getElementById('kanban-grid');
             if (!grid) return;
 
-            grid.innerHTML = boardColumns.map((col, colIdx) => {
+            grid.innerHTML = landingColumns.map((col, colIdx) => {
                 const items = boardTickets.filter(t => t.stage === colIdx);
                 return `
                     <div class="rounded-xl p-4 bg-[#FEFAF3] dark:bg-veloce-obsidian border border-[#EFECE6] dark:border-white/10 flex flex-col justify-between min-h-[210px]">
@@ -1666,6 +1902,7 @@
         window.addEventListener('DOMContentLoaded', () => {
             initTheme();
             renderKanbanBoard();
+            renderClientKanbanBoard();
             initMagneticInteractions();
         });
     </script>
